@@ -1,0 +1,20 @@
+{
+  "baseUrl" : "https://ecomr4-dev.usfoods-a0-poc1.com/",
+  "baseApi": "https://panamax-dev.usfoods-a0-poc1.com",
+  "defaultCommandTimeout": 10000,
+  "responseTimeout" : 20000,
+  "pageLoadTimeout": 30000,
+  "requestTimeout":30000,
+  "chromeWebSecurity": false,
+  "ignoreTestFiles": ["**/step_definitions/ui/*.js","**/step_definitions/api/*.js","**/resources/*.module.js"],
+  "allureResultsPath": "allure-results",
+  "allure":true,
+  "video":false,
+  "env": {   
+    "baseUrl" : "https://ecomr4-dev.usfoods-a0-poc1.com/",
+    "baseApi": "https://panamax-dev.usfoods-a0-poc1.com",
+    "allureResultsPath": "allure-results",  
+    "allure":true
+  }
+ 
+}
