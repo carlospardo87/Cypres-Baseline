@@ -2,7 +2,7 @@ var reporter = require('cucumber-html-reporter');
 
 var options = {
         theme: 'bootstrap',
-        jsonDir: 'cypress/reports/test-results/cucumber-json/',
+        jsonDir: '../results/cypress/reports/test-results/cucumber-json/',
         screenshotsDirectory: 'cypress/screenshots/',
         storeScreenshots: true,
         output: 'cypress/reports/test-results/automation_report.html',

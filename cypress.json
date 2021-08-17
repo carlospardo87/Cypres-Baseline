@@ -1,4 +1,6 @@
 {
+  "trashAssetsBeforeRuns": false,
+  "screenshotsFolder": "../results/",
   "baseUrl" : "https://ecomr4-dev.usfoods-a0-poc1.com/",
   "baseApi": "https://panamax-dev.usfoods-a0-poc1.com",
   "defaultCommandTimeout": 10000,

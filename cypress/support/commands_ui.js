@@ -1,9 +1,9 @@
-import {addMatchImageSnapshotCommand} from 'cypress-image-snapshot/command'
+// import {addMatchImageSnapshotCommand} from 'cypress-image-snapshot/command'
 import 'cypress-wait-until'
 
-addMatchImageSnapshotCommand({
-  customSnapshotsDir: './cypress/snapshots',
-})
+// addMatchImageSnapshotCommand({
+//   customSnapshotsDir: './cypress/snapshots',
+// })
 
 Cypress.Commands.add('',(locator, item, expectedText)=>{
   cy.get(locator)

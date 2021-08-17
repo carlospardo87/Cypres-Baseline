@@ -126,7 +126,7 @@ export default class ProductDetailsPage {
 	verifyNoReturnText() {
 		cy.highlightBorderElement(this.noReturnsText,'magenta')
 		cy.get(this.noReturnsText).should('be.visible').and('contain', 'No returns')
-		cy.screenshot()
+		// cy.screenshot()
 		cy.highlightBorderElement(this.noReturnsText,'transparent')
 	}
 }
