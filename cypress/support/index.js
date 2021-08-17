@@ -16,12 +16,12 @@
 // Import commands.js using ES2015 syntax:
 import './commands_ui'
 import './commands_api'
-import '@shelex/cypress-allure-plugin'
+// import '@shelex/cypress-allure-plugin'
 import '@bahmutov/cy-api/support'
-import setup from 'cypress-cy-select'
-setup()
+// import setup from 'cypress-cy-select'
+// setup()
 require('cypress-commands')
-require('@shelex/cypress-allure-plugin')
+// require('@shelex/cypress-allure-plugin')
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 Cypress.Server.defaults({

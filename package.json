@@ -51,7 +51,7 @@
     "step_definitions": "cypress/integration/step_definitions/",
     "cucumberJson": {
       "generate": true,
-      "outputFolder": "cypress/reports/test-results/cucumber-json",
+      "outputFolder": "../results/cypress/reports/test-results/cucumber-json",
       "filePrefix": "",
       "fileSuffix": ".cucumber"
     }
