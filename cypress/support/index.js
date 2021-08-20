@@ -12,23 +12,16 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-/// <reference types="Cypress" />
-// Import commands.js using ES2015 syntax:
+
+// Import commands_ui.js using ES2015 syntax:
 import './commands_ui'
 import './commands_api'
-// import '@shelex/cypress-allure-plugin'
-import '@bahmutov/cy-api/support'
-// import setup from 'cypress-cy-select'
-// setup()
-require('cypress-commands')
-// require('@shelex/cypress-allure-plugin')
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-Cypress.Server.defaults({
-	delay: 500,
-	force404: false,
-	whitelist: xhr => {
-		// handle custom logic for whitelisting
-		return true
-	},
-})
+
+import '@4tw/cypress-drag-drop'
+
+import '@bahmutov/cy-api/support'
+
+import 'cypress-xpath'

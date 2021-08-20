@@ -24,23 +24,15 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-// promisified fs module
-const fs = require('fs')
-const path = require('path')
-
-function getConfigurationByFile(file) {
-	const pathToConfigFile = path.resolve('cypress', 'config', `${file}.json`)
-
-	if (!fs.existsSync(pathToConfigFile)) {
-		console.log('No custom config file found.')
-		return {}
-	}
-
-	return fs.readJson(pathToConfigFile)
-}
 
 const cucumber = require('cypress-cucumber-preprocessor').default
+const {addMatchImageSnapshotPlugin} = require('cypress-image-snapshot/plugin')
+
 
 module.exports = (on, config) => {
+	// `on` is used to hook into various events Cypress emits
+	// `config` is the resolved Cypress config
+
 	on('file:preprocessor', cucumber())
+	addMatchImageSnapshotPlugin(on, config)
 }
