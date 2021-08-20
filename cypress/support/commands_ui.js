@@ -1,8 +1,8 @@
 
-import {addMatchImageSnapshotCommand} from 'cypress-image-snapshot/command'
+//import {addMatchImageSnapshotCommand} from 'cypress-image-snapshot/command'
 import 'cypress-wait-until'
 
-addMatchImageSnapshotCommand({customSnapshotsDir: './cypress/snapshots',})
+//addMatchImageSnapshotCommand({customSnapshotsDir: './cypress/snapshots',})
 
 Cypress.Commands.add('shouldMatchRegex', (locator, item, regex) => {
   cy.get(locator).eq(item).then($elementCss => {
