@@ -26,8 +26,6 @@ import '@bahmutov/cy-api/support'
 
 //import 'cypress-xpath'
 
-//require('cypress-xpath')
-
 Cypress.Server.defaults({
     delay: 500,
     force404: false,
