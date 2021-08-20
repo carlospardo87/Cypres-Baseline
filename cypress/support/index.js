@@ -20,10 +20,19 @@ import './commands_api'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-import '@4tw/cypress-drag-drop'
+//import '@4tw/cypress-drag-drop'
 
 import '@bahmutov/cy-api/support'
 
 //import 'cypress-xpath'
 
 //require('cypress-xpath')
+
+Cypress.Server.defaults({
+    delay: 500,
+    force404: false,
+    whitelist: xhr => {
+        // handle custom logic for whitelisting
+        return true
+    },
+})
