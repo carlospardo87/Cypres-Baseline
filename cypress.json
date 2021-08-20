@@ -12,6 +12,7 @@
   "testFiles": "**/*.feature",
   "allureResultsPath": "allure-results",
   "retries": 0,
+  "video": false,
 
   "env": {   
     "baseUrl" : "https://ecomr4-dev.usfoods-a0-poc1.com/",
