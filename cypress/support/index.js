@@ -24,4 +24,6 @@ import '@4tw/cypress-drag-drop'
 
 import '@bahmutov/cy-api/support'
 
-import 'cypress-xpath'
+//import 'cypress-xpath'
+
+require('cypress-xpath')
