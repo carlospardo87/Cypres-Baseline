@@ -26,4 +26,4 @@ import '@bahmutov/cy-api/support'
 
 //import 'cypress-xpath'
 
-require('cypress-xpath')
+//require('cypress-xpath')
