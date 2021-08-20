@@ -1,0 +1,76 @@
+{
+  "messageHeader": {
+    "responseCode": 0,
+    "divisionNumber": 2160,
+    "customerNumber": 702738,
+    "transactionCode": "EXEQ",
+    "replyErrorText": "Successful Completion"
+  },
+  "messageDetail": {
+    "priceEffectiveDate": "20210729",
+    "priceEffectiveTime": "92323",
+    "productListCount": 6,
+    "productList": [
+      {
+        "breakCharge": "0",
+        "eachPrice": "69.54",
+        "errorMessage": "",
+        "errorNumber": "0",
+        "priceSource": "DEFAULT",
+        "priceUom": "CS",
+        "productNumber": "3817079",
+        "unitPrice": "69.54"
+      },
+      {
+        "breakCharge": "0",
+        "eachPrice": "59.39",
+        "errorMessage": "",
+        "errorNumber": "0",
+        "priceSource": "DEFAULT",
+        "priceUom": "CS",
+        "productNumber": "7617376",
+        "unitPrice": "59.39"
+      },
+      {
+        "breakCharge": "0",
+        "eachPrice": "44.65",
+        "errorMessage": "",
+        "errorNumber": "0",
+        "priceSource": "DEFAULT",
+        "priceUom": "CS",
+        "productNumber": "6841696",
+        "unitPrice": "44.65"
+      },
+      {
+        "breakCharge": "0",
+        "eachPrice": "67.12",
+        "errorMessage": "",
+        "errorNumber": "0",
+        "priceSource": "DEFAULT",
+        "priceUom": "CS",
+        "productNumber": "8379422",
+        "unitPrice": "67.12"
+      },
+      {
+        "breakCharge": "0",
+        "eachPrice": "67.12",
+        "errorMessage": "",
+        "errorNumber": "0",
+        "priceSource": "DEFAULT",
+        "priceUom": "CS",
+        "productNumber": "3198825",
+        "unitPrice": "67.12"
+      },
+      {
+        "breakCharge": "0",
+        "eachPrice": "67.12",
+        "errorMessage": "",
+        "errorNumber": "0",
+        "priceSource": "DEFAULT",
+        "priceUom": "CS",
+        "productNumber": "7781784",
+        "unitPrice": "67.12"
+      }
+    ]
+  }
+}
