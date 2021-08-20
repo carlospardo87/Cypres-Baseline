@@ -8,3 +8,5 @@ videos
 cypress/results/*
 node_modules
 cypress/reports/test-results
+package-lock.json
+/.idea/
