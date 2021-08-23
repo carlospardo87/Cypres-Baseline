@@ -20,11 +20,11 @@ import './commands_api'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-//import '@4tw/cypress-drag-drop'
+import '@4tw/cypress-drag-drop'
 
 import '@bahmutov/cy-api/support'
 
-//import 'cypress-xpath'
+import 'cypress-xpath'
 
 Cypress.Server.defaults({
     delay: 500,
