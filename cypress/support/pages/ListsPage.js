@@ -4,13 +4,13 @@
 export default class ListsPage {
   constructor() {
 
-    this.listsTitle = '.viewAllLists'
+    this.listsTitle = '.view-all-lists'
     this.btn_createOrder = '.headerRowRight > ion-button'
     this.btn_myLists = '.extraLeftMargin'
-    this.icon_searchBar = '.listHeaderRight .searchbar-search-icon'
+    this.icon_searchBar = '.list-search .searchbar-search-icon'
     this.icon_dpCheckMarkCircle = '.whiteIcon'
-    this.searchBar = '.listSearch'
-    this.btn_createNewList = '.createNewList'
+    this.searchBar = '.searchbar-input[placeholder="Search"]'
+    this.btn_createNewList = '.create-new-list'
     this.btn_dropDownList = '.outlinedGreenBtn'
 
     this.array_dropDownElementsList = '.popoverHeaderCustomerScroll ion-item' // List Items Dropdown
@@ -171,8 +171,7 @@ export default class ListsPage {
   }
 
   checkLoadingSpinnerLp(spinnerText) {
-
-    cy.shouldAppearLoadingSpinner(this.loadingSpinner, spinnerText)
+    cy.shouldAppearLoadingSpinner(this.loadingSpinner, spinnerText);
 
       cy
         .wait('@allLists')

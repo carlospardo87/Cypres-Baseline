@@ -8,8 +8,8 @@ export default class ListDetailsPage {
     this.array_brandCards = '.usf-product-card-desc > :nth-child(1)'
     this.array_productNumber = '.usf-product-card-desc > :nth-child(3) > :nth-child(1)'
     this.array_packSize = '.usf-product-card-desc > :nth-child(3) > :nth-child(3)'
-    this.array_priceContainer = '.price-container > .sc-ion-input-md-h > .native-input'
-    this.array_prices = '.price-container > span'
+    this.array_priceContainer = '.native-input.sc-ion-input-md'
+    this.array_prices = '.usf-product-card-price span'
     this.array_listGroupName = '.item > .list-details-page-group-name'
     ///this.array_productCardInfo = 'app-usf-product-info-desktop'
     this.array_productCardImg = '.usf-product-card-img > img'
@@ -145,9 +145,9 @@ export default class ListDetailsPage {
 
     cy.highlightBorderElement(this.title_listDetailsPage, 'magenta')
     // this 'if' will be removed in the future
-    if (headerTitle === 'Order Guide') {
+    /*if (headerTitle === 'Order Guide') {
       headerTitle = '109'
-    }
+    }*/
     cy
       .contains(this.title_listDetailsPage,headerTitle, {matchCase:false})
       .should('be.visible')

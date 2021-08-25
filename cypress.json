@@ -6,7 +6,6 @@
   "pageLoadTimeout": 15000,
   "requestTimeout":15000,
   "chromeWebSecurity": false,
-  "trashAssetsBeforeRuns": true,
   "allure":true,
   "ignoreTestFiles": ["**/step_definitions/*.js"],
   "testFiles": "**/*.feature",
