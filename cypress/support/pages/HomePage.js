@@ -23,15 +23,8 @@ export default class HomePage {
   }
 
 
-  urlContainProductDetails(listName) {
-    cy.wait('@detailsPage').then((interception) => {
-
-      // this if will be removed in the future, the refactor will be created once get available data to test this flow
-      // Currently the list in Managed by US Foods does not reply their name in product detail
-      // for this reason include this if to handle this verification
-      if (listName === 'Order Guide') {
-        listName = ''
-      }
+  urlContainProductDetails(partialUrl) {
+    /*cy.wait('@detailsPage').then((interception) => {
 
       for (let i = 0; i < interception.response.body.length; i++) {
         if (interception.response.body[i].listName === (listName)) {
@@ -44,20 +37,32 @@ export default class HomePage {
         }
       }
       throw new Error(`There was an error :${listName} was not found into the response body ${interception.response.body}`)
+    })*/
+
+    cy.url().then(fullUrl => {
+      cy.log(fullUrl)
+      let arr = fullUrl.split("/")
+
+      let endPartUrl = arr[arr.length-1]
+      cy.log(`${endPartUrl}`)
+
+      let urlMatcher = (/^[A-Z_.-]+(\d{5,8})$/).test(endPartUrl)
+
+      expect(fullUrl).to.contain(partialUrl)
+
+      expect(urlMatcher,'URL match with the expected pattern').to.be.true
+
     })
   }
 
   clickMyListButtonAndStubResponseItems(pathFixture) {
 
-    cy.intercept('GET', '/list-domain-api/v1/list*', {
-      statusCode: 200,
-      fixture: pathFixture
-    }).as("allListMocked")
+    cy.intercept('GET', '/list-domain-api/v1/lists?watermark*', {statusCode: 200, fixture: pathFixture}).as("allListMocked")
     cy
       .get(this.myListButton)
       .click()
 
-    cy.wait('@allListMocked')
+    cy.wait(['@allListMocked'])
   }
 
   clickMyListButtonAndStubResponse() {

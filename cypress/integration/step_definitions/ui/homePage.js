@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps'
+import {When, Then} from 'cypress-cucumber-preprocessor/steps'
 import HomePage from '../../../support/pages/HomePage';
 
 When('I take a screenshot', () => {
@@ -16,8 +16,8 @@ Then("lists page URL should contain {string}", (endToEnd) => {
   new HomePage().urlContain(endToEnd);
 });
 
-Then("should be able to see the proper URL on {string} details page", (listName) => {
-  new HomePage().urlContainProductDetails(listName);
+Then("should be able to see the proper URL on {string} details page", (partialUrl) => {
+  new HomePage().urlContainProductDetails(partialUrl);
 })
 
 
