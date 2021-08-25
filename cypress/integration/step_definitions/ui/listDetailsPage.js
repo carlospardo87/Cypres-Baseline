@@ -1,6 +1,7 @@
 import {Then, And} from 'cypress-cucumber-preprocessor/steps';
 
 import ListDetailsPage from '../../../support/pages/ListDetailsPage';
+import ListsPage from '../../../support/pages/ListsPage';
 
 
 And('should be able to see product descriptions', () => {
@@ -59,7 +60,7 @@ Then("should be able to see the header title contain {string}", (headerTitle) =>
 });
 
 And("should be able to see the loading spinner appears with text {string}",(spinnerText) => {
-  new ListDetailsPage().checkLoadingSpinnerLdp(spinnerText)
+  new ListsPage().checkLoadingSpinnerIfExist(spinnerText)
 });
 
 afterEach(() => {

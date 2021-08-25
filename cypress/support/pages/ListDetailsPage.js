@@ -11,7 +11,7 @@ export default class ListDetailsPage {
     this.array_priceContainer = '.native-input.sc-ion-input-md'
     this.array_prices = '.usf-product-card-price span'
     this.array_listGroupName = '.item > .list-details-page-group-name'
-    ///this.array_productCardInfo = 'app-usf-product-info-desktop'
+
     this.array_productCardImg = '.usf-product-card-img > img'
     this.icon_cart = '.icon-badge-wrapper > .headerIcon'
     this.icon_cartCountItems = '.icon-badge-wrapper > .badgeheader'
@@ -66,6 +66,7 @@ export default class ListDetailsPage {
   }
 
   shouldHaveAttribute(locator, attrName, attrValue) {
+    cy.reload()
     cy.shouldHaveAttribute(locator,attrName, attrValue )
   }
 
@@ -97,12 +98,10 @@ export default class ListDetailsPage {
   }
 
   fillInputItems(priceValue) {
-    cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'magenta')
 
-    cy.get(this.array_priceContainer).eq(0)
-      .should('be.visible')
-      .type(priceValue)
-    cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'transparent')
+  // cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'magenta')
+    cy.get(this.array_priceContainer).eq(0).type(priceValue)
+   // cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'transparent')
   }
 
   checkCartItems(expectedPrice) {
@@ -110,6 +109,8 @@ export default class ListDetailsPage {
   }
 
   checkAscendingOrder() {
+    cy.reload()
+
     let arr_group = ['GroupA','GroupB','GroupC']
     cy
       .get(this.array_listGroupName).its('length').then(arr_length=>{
@@ -128,10 +129,8 @@ export default class ListDetailsPage {
     cy.get(this.array_productCardImg).eq(0)
       .as('cardImg')
 
-    cy.highlightBorderElement(cy.get('@cardImg'), 'magenta')
-    cy.get('@cardImg', {log:false})
-      .click()
-    cy.highlightBorderElement(cy.get('@cardImg'), 'transparent')
+    cy
+      .clickElementForce('@cardImg',0)
   }
 
   checkUrlContain() {
@@ -144,10 +143,6 @@ export default class ListDetailsPage {
   checkListDetailsPageTitle(headerTitle) {
 
     cy.highlightBorderElement(this.title_listDetailsPage, 'magenta')
-    // this 'if' will be removed in the future
-    /*if (headerTitle === 'Order Guide') {
-      headerTitle = '109'
-    }*/
     cy
       .contains(this.title_listDetailsPage,headerTitle, {matchCase:false})
       .should('be.visible')
@@ -155,14 +150,4 @@ export default class ListDetailsPage {
     cy.highlightBorderElement(this.title_listDetailsPage, 'transparent')
   }
 
-  checkLoadingSpinnerLdp(spinnerText) {
-    cy.shouldAppearLoadingSpinner(this.loadingSpinner, spinnerText)
-
-    cy
-      .wait(`@detailsPage`)
-      .its('response.statusCode')
-      .should('eq',200)
-
-
-  }
 }

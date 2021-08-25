@@ -27,14 +27,16 @@ export default class EditListPage {
 
       cy.wrap($groupsButton).should('be.visible').click({ force: true})
       let buttonName = $groupsButton.text()
-        .replace("\u00a0"," ")
+        .replace("\u00a0","")
         .replace(/[(]/,'').replace(/[)]/,'')
 
       if (!buttonName.includes('Unassigned Group')) {
       cy.get(this.groupTitle).then($groupName=>{
+        let title_listName = $groupName.text()
+          .replace("\u00a0","").replace(/\s/g, '')
         cy.highlightBorderElement($groupName, 'magenta')
-        cy.wrap($groupName).should('be.visible').and('include.text', buttonName)
-          //expect(groupName.text()).to.includes(buttonName);
+
+        expect(title_listName).to.includes(buttonName);
         cy.highlightBorderElement($groupsButton, 'transparent')
         cy.highlightBorderElement($groupName, 'transparent');
       });

@@ -35,7 +35,7 @@ export default class ListsPage {
     cy.get(this.btn_dropDownList, {timeout: 20000})
       .should('be.visible')
       .and('contain', customerInf)
-      .click()
+      .click({force: true})
 
     cy
       .get(this.array_dropDownElementsList)
@@ -126,38 +126,21 @@ export default class ListsPage {
     })
   }
 
-  clickCustomerListAndStubResponse(listToClick) {
-
-    cy.intercept('POST', '/product-domain-api/v1/productsummary', {
-       fixture: 'listDetailsPage/mockProductSummary.json'
-     }).as('listDetailsMocked')
-
-     cy.intercept('POST', '/price-domain-api/v1/pricing', {
-       fixture: 'listDetailsPage/mockPricing.json'
-     }).as('priceMocked')
-
-    cy.intercept('GET', '/list-domain-api/v1/listGroups', {
-      fixture: 'listDetailsPage/mockListGroups.json'
-    }).as('listGroupMocked')
-
-    cy
-      .contains(listToClick)
-      .click()
-
-    cy.wait(['@listGroupMocked'])  //'@listDetailsMocked', '@priceMocked',
-  }
 
   clickCustomerList(listToClick) {
-    cy.intercept('GET', '/list-domain-api/v1/lists?watermark*')
-      .as('detailsPage')
+    cy.document().then((document) => {
+      const node = document.createElement('style')
+      node.innerHTML = "html { scroll-behavior: unset !important; }"
+      document.body.appendChild(node)
+    });
 
     if(listToClick === 'Order Guide') {
       cy.scrollTo('bottom', { ensureScrollable: false, duration:3000, easing:'linear'})
       cy.get('.list-name').last()
-        .click()
+        .click({force: true})
     }else{
       cy.contains(listToClick)
-        .click();
+        .click({force: true});
     }
   }
 
@@ -170,61 +153,31 @@ export default class ListsPage {
     })
   }
 
-  checkLoadingSpinnerLp(spinnerText) {
-    cy.shouldAppearLoadingSpinner(this.loadingSpinner, spinnerText);
+  checkLoadingSpinnerIfExist(spinnerText) {
+    this.ifExists('.modal-wrapper.ion-overlay-wrapper.sc-ion-modal-md', 5, spinnerText)
 
-      cy
+     cy
         .wait('@allLists')
         .its('response.statusCode')
         .should('eq', 200);
   }
 
+
   clickAndSortMenuOption(sortMenuOption) {
       switch (sortMenuOption) {
         case 'List Name':
-          this.clickMenuList('List Name', '.list-name', 'ECypressTest', 'ACypressTest')
+          cy.clickElementForce('.list-sorting-option', 0)
           break
         case 'Last Updated By':
-          this.clickMenuListDbl('Last Updated By', '.last-updated-by', 'E TMID2', 'A TMID2')
+          cy.clickElementForce('.list-sorting-option', 1)
           break
         case 'Products':
-          this.clickMenuList('Products', '.products', '40', '0')
+          cy.clickElementForce('.list-sorting-option', 2)
           break
         case 'Discontinued':
-          this.clickMenuListDbl('Discontinued', '.discontinued-products', '1', '5')
+          cy.clickElementForce('.list-sorting-option', 3)
           break
     }
-  }
-
-  clickMenuList(listName, locList, sortDesc, sortAsc) {
-    cy.xpath(`//app-list-section[1]//div[contains(.,'${listName}')]`).then($el => {
-
-      cy.highlightBorderElement($el, 'magenta')
-      cy.wrap($el).click({force: true})
-      cy.highlightBorderElement($el, 'transparent')
-      cy.shouldElement(locList, 0, 'contain.text', sortDesc)
-
-      cy.highlightBorderElement($el, 'magenta')
-      cy.wrap($el).click({force: true})
-      cy.highlightBorderElement($el, 'transparent')
-      cy.shouldElement(locList, 0, 'contain.text', sortAsc)
-    })
-  }
-
-  clickMenuListDbl(listName, locList, sortDesc, sortAsc) {
-     //cy.xpath(`//app-list-section[1]//div[.='${listName}']`).then($el => {
-      cy.xpath(`//app-list-section[1]//div[contains(.,'${listName}')]`).then($el => {
-
-      cy.highlightBorderElement($el, 'magenta')
-      cy.wrap($el).dblclick({force: true})
-      cy.highlightBorderElement($el, 'transparent')
-      cy.shouldElement(locList, 0, 'contain.text', sortDesc)
-
-      cy.highlightBorderElement($el, 'magenta')
-      cy.wrap($el).click({force: true})
-      cy.highlightBorderElement($el, 'transparent')
-      cy.shouldElement(locList, 0, 'contain.text', sortAsc)
-    })
   }
 
   checkEditListPopup(arrayItems) {
@@ -239,7 +192,7 @@ export default class ListsPage {
   }
 
   clickIconEllipsisByListName() {
-    cy.get(this.array_ellipsisIcon).eq(0).click()
+    cy.get(this.array_ellipsisIcon).eq(0).click({force: true})
 }
   clickOptionEditList(optionName) {
     cy.intercept('GET', '/list-domain-api/v1/lists?watermark*')
@@ -247,4 +200,31 @@ export default class ListsPage {
 
     cy.xpath(`//ion-label[.='${optionName}']`).click()
   }
+
+
+  removeSpinner() {
+    cy.get('.modal-wrapper.ion-overlay-wrapper.sc-ion-modal-md').then($el => {
+      $el.remove()
+    })
+    cy.get('.sc-ion-modal-md.md.backdrop-no-tappable.hydrated').then($el => {
+      $el.remove()
+    })
+  }
+
+
+  ifExists(selector, iter, spinnerText) {
+    for (let i = 0; i < iter; i++) {
+      cy.document({log:false}).then(($document) => {
+        const documentResult = $document.querySelectorAll(selector)
+        if (documentResult.length) {
+          cy.shouldAppearLoadingSpinner(this.loadingSpinner, spinnerText);
+          this.removeSpinner();
+          return
+        } else {
+          cy.wait(250,{log:false})
+        }
+      })
+    }
+  }
+
 }

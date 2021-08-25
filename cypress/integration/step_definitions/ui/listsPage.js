@@ -61,9 +61,7 @@ When("goes to section {string} and clicks on list {string}", (sectionList,listTo
 });
 
 And("should be able to see the loading spinner with text {string}",(spinnerText) => {
-  //cy.reload()
-  new ListsPage().checkLoadingSpinnerLp(spinnerText)
-  cy.reload()
+  new ListsPage().checkLoadingSpinnerIfExist(spinnerText)
 });
 
 Then('should be able to sort the lists by {string}',  (sortMenuOption)=> {

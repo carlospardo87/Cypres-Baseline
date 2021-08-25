@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import {After, Before, Given, And, Then, When} from "cypress-cucumber-preprocessor/steps";
+import {Given, When} from "cypress-cucumber-preprocessor/steps";
 
 import LoginPage from '../../../support/pages/LoginPage';
 
