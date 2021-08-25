@@ -50,9 +50,9 @@ declare namespace Cypress {
         clickElementInterceptResponse(methodRequest, urlToIntercept, alias, elementToClick, statusCode)
 
         /**
-         * Method intercepts URL, click an element by the content and wait for server response
+         * Method do a click by the element name
          */
-        clickElementIfContain(methodRequest, urlToIntercept, alias, elementContent, statusCode)
+        clickByName(tag,elementName)
 
         /**
          * Method intercepts URL and wait for server response
@@ -93,5 +93,9 @@ declare namespace Cypress {
         highlightBorder(locator, color)
 
         clickElement(locator,item)
+
+        clickElementForce(locator,item)
+
+        getIfExists(getIfExists)
     }
 }
