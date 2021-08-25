@@ -5,8 +5,6 @@
 declare namespace Cypress {
     interface Chainable {
 
-        forceClick()
-
         //******************************
         // API SECTION CHAINABLE COMMAND
         //******************************
@@ -29,95 +27,71 @@ declare namespace Cypress {
          */
         getAuthToken(),
 
+        getRefreshTokenByCustomer(refreshToken, customerNro, divisionNro),
+
         /**
          *
          */
         getResponseBodyProductSummary(body),
-        /**
-         * Method intercepts URL, navigate to a new URL and wait for server response
-         * @param methodRequest
-         * @param urlToIntercept
-         * @param alias
-         * @param url
-         * @param statusCode
-         */
+
 
         //******************************
         // UI SECTION CHAINABLE COMMAND
         //******************************
-        
-        navigateTo(methodRequest: string, urlToIntercept: string, alias: string, url: string, statusCode: number)
+
+        /**
+         * Method intercepts URL, navigate to a new URL and wait for server response
+         */
+        navigateTo(methodRequest, urlToIntercept, alias, url, statusCode)
 
         /**
          * Method intercept URL, click an element by locator and wait for server response
-         * @param methodRequest
-         * @param urlToIntercept
-         * @param alias
-         * @param elementToClick
-         * @param statusCode
          */
-        clickElement(methodRequest: string, urlToIntercept: string, alias: string, elementToClick: string, statusCode: number)
+        clickElementInterceptResponse(methodRequest, urlToIntercept, alias, elementToClick, statusCode)
 
         /**
          * Method intercepts URL, click an element by the content and wait for server response
-         * @param methodRequest
-         * @param urlToIntercept
-         * @param alias
-         * @param elementContent
-         * @param statusCode
          */
-        clickElementIfContain(methodRequest: string, urlToIntercept: string, alias: string, elementContent: any, statusCode: number)
+        clickElementIfContain(methodRequest, urlToIntercept, alias, elementContent, statusCode)
 
         /**
          * Method intercepts URL and wait for server response
-         * @param methodRequest
-         * @param urlToIntercept
-         * @param alias
-         * @param statusCode
          */
-        interceptUrl(methodRequest: string, urlToIntercept: string, alias: string, statusCode: number)
+        interceptUrl(methodRequest, urlToIntercept, alias, statusCode)
 
         /**
          * Method intercepts URL and mock the response
-         * @param methodRequest
-         * @param urlToIntercept
-         * @param stubBody        mocked response
-         * @param alias
-         * @param elementToClick
-         * @param statusCode
          */
-        clickElementStubbingResponseByBody(methodRequest: any, urlToIntercept: any, stubBody: any, alias: any, elementToClick: any, statusCode: any)
-
-
-        /**
-         *  Mock product details page response
-         * @param stubBody mocked body
-         * @param alias  
-         *
-         */
-        navigateToProductStubbingPSResponseBody(stubBody: undefined, alias: undefined)
-
-        swipeUp(locator: any)
-
-        console()
-
-        disableSmoothScroll()
-
+        clickElementStubbingResponseByBody(methodRequest, urlToIntercept, stubBody, alias, elementToClick, statusCode)
 
         /**
          * Method to highlight element border on Cypress debugger
-         * @param locator
-         * @param color
          */
-        highlightBorderElement(locator: string, color: string)
+        highlightBorderElement(locator, color)
+
+        /**
+         * Method to match any text with the expected regex pattern
+         */
+        shouldMatchRegex(locator,item, regex)
+
+        /**
+         * Method check any element have the expected chainer
+         */
+        shouldElement(locator,item, chainer, expectedText?:any)
+
+        /**
+         * Method check locator have the attribute
+         */
+        shouldHaveAttribute(locator, attrName, attrValue)
+
+        /**
+         * Method check Loading spinner is visible and contain the expected information
+         */
+        shouldAppearLoadingSpinner(locator, popUpInfo)
 
 
+        highlightBorder(locator, color)
 
-        shouldContainRegex(locator: any, regex: any)
-
-        elementShould(locator: any,item: any, chainer: any, expectedText: any)
-        shouldExist(locator: any)
-
-
+        clickElement(locator,item)
     }
 }

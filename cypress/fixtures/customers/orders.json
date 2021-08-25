@@ -1,0 +1,23 @@
+[
+  {
+    "addDtm": "2021-08-11T15:55:24.765Z",
+    "addOrderSource": "EC",
+    "addUserId": 10376967,
+    "addUserRole": "DSM",
+    "customerNumber": 13761622,
+    "departmentNumber": 0,
+    "divisionNumber": 4117,
+    "orderId": "b6bc9cc8-dff0-41f0-ae20-da1b82b7b39c",
+    "orderItems": [],
+    "orderStatus": "Created",
+    "orderTakerid": "10376967",
+    "orderType": "RT",
+    "requestedDeliveryDate": "2021-08-11T15:55:23.610Z",
+    "updateDtm": "2021-08-11T15:55:24.765Z",
+    "updateOrderSource": "EC",
+    "updateUserId": 10376967,
+    "updateUserRole": "DSM",
+    "version": "36cd4b71-7b4c-410f-81c2-8393c8ef221d",
+    "_id": "6113f2ec714671001188a8e9"
+  }
+]

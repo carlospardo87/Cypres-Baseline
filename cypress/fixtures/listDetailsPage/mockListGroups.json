@@ -1,0 +1,52 @@
+[
+  {
+    "addDtm": "2021-07-29T13:30:46.493Z",
+    "addDtmSourceSystem": "2021-07-29T08:30:43.437Z",
+    "addUserId": "SYSTEM",
+    "addUserIdSourceSystem": "TMID2",
+    "groupName": "gpr-mock-0",
+    "listGroupKey": {"listTypeId": "SL", "listGroupId": "1131129"},
+    "listItemKeys": [{"listTypeId": "SL", "listItemId": 72875815}, {"listTypeId": "SL", "listItemId": 72875816}, {"listTypeId": "SL", "listItemId": 72875817}],
+    "listKey": {"listTypeId": "SL", "listId": 1016833},
+    "listId": 1016833,
+    "listTypeId": "SL",
+    "updateDtm": "2021-07-29T13:42:04.273Z",
+    "updateDtmSourceSystem": "2021-07-29T08:30:43.437Z",
+    "updateUserId": "SYSTEM",
+    "updateUserIdSourceSystem": "TMID2",
+    "visibleInd": true,
+    "_id": "6102ad86aff9e10013b8c891"
+  },
+  {
+    "addDtm": "2021-07-29T13:31:01.664Z",
+    "addDtmSourceSystem": "2021-07-29T08:31:00.518Z",
+    "addUserId": "SYSTEM",
+    "addUserIdSourceSystem": "TMID2",
+    "groupName": "gpr-mock-1",
+    "listGroupKey": {"listTypeId": "SL", "listGroupId": "1131130"},
+    "listItemKeys": [{"listTypeId": "SL", "listItemId": 72875818}, {"listTypeId": "SL", "listItemId": 72875819}],
+    "listKey": {"listTypeId": "SL", "listId": 1016833},
+    "updateDtm": "2021-07-29T13:43:40.324Z",
+    "updateDtmSourceSystem": "2021-07-29T08:31:00.518Z",
+    "updateUserId": "SYSTEM",
+    "updateUserIdSourceSystem": "TMID2",
+    "visibleInd": true,
+    "_id": "6102ad95aff9e10013b8c892"
+  },
+  {
+    "addDtm": "2021-07-29T13:31:16.838Z",
+    "addDtmSourceSystem": "2021-07-29T08:31:16.254Z",
+    "addUserId": "SYSTEM",
+    "addUserIdSourceSystem": "TMID2",
+    "groupName": "gpr-mock-2",
+    "listGroupKey": {"listTypeId": "SL", "listGroupId": "1131131"},
+    "listItemKeys": [{"listTypeId": "SL", "listItemId": 72875820}, {"listTypeId": "SL", "listItemId": 72875821},{"listTypeId": "SL", "listItemId": 72875822}],
+    "listKey": {"listTypeId": "SL", "listId": 1016833},
+    "updateDtm": "2021-07-29T13:46:12.118Z",
+    "updateDtmSourceSystem": "2021-07-29T08:31:16.254Z",
+    "updateUserId": "SYSTEM",
+    "updateUserIdSourceSystem": "TMID2",
+    "visibleInd": true,
+    "_id": "6102ada4aff9e10013b8c893"
+  }
+]

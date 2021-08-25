@@ -8,6 +8,13 @@ Given('authorization token was requested', () => {
   cy.checkStatusCode('@getAuthToken', 200)
 })
 
+Given('refresh token was requested with customer: {string} and division: {string}', (customerNro, divisionNro) => {
+  cy.get('@getAuthToken').then((resToken) => {
+    cy.getRefreshTokenByCustomer(resToken, customerNro,divisionNro)
+  })
+})
+
+
 ///////////PRODUCT SUMMARY///////////
 
 When('product summary number {string} was requested', (productNum) => {
@@ -21,9 +28,6 @@ Then('product summary response should contain status {string}', (statusCode) => 
 })
 
 Then('product summary response should contain {string} : {string}', (key, value ) => {
-  value == 'true' ? (value = true)  : value 
-  value == 'false' ? (value = false)  : value
-
   cy.get('@getProductSummary').then((response) => {
     expect(response.body[0]).to.have.property(key,value)
   })
@@ -31,6 +35,12 @@ Then('product summary response should contain {string} : {string}', (key, value 
 
 ////////////PRICING//////
 
+
+When('product pricing number {string} was requested with refresh token', (productNum) => {
+  cy.get('@getRefreshToken').then((resToken) => {
+    cy.getProductPricing(resToken, productNum)
+  })
+})
 
 When('product pricing number {string} was requested', (productNum) => {
   cy.get('@getAuthToken').then((resToken) => {

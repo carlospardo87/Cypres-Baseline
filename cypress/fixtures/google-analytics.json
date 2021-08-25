@@ -1,0 +1,12 @@
+{
+  "gaTrackerId": "UA-41425441-17",
+  "gtmContainerId": "GTM-PF3MZS8",
+  "cookies": {
+    "accept": "#btn-cookie-allow",
+    "decline": "#btn-cookie-reject"
+  },
+  "pages": {
+    "home": "https://enhancedecommerce.appspot.com/",
+    "allListPage": "/item/9bdd2"
+  }
+}

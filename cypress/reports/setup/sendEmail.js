@@ -1,22 +1,22 @@
 
 const nodemailer = require("nodemailer");
 
-var transporter = nodemailer.createTransport({
+let transporter = nodemailer.createTransport({
   host: "smtp.usfood.com",    
   secureConnection: false, // TLS requires secureConnection to be false
   port: 25, // port for secure SMTP
   requireTLS: false,
   auth: {
-    user: 'pablo.logioco@usfoods.com',
-    pass: 'Pabl0K1n'
+    user: 'carlos.pardo@usfoods.com',
+    pass: '******'
   },
   tls:{
     rejectUnauthorized: false
   }
 });
 
-var mailOptions = {
-  from: 'pablo.logioco@usfoods.com',
+let mailOptions = {
+  from: 'carlos.pardo@usfoods.com',
   to:  '076bebe1.usfoods.onmicrosoft.com@amer.teams.ms' ,//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4List@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
   subject: 'Automation report',
   text: "Automated testing report - Product Search Team",
