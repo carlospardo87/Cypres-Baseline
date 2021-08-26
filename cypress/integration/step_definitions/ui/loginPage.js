@@ -14,6 +14,8 @@ Given("User navigates to USF with {string}", (device) => {
 });
 
 When("goes to URL {string}", (url) => {
+  cy.intercept({method: 'GET', url:'/list-domain-api/v1/list*',}).as('editList')
+
   new LoginPage().goToUrl(url)
 });
 
