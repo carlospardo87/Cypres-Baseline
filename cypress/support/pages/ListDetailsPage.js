@@ -145,7 +145,6 @@ export default class ListDetailsPage {
     cy.highlightBorderElement(this.title_listDetailsPage, 'magenta')
     cy
       .contains(this.title_listDetailsPage,headerTitle, {matchCase:false})
-      //.should('be.visible')
 
     cy.highlightBorderElement(this.title_listDetailsPage, 'transparent')
   }
