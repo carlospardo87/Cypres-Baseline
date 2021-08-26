@@ -9,15 +9,14 @@ Feature: Edit List Page - Validate List Groups
 
   Scenario Outline: User should be able to edit the lists
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    And goes to URL "/desktop/lists/management/SL-1017054"
-    Then should be able to see the header title contain "AutCypressPublic"
+    And goes to URL "/desktop/lists/management/SL-1016246"
+    Then should be able to see the header title contain "AUTCYPRESSPUBLIC01"
     And should be able to check and uncheck the radio element
     And should be able to navigate through the groups
 
-
     Examples:
-      | userType | uname       | password    |
-      | Internal | tmid2       | Welcome12   |
-      | External | prodsupp101 | today123    |
+      | userType | uname   | password  |
+      | Internal | R4TMID3 | Winter246 |
+      #| External | prodsupp101 | today123  |
 
 

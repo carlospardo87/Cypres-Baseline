@@ -19,8 +19,6 @@ export default class EditListPage {
 
 
   checkGroups() {
-    cy.wait(5000)
-
     cy.get(this.groupButtons).each($groupsButton =>{
 
       cy.highlightBorderElement($groupsButton, 'magenta')
@@ -28,19 +26,18 @@ export default class EditListPage {
       cy.wrap($groupsButton).should('be.visible').click({ force: true})
       let buttonName = $groupsButton.text()
         .replace("\u00a0","")
-        .replace(/[(]/,'').replace(/[)]/,'')
+        .replace(/[(]/,'').replace(/[)]/,'').replace(/\s/g, '')
 
-      if (!buttonName.includes('Unassigned Group')) {
       cy.get(this.groupTitle).then($groupName=>{
         let title_listName = $groupName.text()
           .replace("\u00a0","").replace(/\s/g, '')
+        cy.log(title_listName)
         cy.highlightBorderElement($groupName, 'magenta')
 
         expect(title_listName).to.includes(buttonName);
         cy.highlightBorderElement($groupsButton, 'transparent')
         cy.highlightBorderElement($groupName, 'transparent');
       });
-      }
     });
   }
 }
