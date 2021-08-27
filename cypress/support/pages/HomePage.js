@@ -75,4 +75,19 @@ export default class HomePage {
       200
     )
   }
+
+    navigateTo(browserToPage) {
+      if (browserToPage === 'Detail List') {
+        cy.visit(`${Cypress.config('baseUrl')}desktop/lists/detail/SL-1016246`)
+      } else {
+        cy.visit(`${Cypress.config('baseUrl')}desktop/lists/management/SL-1016246`)
+      }
+
+    }
+
+  checkBannerCss() {
+    cy
+        .get('.list-page-banner')
+        .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/list-banner.3b650be7eb471096df9e.png")')
+  }
 }
