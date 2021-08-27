@@ -8,14 +8,9 @@ And('should be able to see product descriptions', () => {
   new ListDetailsPage().checkCardElements(new ListDetailsPage().array_descriptionCards, /\w+/)
 })
 
-And('should be able to see product brand', () => {
+And('should be able to see product brand names', () => {
   new ListDetailsPage().checkCardElements(new ListDetailsPage().array_brandNames, /\w+/)
 })
-
-And("should be able to see product brand names", () => {
-  new ListDetailsPage().checkCardElements(new ListDetailsPage().array_brandCards, /\w+/)
-});
-
 
 And("should be able to see pack size contains {string}", (packSizeList)=> {
   new ListDetailsPage().getPackSizeContains(new ListDetailsPage().array_packSize, packSizeList)
@@ -35,7 +30,7 @@ And("should be able to see the product prices contains $", () => {
 });
 
 
-When('should be able to see the group name from the list for the products in list details page',  ()=> {
+When('should be able to see the group of list is ascending',  ()=> {
   new ListDetailsPage().checkAscendingOrder()
 });
 
