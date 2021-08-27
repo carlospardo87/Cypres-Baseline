@@ -8,6 +8,10 @@ And('should be able to see product descriptions', () => {
   new ListDetailsPage().checkCardElements(new ListDetailsPage().array_descriptionCards, /\w+/)
 })
 
+And('should be able to see product brand', () => {
+  new ListDetailsPage().checkCardElements(new ListDetailsPage().array_brandNames, /\w+/)
+})
+
 And("should be able to see product brand names", () => {
   new ListDetailsPage().checkCardElements(new ListDetailsPage().array_brandCards, /\w+/)
 });

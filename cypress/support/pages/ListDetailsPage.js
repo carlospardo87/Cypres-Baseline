@@ -5,6 +5,7 @@ export default class ListDetailsPage {
 
   constructor(){
     this.array_descriptionCards = '.usf-product-card-desc-heading-txt'
+    this.array_brandNames = '.usf-product-card-desc-body-txt'
     this.array_brandCards = '.usf-product-card-desc > :nth-child(1)'
     this.array_productNumber = '.usf-product-card-desc > :nth-child(3) > :nth-child(1)'
     this.array_packSize = '.usf-product-card-desc > :nth-child(3) > :nth-child(3)'
