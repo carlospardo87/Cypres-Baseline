@@ -128,11 +128,6 @@ export default class ListsPage {
 
 
   clickCustomerList(listName) {
-   /* cy.document().then((document) => {
-      const node = document.createElement('style')
-      node.innerHTML = "html { scroll-behavior: unset !important; }"
-      document.body.appendChild(node)
-    });*/
     cy.intercept({method: 'GET', url:'/list-domain-api/v1/list*',}).as('editList')
 
     cy.get('.item-card.item').each($el => {
@@ -141,15 +136,6 @@ export default class ListsPage {
         return ''}
     });
 
-
-    /*if(listToClick === 'Order Guide') {
-      cy.scrollTo('bottom', { ensureScrollable: false, duration:3000, easing:'linear'})
-      cy.get('.list-name').last()
-        .click({force: true})
-    }else{
-      cy.contains(listToClick)
-        .click({force: true});
-    }*/
   }
 
   checkProductItemsInformation(listItemCount) {
