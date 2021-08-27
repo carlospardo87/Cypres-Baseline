@@ -15,7 +15,7 @@ export default class ListDetailsPage {
     this.array_productCardImg = '.usf-product-card-img > img'
     this.icon_cart = '.icon-badge-wrapper > .headerIcon'
     this.icon_cartCountItems = '.icon-badge-wrapper > .badgeheader'
-    this.title_listDetailsPage = '.list-page-list-info'
+    this.title_listDetailsPage = '.list-page-header'
     this.loadingSpinner = '.loading-spinner-content'
   }
 
@@ -141,11 +141,13 @@ export default class ListDetailsPage {
   }
 
   checkListDetailsPageTitle(headerTitle) {
+    // Removing overlapping element
+    cy.removeDomElement('#ion-overlay-1')
+
 
     cy.highlightBorderElement(this.title_listDetailsPage, 'magenta')
     cy
       .contains(this.title_listDetailsPage,headerTitle, {matchCase:false})
-      .should('be.visible')
 
     cy.highlightBorderElement(this.title_listDetailsPage, 'transparent')
   }

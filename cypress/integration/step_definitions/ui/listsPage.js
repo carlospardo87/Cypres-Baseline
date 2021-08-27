@@ -89,6 +89,10 @@ Then("should be able to see the list items contains {string}",  (arrayItems)=> {
   new ListsPage().checkEditListPopup(arrayItems)
 });
 
+When("goes to {string} and clicks {string} button", (listName, optionMenu) => {
+  new ListsPage().clickOnEditList(listName, optionMenu)
+});
+
 
 afterEach(() => {
   Cypress.on('uncaught:exception', (err, runnable) => {

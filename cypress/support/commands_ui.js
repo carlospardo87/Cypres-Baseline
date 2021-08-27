@@ -185,3 +185,15 @@ function getIfExists ({ selector, variableName, skip = true }) {
 Cypress.Commands.add('getIfExists', getIfExists)
 
 
+Cypress.Commands.add("removeDomElement", (selector) => {
+  cy.document({log:false}).then(($document) => {
+    const documentResult = $document.querySelectorAll(selector)
+    if (documentResult.length) {
+      cy.get(selector).then($el => {
+        $el.remove()
+        cy.log('Element removed in the DOM')
+      })
+    }
+})
+})
+

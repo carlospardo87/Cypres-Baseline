@@ -13,11 +13,6 @@ Given("User navigates to USF with {string}", (device) => {
   new LoginPage().navigateWithViewPort(device)
 });
 
-When("goes to URL {string}", (url) => {
-  new LoginPage().goToUrl(url)
-});
-
-
 
 afterEach(() => {
   Cypress.on('uncaught:exception', (err, runnable) => {
