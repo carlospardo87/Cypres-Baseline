@@ -141,8 +141,9 @@ export default class ListDetailsPage {
   }
 
   checkListDetailsPageTitle(headerTitle) {
-    /*cy
-        .wait(`@editList`)*/
+    // Removing overlapping element
+    cy.removeDomElement('#ion-overlay-1')
+
 
     cy.highlightBorderElement(this.title_listDetailsPage, 'magenta')
     cy
