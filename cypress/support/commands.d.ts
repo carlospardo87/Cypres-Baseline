@@ -97,5 +97,7 @@ declare namespace Cypress {
         clickElementForce(locator,item)
 
         getIfExists(getIfExists)
+
+        removeDomElement(selector)
     }
 }
