@@ -23,21 +23,18 @@ export default class HomePage {
   }
 
 
-  urlContainProductDetails(partialUrl) {
-    /*cy.wait('@detailsPage').then((interception) => {
+  urlContainProductDetails(pageName) {
 
-      for (let i = 0; i < interception.response.body.length; i++) {
-        if (interception.response.body[i].listName === (listName)) {
+    let partialUrl = ''
 
-          let listTypeId = interception.response.body[i].listKey.listTypeId
-          let listId = interception.response.body[i].listKey.listId
-
-          cy.url().should('include', `${listTypeId}-${listId}`)
-          return
-        }
-      }
-      throw new Error(`There was an error :${listName} was not found into the response body ${interception.response.body}`)
-    })*/
+    switch (pageName) {
+      case 'List Management':
+        partialUrl = '/lists/management/';
+        break;
+      case 'List Deatils':
+        partialUrl = '/lists/detail/';
+        break;
+    }
 
     cy.url().then(fullUrl => {
       cy.log(fullUrl)
@@ -46,11 +43,9 @@ export default class HomePage {
       let endPartUrl = arr[arr.length-1]
       cy.log(`${endPartUrl}`)
 
-      let urlMatcher = (/^[A-Z_.-]+(\d{5,8})$/).test(endPartUrl)
-
       expect(fullUrl).to.contain(partialUrl)
+      expect(endPartUrl).to.be.match(/^[A-Z_.-]+(\d{5,8})$/)
 
-      expect(urlMatcher,'URL match with the expected pattern').to.be.true
 
     })
   }
