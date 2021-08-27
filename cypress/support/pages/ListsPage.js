@@ -128,11 +128,11 @@ export default class ListsPage {
 
 
   clickCustomerList(listToClick) {
-    cy.document().then((document) => {
+   /* cy.document().then((document) => {
       const node = document.createElement('style')
       node.innerHTML = "html { scroll-behavior: unset !important; }"
       document.body.appendChild(node)
-    });
+    });*/
 
     if(listToClick === 'Order Guide') {
       cy.scrollTo('bottom', { ensureScrollable: false, duration:3000, easing:'linear'})

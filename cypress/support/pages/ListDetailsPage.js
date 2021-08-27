@@ -141,8 +141,8 @@ export default class ListDetailsPage {
   }
 
   checkListDetailsPageTitle(headerTitle) {
-    cy
-        .wait(`@editList`)
+    /*cy
+        .wait(`@editList`)*/
 
     cy.highlightBorderElement(this.title_listDetailsPage, 'magenta')
     cy
