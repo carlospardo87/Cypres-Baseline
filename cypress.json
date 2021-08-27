@@ -12,7 +12,7 @@
   "allureResultsPath": "allure-results",
   "retries": 0,
   "video": false,
-  "screenshotOnRunFailure": true,
+  "screenshotOnRunFailure": false,
   "viewportWidth": 1920,
   "viewportHeight":1080,
 
