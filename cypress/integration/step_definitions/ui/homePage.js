@@ -34,6 +34,14 @@ And("clicks on My Lists button and handles the response",  () => {
   new HomePage().clickMyListButtonAndStubResponse()
 });
 
+When("goes to the page {string}", (browserToPage) => {
+  new HomePage().navigateTo(browserToPage)
+});
+
+Then("should be able to see the banner at the top of the page",  () => {
+  new HomePage().checkBannerCss()
+});
+
 
 afterEach(() => {
   Cypress.on('uncaught:exception', (err, runnable) => {
