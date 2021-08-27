@@ -28,7 +28,7 @@ export default class EditListPage {
         .replace("\u00a0","")
         .replace(/[(]/,'').replace(/[)]/,'').replace(/\s/g, '')
 
-      cy.wait(500)
+      cy.wait(1000)
 
       cy.get(this.groupTitle).then($groupName=>{
         let title_listName = $groupName.text()
