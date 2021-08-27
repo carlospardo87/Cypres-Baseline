@@ -219,6 +219,7 @@ export default class ListsPage {
         }
       })
     }
+    cy.log('=======  Loading Spinner does not appear =======')
   }
 
 
