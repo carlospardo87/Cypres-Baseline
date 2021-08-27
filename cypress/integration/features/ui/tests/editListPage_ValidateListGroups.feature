@@ -11,9 +11,8 @@ Feature: Edit List Page - Validate List Groups
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
     And clicks on My Lists button
     Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
-
-    And goes to URL "/desktop/lists/management/SL-1016246"
-    Then should be able to see the header title contain "AUTCYPRESSPUBLIC01"
+    And goes to "AutCypressPublic01" and clicks "Edit List" button
+    Then should be able to see the header title contain "AutCypressPublic01"
     And should be able to check and uncheck the radio element
     And should be able to navigate through the groups
 
