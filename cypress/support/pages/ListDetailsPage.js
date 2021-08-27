@@ -6,7 +6,6 @@ export default class ListDetailsPage {
   constructor(){
     this.array_descriptionCards = '.usf-product-card-desc-heading-txt'
     this.array_brandNames = '.usf-product-card-desc-body-txt'
-    this.array_brandCards = '.usf-product-card-desc > :nth-child(1)'
     this.array_productNumber = '.usf-product-card-desc > :nth-child(3) > :nth-child(1)'
     this.array_packSize = '.usf-product-card-desc > :nth-child(3) > :nth-child(3)'
     this.array_priceContainer = '.native-input.sc-ion-input-md'
@@ -14,10 +13,8 @@ export default class ListDetailsPage {
     this.array_listGroupName = '.item > .list-details-page-group-name'
 
     this.array_productCardImg = '.usf-product-card-img > img'
-    this.icon_cart = '.icon-badge-wrapper > .headerIcon'
     this.icon_cartCountItems = '.icon-badge-wrapper > .badgeheader'
     this.title_listDetailsPage = '.list-page-header'
-    this.loadingSpinner = '.loading-spinner-content'
   }
 
 
@@ -99,10 +96,10 @@ export default class ListDetailsPage {
   }
 
   fillInputItems(priceValue) {
-
-  // cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'magenta')
+  cy.reload()
+    cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'magenta')
     cy.get(this.array_priceContainer).eq(0).type(priceValue)
-   // cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'transparent')
+    cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'transparent')
   }
 
   checkCartItems(expectedPrice) {
@@ -112,7 +109,7 @@ export default class ListDetailsPage {
   checkAscendingOrder() {
     cy.reload()
 
-    let arr_group = ['GroupA','GroupB','GroupC']
+    let arr_group = ['Unassigned Group','Grp1','Grp2','Grp3']
     cy
       .get(this.array_listGroupName).its('length').then(arr_length=>{
       for (let i = 0; i < arr_length; i++) {

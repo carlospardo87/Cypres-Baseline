@@ -14,7 +14,7 @@ Feature: List Details page - Validate Elements
     Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     When goes to section "Public" and clicks on list "AutCypressPublic01"
     Then should be able to see the proper URL on "List Details" page
-    And should be able to see product brand
+    And should be able to see product brand names
     And should be able to see product descriptions
     And should be able to see pack size contains "OZ,LBA,CN,LB,BG,ML,LT,GA,CT,EA"
     And should be able to see the quantity boxes
