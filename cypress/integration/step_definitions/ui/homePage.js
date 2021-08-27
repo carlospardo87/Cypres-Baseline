@@ -16,7 +16,7 @@ Then("lists page URL should contain {string}", (endToEnd) => {
   new HomePage().urlContain(endToEnd);
 });
 
-Then("should be able to see the proper URL on {string} details page", (partialUrl) => {
+Then("should be able to see the proper URL on {string} page", (partialUrl) => {
   new HomePage().urlContainProductDetails(partialUrl);
 })
 
