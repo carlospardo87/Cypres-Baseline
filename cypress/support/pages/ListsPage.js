@@ -227,4 +227,17 @@ export default class ListsPage {
     }
   }
 
+
+  clickOnEditList(listName, optionName) {
+    cy.intercept({method: 'GET', url:'/list-domain-api/v1/list*',}).as('editList')
+
+    cy.get('.item-card.item').each($el => {
+      if ($el.text().includes(listName)) {
+        cy.wrap($el).find('ion-icon').click({force: true})
+        return ''
+      }
+    });
+    cy.xpath(`//ion-label[.='${optionName}']`).should('be.visible').click({force: true})
+
+  }
 }
