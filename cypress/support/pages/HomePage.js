@@ -4,7 +4,7 @@ export default class HomePage {
 
   constructor(){
     this.myListButton = '.extraLeftMargin'
-    this.loadingSpinner = '.loading-spinner-content'
+    this.btn_dropDownList = '.outlinedGreenBtn'
   }
 
 
@@ -50,16 +50,6 @@ export default class HomePage {
     })
   }
 
-  clickMyListButtonAndStubResponseItems(pathFixture) {
-
-    cy.intercept('GET', '/list-domain-api/v1/lists?watermark*', {statusCode: 200, fixture: pathFixture}).as("allListMocked")
-    cy
-      .get(this.myListButton)
-      .click()
-
-    cy.wait(['@allListMocked'])
-  }
-
   clickMyListButtonAndStubResponse() {
     cy.clickElementStubbingResponseByBody(
       'GET',
@@ -85,4 +75,9 @@ export default class HomePage {
         .get('.list-page-banner')
         .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/list-banner.3b650be7eb471096df9e.png")')
   }
+
+    selectNewCustomer(customerNumber) {
+    cy.selectCustomer(this.btn_dropDownList, customerNumber)
+
+    }
 }
