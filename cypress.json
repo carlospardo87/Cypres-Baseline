@@ -10,9 +10,9 @@
   "ignoreTestFiles": ["**/step_definitions/*.js"],
   "testFiles": "**/*.feature",
   "allureResultsPath": "allure-results",
-  "retries": 0,
+  "retries": 2,
   "video": false,
-  "screenshotOnRunFailure": false,
+  "screenshotOnRunFailure": true,
   "viewportWidth": 1920,
   "viewportHeight":1080,
 
