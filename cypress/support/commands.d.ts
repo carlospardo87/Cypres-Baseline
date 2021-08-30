@@ -99,5 +99,7 @@ declare namespace Cypress {
         getIfExists(getIfExists)
 
         removeDomElement(selector)
+
+        selectCustomer(locator, customerName)
     }
 }
