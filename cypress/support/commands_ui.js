@@ -197,3 +197,28 @@ Cypress.Commands.add("removeDomElement", (selector) => {
 })
 })
 
+
+Cypress.Commands.add("selectCustomer", (locator, customerName) => {
+  cy.intercept({method: 'GET', url: `/customer-domain-api/v1/customers`,}).as('customer')
+
+  cy.wait(2000)
+
+  cy.highlightBorderElement(locator,'magenta')
+  cy.get(locator).then((customer)=>{
+    if (!customer.text().trim().includes(customerName)){
+      cy.wrap(customer).should('be.visible')
+          .click()
+      cy.highlightBorderElement(locator,'transparent')
+
+      cy.contains(customerName)
+          .click({force: true})
+
+      // wait to list api response with code 200
+      cy.wait('@customer')
+          .its('response.statusCode')
+          .should('eq', 200)
+    }
+  })
+})
+
+

@@ -64,6 +64,12 @@ And("should be able to see the loading spinner with text {string}",(spinnerText)
   new ListsPage().checkLoadingSpinnerIfExist(spinnerText)
 });
 
+// This step does not wait for the View All List request
+And("should be able to see the loading spinner",() => {
+  let spinnerText = 'One moment please while we cook up your lists.'
+  new ListsPage().checkLoadingSpinnerIfExist(spinnerText)
+});
+
 Then('should be able to sort the lists by {string}',  (sortMenuOption)=> {
   new ListsPage().clickAndSortMenuOption(sortMenuOption)
 });

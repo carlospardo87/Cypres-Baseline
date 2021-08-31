@@ -10,9 +10,10 @@ Feature: List Details page - Validate Elements
 
   Scenario Outline: User should be able to see product description and other product information
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
+    And goes to dropdown and selects customer "24163578"
     And clicks on My Lists button
     Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
-    When goes to section "Public" and clicks on list "AutCypressPublic01"
+    When goes to section "Public" and clicks on list "AutCypressPublic_100"
     Then should be able to see the proper URL on "List Details" page
     And should be able to see product brand names
     And should be able to see product descriptions

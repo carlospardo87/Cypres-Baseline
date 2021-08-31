@@ -18,22 +18,6 @@ export default class LoginPage {
     cy.highlightBorderElement(this.userNameInput,'transparent')
     cy.highlightBorderElement(this.passwordInput,'transparent')
 
-    /*cy.intercept('GET', '/customer-domain-api/v1/customers', {
-      fixture: 'customers/customers.json'
-    }).as('customer')
-
-    cy.intercept('PUT', '/order-domain-api/v1/orders', {
-      fixture: 'customers/orders.json'
-    }).as('orders')
-
-
-    cy
-      .get(this.submitButton)
-      .click()
-
-    cy
-      .wait(10000)
-*/
 
     cy.clickElementInterceptResponse(
        'POST',
@@ -47,7 +31,6 @@ export default class LoginPage {
     switch (device) {
       case 'browser':
         cy.viewport(1440, 900)
-        //cy.viewport('iphone-xr')
         break;
     }
     cy.visit(Cypress.config('baseUrl'))

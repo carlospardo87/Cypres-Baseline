@@ -84,7 +84,7 @@ export default class ListsPage {
   }
 
   checkColumnDescriptions() {
-    let array_columnDescription = ['List Name', 'Last Updated By', 'Products'] //, 'Discontinued'
+    let array_columnDescription = ['List Name', 'Last Updated By', 'Products', 'Discontinued'] //, 'Discontinued'
     cy.get(this.array_section_list).its('length').then(arr_length => {
       for (let i = 1; i <= arr_length; i++) {
         for (let j = 0; j < array_columnDescription.length; j++) {
@@ -103,27 +103,23 @@ export default class ListsPage {
 
   checkNoListMessage(expectedText) {
 
-    cy
-      .highlightBorderElement(this.array_section_items, 'magenta')
-    cy
-      .get(this.array_section_items)
-      .filter('.item-card')
-      .should('contain', expectedText)
-
-    cy
-      .highlightBorderElement(this.array_section_items, 'transparent')
+    cy.get('.list-md > .item-card').its('length').then(arrLength => {
+      cy.get('.list-md > .item-card').then($el => {
+      for (let i = 1; i < arrLength; i++) {
+        cy.highlightBorderElement($el, 'magenta')
+        cy.wrap($el).eq(i).should('contain', expectedText)
+        cy.highlightBorderElement($el, 'transparent')
+      }
+    })
+  })
   }
 
   checkListInformation() {
     let array_listItemsCss = ['.list-name', '.last-updated-by', '.products']
 
-    cy.get(this.array_section_list).its('length').then(arr_length => {
-      for (let i = 0; i < arr_length; i++) {
         for (let j = 0; j < array_listItemsCss.length; j++) {
-          cy.shouldMatchRegex(`.list-md > .item-card > ${array_listItemsCss[j]}`, i, /\w+/)
+          cy.shouldMatchRegex(`${array_listItemsCss[j]}`, 0, /\w+/)
         }
-      }
-    })
   }
 
 
@@ -149,11 +145,6 @@ export default class ListsPage {
 
   checkLoadingSpinnerIfExist(spinnerText) {
     this.ifExists('.modal-wrapper.ion-overlay-wrapper.sc-ion-modal-md', 5, spinnerText)
-
-     cy
-        .wait('@allLists')
-        .its('response.statusCode')
-        .should('eq', 200);
   }
 
 
@@ -213,7 +204,7 @@ export default class ListsPage {
         if (documentResult.length) {
           cy.shouldAppearLoadingSpinner(this.loadingSpinner, spinnerText);
           this.removeSpinner();
-          return
+          return ''
         } else {
           cy.wait(250,{log:false})
         }
