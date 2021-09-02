@@ -18,6 +18,6 @@ Feature: List Page - Validate Sort Menu
 
 
     Examples:
-      | userType |uname       |   password    |
-      | Internal |R4TMID3     |   Winter246    |
-      | External |prodsupp101 |   today123     |
+      | userType | uname   | password  |
+      | Internal | R4TMID3 | Winter246 |
+      #| External |prodsupp101 |   today123     |
