@@ -22,8 +22,8 @@ Feature: Lists Page - Validate Action Elements
     And should be able to see customer verification icon
 
     Examples:
-      | userType | uname       |   password      | customerNro  |
-      | Internal | tmid3       |   Welcome12     | 702738       |
-      | External | prodsupp101 |   today123      | 702738       |
+      | userType | uname | password  | customerNro |
+      | Internal | tmid3 | Welcome12 | 702738      |
+      #| External | prodsupp101 |   today123      | 702738       |
 
 
