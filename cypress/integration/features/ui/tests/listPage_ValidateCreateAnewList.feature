@@ -27,20 +27,20 @@ Feature: List Page - Validate Create a New List
 
 
 
-  Scenario Outline: External User should be able to create a new list
-    When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    And clicks on My Lists button
-    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
-    And clicks on button "Create A New List"
-    Then should be able to see create lists modal
-    And should be able to select your option "<optionList>"
-    And should be able to enter list name "List Name Test"
-    And should be able to see the "Create" button enabled
-    And should be able to close create list modal
+  #Scenario Outline: External User should be able to create a new list
+    #When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
+    #And clicks on My Lists button
+    #Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
+    #And clicks on button "Create A New List"
+    #Then should be able to see create lists modal
+    #And should be able to select your option "<optionList>"
+    #And should be able to enter list name "List Name Test"
+    #And should be able to see the "Create" button enabled
+    #And should be able to close create list modal
 
-    Examples:
-      | userType | uname       | password  | optionList     |
-      | External | prodsupp101 | today123  | New List       |
-      | External | prodsupp101 | today123  | Copy List      |
-      | External | prodsupp101 | today123  | Import List    |
+    #Examples:
+      #| userType | uname | password | optionList |
+      #| External | prodsupp101 | today123 | New List   |
+      #| External | prodsupp101 | today123 | Copy List  |
+      #| External | prodsupp101 | today123  | Import List    |
 
