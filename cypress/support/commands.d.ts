@@ -22,6 +22,16 @@ declare namespace Cypress {
 
         checkStatusCode(alias, statusCode)
 
+        getLists(response)
+
+        getListGroups(response)
+
+        getListItems(response)
+
+        getListGroupsWithCustomerDetails(response, customerNro,divisionNro, departmentNro)
+
+        getListItemNotesWithCustomerDetails(response, customerNro,divisionNro, departmentNro)
+
         /**
          * Get Token
          */
