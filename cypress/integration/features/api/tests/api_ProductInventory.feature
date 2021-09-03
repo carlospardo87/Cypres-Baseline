@@ -1,15 +1,12 @@
 @API
-Feature: Checking product inventory API
+Feature: Sending POST product inventory API
 
-  Scenario Outline: Checking product inventory API
+  Scenario: Checking product inventory API
     Given authorization token was requested
-    When product inventory number "<productNum>" was requested
-    Then product inventory response should contain status "<status>"
-    And product inventory response should contain "<key>" : "<value>"
+    When product inventory number "1712140" was requested
+    Then "ProductInventory" response should contain status "200"
+    And product inventory response should be successful
 
-    Examples:
-      | productNum |status    |key              |value   |
-      | 1712140    |200       |productNumber    |1712140 |
 
 
 

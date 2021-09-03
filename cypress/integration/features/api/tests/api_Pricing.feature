@@ -1,19 +1,16 @@
 @API
-Feature: Checking product pricing API
+Feature: Sending POST pricing API
 
   Background:
     Given authorization token was requested
 
-  Scenario Outline: Checking pricing API with request token
+  Scenario: Checking pricing API with request token
     When refresh token was requested with customer: "13761622" and division: "4117"
-    And product pricing number "<productNum>" was requested with refresh token
-    Then product pricing response should contain status "<status>"
-    And product pricing response should contain "<key>" : "<value>"
+    And product pricing number "8456758" was requested with refresh token
+    Then "ProductPricing" response should contain status "200"
+    And product pricing response should be successful
 
-    Examples:
-      | productNum |status    |key              |value   |
-      | 8456758    |200       |productNumber    |8456758 |
-      | 8456758    |200       |unitPrice        |59.44   |
+
 
 
 
