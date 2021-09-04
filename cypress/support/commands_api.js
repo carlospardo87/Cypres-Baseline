@@ -72,7 +72,6 @@ Cypress.Commands.add("getProductSummary", (response,productNum) => {
   }).as('getProductSummary')
 });
 
-
 Cypress.Commands.add("getProductInventory", (response,productNum) => {
   cy.api({method: "POST", url: `${Cypress.config("baseApi")}/product-domain-api/v1/productinventory`,
     headers: {
@@ -85,7 +84,6 @@ Cypress.Commands.add("getProductInventory", (response,productNum) => {
     body: [Number(productNum)],
   }).as('getProductInventory')
 });
-
 
 Cypress.Commands.add("getProductPricing", (response,productNum) => {
   cy.api({method: "POST", url: `${Cypress.config("baseApi")}/price-domain-api/v1/pricing`,
@@ -100,10 +98,70 @@ Cypress.Commands.add("getProductPricing", (response,productNum) => {
   }).as('getProductPricing')
 });
 
+Cypress.Commands.add("getLists", (response) => {
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/lists`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+  }).as('getLists')
+});
+//
+Cypress.Commands.add("getListGroups", (response) => {
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/listGroups`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+  }).as('getListGroups')
+});
+
+Cypress.Commands.add("getListGroupsWithCustomerDetails", (response, customerNro,divisionNro, departmentNro ) => {
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/listGroups?customerNumber=${customerNro}&divisionNumber=${divisionNro}&departmentNumber=${departmentNro}`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+  }).as('getListGroupsWithCustomer')
+});
+
+
+Cypress.Commands.add("getListItems", (response) => {
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/listItems`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+  }).as('getListItems')
+});
+
+Cypress.Commands.add("getListItemNotesWithCustomerDetails", (response, customerNro,divisionNro, departmentNro ) => {
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/listItemNotes?customerNumber=${customerNro}&divisionNumber=${divisionNro}&departmentNumber=${departmentNro}`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+  }).as('getListItemNotesWithCustomer')
+});
 
 
 Cypress.Commands.add('checkStatusCode', (alias, statusCode) => {
   cy.get(alias).then((response) => {
-    expect(response).property('status').to.equal(Number(statusCode));
+    expect(response).property('status').to.equal(Number(statusCode), 'StautsCode');
   })
 })

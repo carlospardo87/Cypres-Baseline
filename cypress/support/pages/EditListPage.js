@@ -3,18 +3,18 @@
 export default class EditListPage {
 
   constructor() {
-    this.radioButton = '.mat-radio-outer-circle'
+    this.radioButton = 'ion-checkbox'
     this.groupButtons = '.list-groups-button > span'
     this.groupTitle = '.list-management-page-group-name'
   }
 
 
   checkRadioButton() {
-    cy.get(this.radioButton).eq(0).should('be.visible').dblclick({force: true})
-    cy.get('mat-radio-button').first().should('have.class', 'mat-radio-button mat-accent mat-radio-checked')
+    cy.get(this.radioButton).eq(0).should('be.visible').click({force: true})
+    cy.get(this.radioButton).eq(0).should('have.class', 'checkbox-checked')
 
-    cy.get(this.radioButton).eq(1).should('be.visible').dblclick({force: true})
-    cy.get('mat-radio-button').first().should('have.class', 'mat-radio-button mat-accent')
+    cy.get(this.radioButton).eq(1).should('be.visible').click({force: true})
+    cy.get(this.radioButton).eq(1).should('have.class', 'checkbox-checked')
   }
 
 
