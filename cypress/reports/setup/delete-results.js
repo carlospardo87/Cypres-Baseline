@@ -2,7 +2,7 @@
 const rimraf = require('rimraf')
 const chalk = require('chalk')
 
-const testResultsDir = './cypress/reports/test-*'
+const testResultsDir = '../results/cypress/reports/test-results/test-*'
 const screenshotsResultsDir = './cypress/screenshots/*'
 const videosResultsDir = './cypress/videos/*'
 
