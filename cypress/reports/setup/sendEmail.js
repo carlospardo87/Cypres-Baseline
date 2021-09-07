@@ -8,7 +8,7 @@ let transporter = nodemailer.createTransport({
   requireTLS: false,
   auth: {
     user: 'carlos.pardo@usfoods.com',
-    pass: '******'
+    pass: 'Usfoods87'
   },
   tls:{
     rejectUnauthorized: false
@@ -17,11 +17,11 @@ let transporter = nodemailer.createTransport({
 
 let mailOptions = {
   from: 'carlos.pardo@usfoods.com',
-  to:  '076bebe1.usfoods.onmicrosoft.com@amer.teams.ms' ,//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4List@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
+  to:  'carlos.pardo@usfoods.com' ,//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4List@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
   subject: 'Automation report',
   text: "Automated testing report - Product Search Team",
   attachments: [{
-    path: 'cypress/reports/test-results/automation_report.html'}]
+    path: './cypress/reports/test-results/report.html'}]
 };
 
 transporter.sendMail(mailOptions, function(error, info){

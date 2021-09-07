@@ -2,7 +2,7 @@
 Feature: Edit List Page - Validate List Groups And Product Selected Modal
 
   As a user Internal or External, I need to be able
-  to edit lists, move , copy and delete
+  to edit lists, move, copy and delete
 
   Background:
     Given User navigates to USF with "browser"
