@@ -3,7 +3,7 @@ const rimraf = require('rimraf')
 const chalk = require('chalk')
 
 const testResultsDir = '../results/cypress/reports/test-results/test-*'
-const screenshotsResultsDir = './cypress/screenshots/*'
+const screenshotsResultsDir = '../results/cypress/screenshots/*'
 const videosResultsDir = './cypress/videos/*'
 
 rimraf(testResultsDir, () => {
