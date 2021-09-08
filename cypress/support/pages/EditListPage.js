@@ -16,6 +16,7 @@ export default class EditListPage {
 
 
   checkRadioButton() {
+    cy.wait(1500)
     cy.get(this.radioButton).eq(0).should('be.visible').click({force: true})
     cy.get(this.radioButton).eq(0).should('have.class', 'checkbox-checked')
 

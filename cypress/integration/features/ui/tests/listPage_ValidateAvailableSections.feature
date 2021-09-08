@@ -25,7 +25,7 @@ Feature: List Page - Validate Available Sections
 
   Scenario Outline: User should be able to see "There are no lists to show" on empty Lists
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    And goes to dropdown and selects customer "24163578"
+    And goes to dropdown and selects customer "44094506"
     And clicks on My Lists button
     Then should be able to see the loading spinner
     Then should be able to see in each section "There are no lists to show"

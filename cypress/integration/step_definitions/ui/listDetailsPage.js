@@ -26,8 +26,8 @@ And('should be able to enter numbers in quantity boxes', () => {
 
 });
 And("should be able to see the product prices contains $", () => {
-  //new ListDetailsPage().checkCardPrices(/\$+(\d{1,2})+(.\d{1,2})+( CS)/)
-  new ListDetailsPage().checkCardPrices(/\$+(\d{1,2})+(.\d{1,2})/)
+  new ListDetailsPage().checkCardPrices(/\$+(\d{1,2})+(.\d{1,2})+( CS)/)
+  //new ListDetailsPage().checkCardPrices(/\$+(\d{1,2})+(.\d{1,2})/)
 });
 
 

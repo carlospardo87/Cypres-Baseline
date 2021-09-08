@@ -14,7 +14,7 @@ export default class ListDetailsPage {
 
     this.array_productCardImg = '.usf-product-card-img > img'
     this.icon_cartCountItems = '.icon-badge-wrapper > .badgeheader'
-    this.title_listDetailsPage = '.list-page-header'
+    this.title_listDetailsPage = '.list-page-banner-info'
   }
 
 
