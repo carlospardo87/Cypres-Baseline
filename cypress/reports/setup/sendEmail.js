@@ -1,5 +1,6 @@
 
 const nodemailer = require("nodemailer");
+const chalk = require("chalk");
 
 let transporter = nodemailer.createTransport({
   host: "smtp.usfood.com",    
@@ -19,15 +20,17 @@ let mailOptions = {
   from: 'carlos.pardo@usfoods.com',
   to:  'carlos.pardo@usfoods.com' ,//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4List@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
   subject: 'Automation report',
-  text: "Automated testing report - Product Search Team",
+  text: "Automated testing report - List Management Team",
   attachments: [{
     path: '../results/cypress/reports/test-results/report.html'}]
 };
 
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
-    console.log(error);
+    //console.log(error);
+    console.info(chalk.red(`    Error sending email: ${error}`))
   } else {
-    console.log('Email sent: ' + info.response);
+    //console.log('Email sent: ' + info.response);
+    console.info(chalk.green(`🚀     Report was sent by email successfully     👍`))
   }
 });
