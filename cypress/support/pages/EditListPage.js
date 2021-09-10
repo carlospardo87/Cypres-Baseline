@@ -98,7 +98,7 @@ export default class EditListPage {
         this.descriptionOptios,
         0,
         'contain.text',
-        `where do you want to ${optName} this product?`)
+        `Where do you want to ${optName}  these products?`)
   }
 
   clickFirstOption() {

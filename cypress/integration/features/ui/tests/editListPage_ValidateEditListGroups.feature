@@ -1,4 +1,4 @@
-@UI @ELG @R4LA-329 @R4LA-363
+@UI @ELG
 Feature: Edit List Page - Validate List Groups And Product Selected Modal
 
   As a user Internal or External, I need to be able
@@ -13,24 +13,24 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
     And goes to "AutCypressPublic_100" and clicks "Edit List" button
     Then should be able to see the header title contain "AutCypressPublic_100"
 
-
+  @R4LA-329
   Scenario: User should be able to select/unselect and to navigate through the groups
     And should be able to check and uncheck the radio element
     And should be able to navigate through the groups
 
-
+  @R4LA-363
   Scenario: User should be able to select multiple items and see green footer options
     Then should be able to select "2" items
     And should be able to see the green footer if 1 or more product are selected
     And should be able to see "2" Products Selected
-    And should be able to see other options "Select All,Move,Copy,Delete"
+    And should be able to see other options "Deselect All,Move,Copy,Delete"
 
-
+  @R4LA-363
   Scenario Outline: User should be able to select "<optNames>" option and view selected products
     Then should be able to select "2" items
     And should be able to click on option "<optNames>"
     And should be able to see "<optNames>" modal
-    And should be able to see: To where do you want to "<optNames>" this product?
+    And should be able to see: Where do you want to "<optNames>" this product?
     And should be able to click on item "View Selected Products (2)"
     And should be able to see "2" products selected
 
@@ -40,7 +40,7 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
       | Copy   |
       | Delete |
 
-
+  @R4LA-363
   Scenario Outline: User should be able to select "<optNames>" check button enable/disable
     Then should be able to select "2" items
     And should be able to click on option "<optNames>"
