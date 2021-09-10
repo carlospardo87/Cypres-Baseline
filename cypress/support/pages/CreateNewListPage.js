@@ -9,6 +9,7 @@ export default class HomePage {
     this.btn_createNewList = '.create-new-list'
     this.btn_createList = '.create-list-button'
     this.icon_closeModal = '[name="close-outline"]'
+    this.errorCreateNewList = '.list-name-taken-message'
   }
 
   clickCreateNewList() {
@@ -59,5 +60,18 @@ export default class HomePage {
 
   closeCreateNewListModal() {
     cy.clickElement(this.icon_closeModal, 0)
+  }
+
+  checkErrorMessage(errorMessage) {
+   // cy.shouldElement(this.errorCreateNewList, 0, 'equal', errorMessage)
+
+    cy.contains(this.errorCreateNewList, errorMessage)
+  }
+
+  checkTotalOfListType(totalListType) {
+    cy.get(this.radioButtonLists).its('length').then(eleLen =>{
+      expect(eleLen).to.be.equal(Number(totalListType))
+    })
+
   }
 }
