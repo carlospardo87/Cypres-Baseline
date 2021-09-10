@@ -46,7 +46,7 @@ Then("should be able to click on item {string}",  (itemProductSelect) => {
   new EditListPage().clickOnItemByName(itemProductSelect)
 });
 
-Then("should be able to see: To where do you want to {string} this product?",  (optionName) => {
+Then("should be able to see: Where do you want to {string} this product?",  (optionName) => {
   new EditListPage().checkModalOption(optionName)
 });
 
