@@ -2,10 +2,10 @@ let reporter = require('cucumber-html-reporter');
 
 let options = {
         theme: 'bootstrap',
-        jsonDir: '../results/cypress/reports/test-results/cucumber-json/',
-        screenshotsDirectory: '../results/cypress/screenshots/',
+        jsonDir: './../results/cypress/reports/test-results/cucumber-json',
+        screenshotsDirectory: './../results/cypress/screenshots',
         storeScreenshots: true,
-        output: '../results/cypress/reports/test-results/report.html',
+        output: './../results/cypress/reports/test-results/report.html',
         reportSuiteAsScenarios: true,
         scenarioTimestamp: true,       
         metadata: {            

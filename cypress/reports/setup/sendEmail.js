@@ -22,8 +22,8 @@ let mailOptions = {
   subject: 'Automation report',
   text: "Automated testing report - List Management Team",
   html: '<b> 🚀    List Management Team    🚀</b>',
-  attachments: [{
-    path: '../results/cypress/reports/test-results/report.html'}]
+ // attachments: [{
+ //   path: '../results/cypress/reports/test-results/report.html'}]
 };
 
 transporter.sendMail(mailOptions, function(error, info){

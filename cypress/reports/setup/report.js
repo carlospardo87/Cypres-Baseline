@@ -6,13 +6,13 @@ const fs = require('fs-extra')
 const path = require('path')
 const chalk = require('chalk')
 
-const cucumberJsonDir = './cypress/reports/test-results/cucumber-json'
+const cucumberJsonDir = '../results/cypress/reports/test-results/cucumber-json'
 const cucumberReportFileMap = {}
 const cucumberReportMap = {}
 const jsonIndentLevel = 2
-const htmlReportDir = './cypress/reports/test-results/html'
-const screenshotsDir = './cypress/screenshots'
-const snapshotDir = './cypress/snapshots'
+const htmlReportDir = '../results/cypress/html'
+const screenshotsDir = '../results/cypress/screenshots'
+//const snapshotDir = '../results/cypress/snapshots'
 
 getCucumberReportMaps()
 addScreenshots()
