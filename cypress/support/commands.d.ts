@@ -32,6 +32,8 @@ declare namespace Cypress {
 
         getListItemNotesWithCustomerDetails(response, customerNro,divisionNro, departmentNro)
 
+        getNewList(response,newListName)
+
         /**
          * Get Token
          */

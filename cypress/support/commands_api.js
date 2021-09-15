@@ -98,6 +98,24 @@ Cypress.Commands.add("getProductPricing", (response,productNum) => {
   }).as('getProductPricing')
 });
 
+Cypress.Commands.add("getNewList", (response,newListName) => {
+  cy.api({method: "POST", url: `${Cypress.config("baseApi")}/list-domain-api/v1/lists`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+    body: {
+      "listType": "SL",
+      "listId": "-12345678",
+      "listName":newListName,
+      "listStatusIndicator": "PUBLIC"
+    },
+  }).as('getNewList')
+});
+
 Cypress.Commands.add("getLists", (response) => {
   cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/lists`,
     headers: {
