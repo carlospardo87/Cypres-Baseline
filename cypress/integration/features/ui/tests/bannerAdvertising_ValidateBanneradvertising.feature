@@ -11,6 +11,7 @@ Feature: Banner advertising - Validate Banner advertising
     When "Internal" user logs in with valid credentials "R4TMID3" and "Winter246"
     And goes to the page "<namePage>"
     Then should be able to see the banner at the top of the page
+    #And should be able to see the ellipsis on the button
 
     Examples:
       | namePage        |
