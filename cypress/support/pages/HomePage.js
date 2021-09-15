@@ -64,7 +64,7 @@ export default class HomePage {
     navigateTo(browserToPage) {
       if (browserToPage === 'Detail List') {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists/detail/SL-1016246`)
-      } else {
+      } else if(browserToPage === 'Management List') {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists/management/SL-1016246`)
       }
 
