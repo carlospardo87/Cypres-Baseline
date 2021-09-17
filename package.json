@@ -37,6 +37,7 @@
     "nodejs-nodemailer-outlook": "^1.2.4",
     "nodemailer": "^6.6.3",
     "s3": "^4.4.0",
+    "sendmail": "^1.6.1",
     "uuid": "^3.4.0"
   },
   "cypress-cucumber-preprocessor": {
