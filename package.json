@@ -6,9 +6,9 @@
   "scripts": {
     "email-report": "node cypress/reports/setup/sendEmail.js",
     "pretest": "node cypress/reports/setup/delete-results.js",
-    "report": "node cypress/reports/setup/report.js",
+    "report": "node cypress/reports/setup/report_old.js",
     "test": "npx cypress run",
-    "test-report": "npm run test; sleep 20 && npm run report; npm run email-report"
+    "test-report": "npm run test && npm run report && npm run email-report"
   },
   "author": "KinAndCarta",
   "license": "ISC",
