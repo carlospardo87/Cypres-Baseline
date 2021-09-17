@@ -7,9 +7,8 @@
     "email-report": "node cypress/reports/setup/sendEmail.js",
     "pretest": "node cypress/reports/setup/delete-results.js",
     "report": "node cypress/reports/setup/report_old.js",
-    "posttest": "npm run report; npm run email-report",
     "test": "npx cypress run",
-    "test-report": "npm run test"
+    "test-report": "npm run test; npm run report; npm run email-report"
   },
   "author": "KinAndCarta",
   "license": "ISC",

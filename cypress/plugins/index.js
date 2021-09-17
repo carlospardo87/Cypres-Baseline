@@ -32,6 +32,17 @@ module.exports = (on, config) => {
 					console.error(err)
 				}
 
+			/*on('task', {
+				'report:run': () => {
+					const report = require('../reports/setup/report.js')
+					return report()
+				},
+				'email:run': () => {
+					const email = require('../reports/setup/sendEmail.js')
+					return email()
+				},
+			})*/
+
 
 			console.table([
 				{
