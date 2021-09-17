@@ -7,7 +7,7 @@ const fs = require('fs')
 
 const resultInfo = () => {
 try {
-  let rawData =  fs.readFileSync('cypress/support/storeResult.js', 'utf8');
+  let rawData =  fs.readFileSync('../results/cypress/storeResult.js', 'utf8');
   return JSON.parse(rawData)
 } catch (err) {
   console.error(err)

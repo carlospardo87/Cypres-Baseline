@@ -26,7 +26,7 @@ module.exports = (on, config) => {
 		if (results) {
 
 				try {
-					fs.writeFileSync('cypress/support/storeResult.js', JSON.stringify(results))
+					fs.writeFileSync('../results/cypress/storeResult.js', JSON.stringify(results), {flag: 'wx'})
 					console.info(chalk.green(`🚀     Result was written successfully     👍`))
 				} catch (err) {
 					console.error(err)
