@@ -50,4 +50,9 @@ module.exports = (on, config) => {
 	})
 }
 
+after(() => {
+	console.info(chalk.green(`🚀     It is happening after all test are done     👍`))
+});
+
+
 
