@@ -30,7 +30,7 @@ const envType = () => {
 
 
 let transporter = nodemailer.createTransport({
-  host: "smtp.usfood.com",    
+  host: "smtp.usfood.com",
   secureConnection: false, // TLS requires secureConnection to be false
   port: 25, // port for secure SMTP
   requireTLS: false,
@@ -83,7 +83,6 @@ transporter.sendMail(mailOptions, function(error, info){
     console.info(chalk.red(`    Error sending email: ${error}`))
   } else {
     console.info(chalk.green(`🚀     Report was sent by email successfully     👍`))
-    resultInfo()
   }
 });
 

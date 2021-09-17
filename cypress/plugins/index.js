@@ -16,10 +16,18 @@
 const cucumber = require('cypress-cucumber-preprocessor').default;
 const fs = require('fs')
 const chalk = require("chalk");
+const generateReport = require('../reports/setup/report_old.js')
+
+
 
 
 module.exports = (on, config) => {
 	on('file:preprocessor', cucumber())
+
+	on('after:spec', (spec, results) => {
+		console.log('Test "%s" has finished in %s',
+			spec.name, results.tests[0].state)
+	})
 
 	on('after:run', (results) => {
 
@@ -32,18 +40,6 @@ module.exports = (on, config) => {
 					console.error(err)
 				}
 
-			/*on('task', {
-				'report:run': () => {
-					const report = require('../reports/setup/report.js')
-					return report()
-				},
-				'email:run': () => {
-					const email = require('../reports/setup/sendEmail.js')
-					return email()
-				},
-			})*/
-
-
 			console.table([
 				{
 					'totalTests': results.totalTests,
@@ -54,11 +50,13 @@ module.exports = (on, config) => {
 					'viewport': results.config.viewportWidth + 'x' + results.config.viewportHeight
 				}
 			]);
-		}
 
+			generateReport(results.config.baseUrl)
+		}
 		//console.log(resultInfo)
 
 	})
+
 }
 
 

@@ -34,10 +34,3 @@ Cypress.Server.defaults({
         return true
     },
 })
-
-
-/*
-after(() => {
-    cy.task('report:run')
-    cy.task('email:run')
-})*/
