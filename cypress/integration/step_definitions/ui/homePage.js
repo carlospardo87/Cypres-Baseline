@@ -37,6 +37,10 @@ Then("should be able to see the banner at the top of the page",  () => {
   new HomePage().checkBannerCss()
 });
 
+Then("should be able to see the ellipsis on the banner right",  () => {
+  new HomePage().checkEllipsisCss()
+});
+
 
 afterEach(() => {
   Cypress.on('uncaught:exception', (err, runnable) => {

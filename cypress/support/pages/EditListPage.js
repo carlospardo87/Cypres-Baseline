@@ -12,6 +12,12 @@ export default class EditListPage {
     this.productAction = '.selected-product-action'
     this.descriptionOptios = '.selected-product-memos > .item > .sc-ion-label-md-h'
     this.btn_move = '.selected-product-action-btns'
+
+    this.newGroupCard = '.list-new-group-card'
+    this.edit_newGroup = 'input[placeholder="Enter Group Name"]'
+    this.msg_errorGroup = '.new-group-error'
+    this.clickGreenCheckmark = 'ion-icon[name="checkmark-circle-outline"]'
+    this.redCloseCircle = 'ion-icon[name="close-circle-outline"]'
   }
 
 
@@ -120,5 +126,31 @@ export default class EditListPage {
     if ((btnName === 'Deselect All') && (opt === 'click on')) {
       cy.clickByName('ion-button',` ${btnName} `);
     }
+  }
+
+  clickBtnAddGroup() {
+    cy.findByText('Add Group').click()
+  }
+
+  enterGroupName(groupName) {
+    cy.shouldElement(this.newGroupCard, 0, 'be.visible')
+    cy.get(this.edit_newGroup).type(groupName)
+  }
+
+  checkErrorMessage(errorMessage) {
+    //cy.findByText(errorMessage)
+    cy.shouldElement(this.msg_errorGroup,0, 'contain.text',errorMessage)
+  }
+
+  checkGreenCheckmarkCircle() {
+    cy.shouldHaveAttribute(this.clickGreenCheckmark, 'class', 'md hydrated group-name-available')
+  }
+
+  checkRedCloseCircle() {
+    cy.shouldHaveAttribute(this.redCloseCircle, 'name', 'close-circle-outline')
+  }
+
+  clickGreenCheckmarkCircle() {
+    cy.get(this.clickGreenCheckmark).click()
   }
 }

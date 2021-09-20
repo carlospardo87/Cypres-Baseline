@@ -1,17 +1,18 @@
 let reporter = require('cucumber-html-reporter');
 
-let options = {
-        theme: 'bootstrap',
-        jsonDir: '../results/cypress/reports/test-results/cucumber-json/',
-        screenshotsDirectory: '../results/cypress/screenshots/',
-        storeScreenshots: true,
-        output: '../results/cypress/reports/test-results/report.html',
-        reportSuiteAsScenarios: true,
-        scenarioTimestamp: true,       
-        metadata: {            
-            "Test Environment": "SIT",
-            "Executed": "Docker Container"
-        }
-    };
-
-    reporter.generate(options);
+module.exports = function (env) {
+    reporter.generate(
+        {
+            theme: 'bootstrap',
+            jsonDir: '../results/cypress/reports/test-results/cucumber-json',
+            screenshotsDirectory: '../results/cypress/screenshots',
+            storeScreenshots: true,
+            output: '../results/cypress/reports/report.html',
+            reportSuiteAsScenarios: true,
+            scenarioTimestamp: true,
+            metadata: {
+                "Test Environment": env,
+                "Executed": "Docker Container"
+            }
+        });
+};

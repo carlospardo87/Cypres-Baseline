@@ -5,13 +5,12 @@ export default class ListsPage {
   constructor() {
 
     this.listsTitle = '.view-all-lists'
-    this.btn_createOrder = '.headerRowRight > ion-button'
-    this.btn_myLists = '.extraLeftMargin'
+    this.btn_createOrder = ".header-right-section .full-green-btn"
     this.icon_searchBar = '.list-search .searchbar-search-icon'
     this.icon_dpCheckMarkCircle = '.whiteIcon'
     this.searchBar = '.searchbar-input[placeholder="Search"]'
     this.btn_createNewList = '.create-new-list'
-    this.btn_dropDownList = '.outlinedGreenBtn'
+    this.btn_dropDownList = '.header-left-section .outlined-green-btn'
 
     this.array_dropDownElementsList = '.popoverHeaderCustomerScroll ion-item' // List Items Dropdown
     this.array_section_items = 'ion-item' // List Items Section
@@ -30,9 +29,9 @@ export default class ListsPage {
   checkIfCustomerExistOnDpList(customerInf) {
     const grabbedList = []
 
-    cy.highlightBorderElement(this.btn_dropDownList, 'magenta')
+   cy.highlightBorderElement(this.btn_dropDownList, 'magenta')
 
-    cy.get(this.btn_dropDownList, {timeout: 20000})
+    cy.get(this.btn_dropDownList, {timeout: 20000}).last()
       .should('be.visible')
       .and('contain', customerInf)
       .click({force: true})
@@ -105,7 +104,8 @@ export default class ListsPage {
 
     cy.get('.list-md > .item-card').its('length').then(arrLength => {
       cy.get('.list-md > .item-card').then($el => {
-      for (let i = 1; i < arrLength; i++) {
+        // Starting looking after the second list
+      for (let i = 2; i < arrLength; i++) {
         cy.highlightBorderElement($el, 'magenta')
         cy.wrap($el).eq(i).should('contain', expectedText)
         cy.highlightBorderElement($el, 'transparent')

@@ -15,11 +15,11 @@ And("should be able to see the customer drop down {string}", (customerInfo) => {
 });
 
 And("should be able to see button Create Order", () => {
-  new ListsPage().elementIsVisible(new ListsPage().btn_createOrder)
+  cy.shouldElement(new ListsPage().btn_createOrder, 2, 'be.visible')
 
 });
-And("should be able to see button Create Order My Lists", () => {
-  new ListsPage().elementIsVisible(new ListsPage().btn_myLists)
+And("should be able to see button My Lists", () => {
+  cy.shouldElement(new ListsPage().btn_createOrder, 3, 'be.visible')
 
 });
 And("should be able to see button Search Box and icon magnifier", () => {

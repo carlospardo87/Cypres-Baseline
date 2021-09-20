@@ -13,7 +13,7 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
     And goes to "AutCypressPublic_100" and clicks "Edit List" button
     Then should be able to see the header title contain "AutCypressPublic_100"
 
-  @R4LA-329
+  @R4LA-329  @SmokeTest
   Scenario: User should be able to select/unselect and to navigate through the groups
     And should be able to check and uncheck the radio element
     And should be able to navigate through the groups
@@ -40,7 +40,7 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
       | Copy   |
       | Delete |
 
-  @R4LA-363
+  @R4LA-363  @SmokeTest
   Scenario Outline: User should be able to select "<optNames>" check button enable/disable
     Then should be able to select "2" items
     And should be able to click on option "<optNames>"

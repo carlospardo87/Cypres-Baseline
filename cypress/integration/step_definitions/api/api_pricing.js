@@ -4,7 +4,7 @@ import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps'
 
 
 When('product pricing number {string} was requested with refresh token', (productNum) => {
-  cy.get('@getRefreshToken').then((resToken) => {
+  cy.get('@getAuthToken').then((resToken) => {
     cy.getProductPricing(resToken, productNum)
   })
 })

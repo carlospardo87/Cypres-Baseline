@@ -3,8 +3,8 @@
 export default class HomePage {
 
   constructor(){
-    this.myListButton = '.extraLeftMargin'
-    this.btn_dropDownList = '.outlinedGreenBtn'
+    this.myListButton = '.extra-left-margin'
+    this.btn_dropDownList = '.outlined-green-btn'
   }
 
 
@@ -64,7 +64,7 @@ export default class HomePage {
     navigateTo(browserToPage) {
       if (browserToPage === 'Detail List') {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists/detail/SL-1016246`)
-      } else {
+      } else if(browserToPage === 'Management List') {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists/management/SL-1016246`)
       }
 
@@ -75,6 +75,13 @@ export default class HomePage {
         .get('.list-page-banner')
         .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/list-banner.3b650be7eb471096df9e.png")')
   }
+
+
+  checkEllipsisCss() {
+    cy.shouldHaveAttribute('.list-page-options > .md','name','ellipsis-vertical')
+  }
+
+
 
     selectNewCustomer(customerNumber) {
     cy.selectCustomer(this.btn_dropDownList, customerNumber)
