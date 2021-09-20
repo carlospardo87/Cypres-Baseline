@@ -10,7 +10,7 @@ Feature: List Page - Validate Available Sections
 
   Scenario Outline: User should be able to see the available section
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    And goes to dropdown and selects customer "24163578"
+    And goes to dropdown and selects customer "74059163"
     And clicks on My Lists button
     Then should be able to see the loading spinner
     Then "<userType>" should be able to see each section name
@@ -19,20 +19,20 @@ Feature: List Page - Validate Available Sections
 
     Examples:
       | userType | uname   | password  |
-      | Internal | R4TMID3 | Winter246 |
+      | Internal | R4TMID1 | Winter246 |
       #| External |prodsupp101 |   today123     |
 
 
   Scenario Outline: User should be able to see "There are no lists to show" on empty Lists
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    And goes to dropdown and selects customer "44094506"
+    And goes to dropdown and selects customer "74059163"
     And clicks on My Lists button
     Then should be able to see the loading spinner
     Then should be able to see in each section "There are no lists to show"
 
     Examples:
-      | userType | uname | password  |
-      | Internal | R4TMID3 | Winter246 |
+      | userType | uname   | password  |
+      | Internal | R4TMID1 | Winter246 |
       #| External |prodsupp101 |   today123 |
 
 

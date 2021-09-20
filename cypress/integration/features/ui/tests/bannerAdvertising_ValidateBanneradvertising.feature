@@ -8,10 +8,10 @@ Feature: Banner advertising - Validate Banner advertising
     Given User navigates to USF with "browser"
 
   Scenario Outline: User should be able to see the banner at the top of the page
-    When "Internal" user logs in with valid credentials "R4TMID3" and "Winter246"
+    When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
     And goes to the page "<namePage>"
     Then should be able to see the banner at the top of the page
-    #And should be able to see the ellipsis on the button
+    And should be able to see the ellipsis on the banner right
 
     Examples:
       | namePage        |
