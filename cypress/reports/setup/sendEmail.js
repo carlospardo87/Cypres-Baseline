@@ -35,7 +35,7 @@ module.exports =  function(results) {
       }
     }).sendMail({
       from: '"Automation Report 👻" <foo@usfoods.com>',
-      to: 'carlos.pardo@usfoods.com', //bab5fc4c.usfoods.onmicrosoft.com@amer.teams.ms','2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4List@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
+      to: 'carlos.pardo@usfoods.com, bab5fc4c.usfoods.onmicrosoft.com@amer.teams.ms, 2S-DL-R4List@usfood.com',//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
       subject: 'Automation report',
       text: 'Automation',
       html: `<b> 👉🏻  <i>List Management Team</i>  👈🏻 </b><br>
