@@ -3,8 +3,8 @@
 export default class HomePage {
 
   constructor(){
-    this.myListButton = '.extraLeftMargin'
-    this.btn_dropDownList = '.outlinedGreenBtn'
+    this.myListButton = '.extra-left-margin'
+    this.btn_dropDownList = '.outlined-green-btn'
   }
 
 
