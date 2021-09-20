@@ -76,6 +76,13 @@ export default class HomePage {
         .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/list-banner.3b650be7eb471096df9e.png")')
   }
 
+
+  checkEllipsisCss() {
+    cy.shouldHaveAttribute('.list-page-options > .md','name','ellipsis-vertical')
+  }
+
+
+
     selectNewCustomer(customerNumber) {
     cy.selectCustomer(this.btn_dropDownList, customerNumber)
 
