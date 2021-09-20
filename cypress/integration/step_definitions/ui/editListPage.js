@@ -70,9 +70,32 @@ Then("should be able to {string} button {string}",  (option, btnName) => {
 });
 
 
+When("should be able to add a group to the bottom of the groups",  () => {
+  new EditListPage().clickBtnAddGroup()
+});
 
 
+When("enters a new group name {string}",  (newGroupName) => {
+  new EditListPage().enterGroupName(newGroupName)
+});
 
+Then("should be able to see error {string}",  (errorMsg) => {
+  new EditListPage().checkErrorMessage(errorMsg)
+});
+
+Then("should be able to see green checkmark circle enabled",  () => {
+  new EditListPage().checkGreenCheckmarkCircle();
+});
+
+
+Then("should be able to see red close circle enabled",  () => {
+  new EditListPage().checkRedCloseCircle();
+});
+
+
+Then("should be able to click on green checkmark circle",  () => {
+  new EditListPage().clickGreenCheckmarkCircle();
+});
 
 
 afterEach(() => {
