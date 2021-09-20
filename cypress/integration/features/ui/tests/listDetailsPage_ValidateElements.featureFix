@@ -8,8 +8,8 @@ Feature: List Details page - Validate Elements
   Background:
     Given User navigates to USF with "browser"
 
-  Scenario Outline: User should be able to see product description and other product information
-    When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
+  Scenario: User should be able to see product description and other product information
+    When "Internal" user logs in with valid credentials "R4TMID3" and "Winter246"
     And goes to dropdown and selects customer "24163578"
     And clicks on My Lists button
     Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
@@ -24,10 +24,6 @@ Feature: List Details page - Validate Elements
     And should be able to see the product prices contains $
 
 
-    Examples:
-      | userType | uname   | password  |
-      | Internal | R4TMID3 | Winter246 |
-      #| External | prodsupp101 |   today123      |
 
 
 
