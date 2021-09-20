@@ -26,13 +26,16 @@ const sendingEmail = require("../reports/setup/sendEmail");
 
 
 module.exports = (on, config) => {
+	// file:preprocessor , processing the cucumber commands
 	on('file:preprocessor', cucumber())
 
+	// after:spec : we can use to make thing after each scenario is completed
 	on('after:spec', (spec, results) => {
 		console.log('Test "%s" has finished in %s',
 			spec.name, results.tests[0].state)
 	})
 
+	// after:run: we can use it to generate a report and send it by email
 	on('after:run',  async (results) => {
 
 		if (results) {
