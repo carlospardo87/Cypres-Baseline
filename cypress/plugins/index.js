@@ -18,6 +18,10 @@ const fs = require('fs')
 const chalk = require("chalk");
 const generateReport = require('../reports/setup/report_old.js')
 
+const sendingEmail = require("../reports/setup/sendEmail");
+
+
+
 
 
 
@@ -29,17 +33,9 @@ module.exports = (on, config) => {
 			spec.name, results.tests[0].state)
 	})
 
-	on('after:run', async (results) => {
+	on('after:run',  async (results) => {
 
 		if (results) {
-
-			try {
-				fs.writeFileSync('../results/cypress/storeResult.js', JSON.stringify(results), {flag: 'wx'})
-				console.info(chalk.green(`🚀     Result was written successfully     👍`))
-			} catch (err) {
-				console.error(err)
-			}
-
 			console.table([
 				{
 					'totalTests': results.totalTests,
@@ -54,10 +50,11 @@ module.exports = (on, config) => {
 			generateReport(results.config.baseUrl)
 
 			console.info(chalk.green(`🚀     Sending Email ....     👍`))
-			//send_Email()
-		}
-		//console.log(resultInfo)
 
+			await sendingEmail(results).then((result) => {
+				console.log(result)
+			});
+		}
 	})
 
 }
