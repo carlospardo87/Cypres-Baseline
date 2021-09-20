@@ -154,7 +154,7 @@ Cypress.Commands.add("getListGroupsWithCustomerDetails", (response, customerNro,
 
 
 Cypress.Commands.add("getListItems", (response) => {
-  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/listItems`,
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/lists`,
     headers: {
       "Authorization": `Bearer ${response.body.accessToken}`,
       "consumer-id": data.consumer_id,
