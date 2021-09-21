@@ -46,7 +46,8 @@ module.exports = (on, config) => {
 					'totalFailed': results.totalFailed,
 					'browserName': results.browserName,
 					'baseUrl': results.config.baseUrl,
-					'viewport': results.config.viewportWidth + 'x' + results.config.viewportHeight
+					'viewport': results.config.viewportWidth + 'x' + results.config.viewportHeight,
+					'totalDuration:': parseFloat(((results.totalDuration)/1000).toFixed(2)),
 				}
 			]);
 

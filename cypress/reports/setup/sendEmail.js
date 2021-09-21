@@ -12,13 +12,16 @@ module.exports =  function(results) {
       let percentPassed = parseFloat(results.totalPassed)*100
       return (percentPassed/parseFloat(results.totalTests)).toFixed(2)
     }
-
     const envType = () => {
       if (results.config.baseUrl.includes('sit')) {
         return 'SIT'
       }else {
         return 'DEV'
       }
+    }
+
+    const durationInSeconds = () => {
+      return parseFloat(((results.totalDuration)/1000).toFixed(2))
     }
 
     nodemailer.createTransport({
@@ -35,7 +38,7 @@ module.exports =  function(results) {
       }
     }).sendMail({
       from: '"Automation Report 👻" <foo@usfoods.com>',
-      to: 'carlos.pardo@usfoods.com, bab5fc4c.usfoods.onmicrosoft.com@amer.teams.ms, 2S-DL-R4List@usfood.com',//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
+      to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com',// bab5fc4c.usfoods.onmicrosoft.com@amer.teams.ms, 2S-DL-R4List@usfood.com',//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
       subject: 'Automation report',
       text: 'Automation',
       html: `<b> 👉🏻  <i>List Management Team</i>  👈🏻 </b><br>
@@ -43,7 +46,7 @@ module.exports =  function(results) {
   
   <table class="default">
   <tr>
-    <th>| Total_Tests | </th><th> Total_Passed |</th><th> Total_Failed |</th><th> Browser_Name |</th><th> Environmet </th><th>| Viewport |</th><th> % Success |</th>
+    <th>| Total_Tests | </th><th> Total_Passed |</th><th> Total_Failed |</th><th> Browser_Name |</th><th> Environmet </th><th>| Viewport |</th><th> % Success | </th><th> Duration (seconds) |</th>
   </tr>
   <tr>
     <td>${results.totalTests}</td>
@@ -59,6 +62,8 @@ module.exports =  function(results) {
     <td>${results.config.viewportWidth}x${results.config.viewportHeight}</td>
     
     <td>${percentSuccess()}</td>
+    
+    <td>${durationInSeconds()}</td>
   </tr>
 </table>`,
       attachments: [{
