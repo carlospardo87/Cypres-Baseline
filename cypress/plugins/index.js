@@ -23,9 +23,10 @@ const sendingEmail = require("../reports/setup/sendEmail");
 
 
 
-
+let failedTest = []
 
 module.exports = (on, config) => {
+
 	// file:preprocessor , processing the cucumber commands
 	on('file:preprocessor', cucumber())
 
@@ -33,6 +34,10 @@ module.exports = (on, config) => {
 	on('after:spec', (spec, results) => {
 		console.log('Test "%s" has finished in %s',
 			spec.name, results.tests[0].state)
+
+		if (results.tests[0].state === 'failed') {
+			failedTest.push('🔥 '+ spec.name +'<br>')
+		}
 	})
 
 	// after:run: we can use it to generate a report and send it by email
@@ -53,9 +58,11 @@ module.exports = (on, config) => {
 
 			generateReport(results.config.baseUrl)
 
-			console.info(chalk.green(`🚀     Sending Email ....     👍`))
+			console.info(chalk.bold.green(`🚀 Sending Email ....     👍`))
 
-			await sendingEmail(results).then((result) => {
+            console.log(failedTest)
+
+			await sendingEmail(results,failedTest).then((result) => {
 				console.log(result)
 			});
 		}

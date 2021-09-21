@@ -5,13 +5,14 @@ const fs = require('fs')
 const nodemailer = require('nodemailer')
 
 
-module.exports =  function(results) {
+module.exports =  function(results,failedTest) {
   return new Promise( (resolve, reject) => {
 
     const percentSuccess = () => {
       let percentPassed = parseFloat(results.totalPassed)*100
       return (percentPassed/parseFloat(results.totalTests)).toFixed(2)
     }
+
     const envType = () => {
       if (results.config.baseUrl.includes('sit')) {
         return 'SIT'
@@ -21,8 +22,21 @@ module.exports =  function(results) {
     }
 
     const durationInSeconds = () => {
-      return parseFloat(((results.totalDuration)/1000).toFixed(2))
+      let seconds = parseFloat(((results.totalDuration)/1000).toFixed(2))
+      let minute = Math.floor((seconds / 60) % 60);
+      minute = (minute < 10)? '0' + minute : minute;
+      let second = seconds % 60;
+      second = (second < 10)? '0' + second : second;
+      return minute + ':' + second;
     }
+
+    const getFailedTest = () => {
+      if (failedTest.length > 0) {
+        return failedTest.toString();
+      } else {
+        return '😃 There were not test cases failed !!!'
+      }
+}
 
     nodemailer.createTransport({
       host: "smtp.usfood.com",
@@ -41,10 +55,10 @@ module.exports =  function(results) {
       to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com',// bab5fc4c.usfoods.onmicrosoft.com@amer.teams.ms, 2S-DL-R4List@usfood.com',//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
       subject: 'Automation report',
       text: 'Automation',
-      html: `<b> 👉🏻  <i>List Management Team</i>  👈🏻 </b><br>
-   <b>  ------------------------------------------------------------------------------------------------------------- </b>
+      html: `<b> 👉🏻  <i>Regression Status</i>  👈🏻 </b><br>
+      <b>  ------------------------------------------------------------------------------------------------------------------------------------ </b>
   
-  <table class="default">
+      <table class="default">
   <tr>
     <th>| Total_Tests | </th><th> Total_Passed |</th><th> Total_Failed |</th><th> Browser_Name |</th><th> Environmet </th><th>| Viewport |</th><th> % Success | </th><th> Duration (seconds) |</th>
   </tr>
@@ -65,16 +79,24 @@ module.exports =  function(results) {
     
     <td>${durationInSeconds()}</td>
   </tr>
-</table>`,
+</table>
+  <table><tr><th></th></tr><tr><td></td></tr></table>
+  <b></b>
+      <b> 👉🏻 <i>Failed Test Cases</i> 👈🏻</b><br>
+      <b>  ------------------------------------------------------------------------------------------------------------------------------------ </b>
+      <p>
+      ${getFailedTest()}
+      </p>`,
+
       attachments: [{
         path: '../results/cypress/reports/report.html'}]
 
     }, function (error, info) {
       if (error) {
-        console.info(chalk.red(`    Error sending email: ${error}`))
+        console.info(chalk.red(`👉🏻 Error sending email: ${error}`))
          reject(error);
       } else {
-        console.info(chalk.green(`🚀     Report was sent by email successfully   👍`))
+        console.info(chalk.bold.green(`🚀 Report was sent by email successfully   👍`))
          resolve(info.messageId);
       }
     });
