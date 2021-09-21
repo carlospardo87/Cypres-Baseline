@@ -60,8 +60,6 @@ module.exports = (on, config) => {
 
 			console.info(chalk.bold.green(`🚀 Sending Email ....     👍`))
 
-            console.log(failedTest)
-
 			await sendingEmail(results,failedTest).then((result) => {
 				console.log(result)
 			});
