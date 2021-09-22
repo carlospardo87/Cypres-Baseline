@@ -52,7 +52,7 @@ module.exports =  function(results,failedTest) {
       }
     }).sendMail({
       from: '"Automation Report 👻" <foo@usfoods.com>',
-      to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com',// bab5fc4c.usfoods.onmicrosoft.com@amer.teams.ms, 2S-DL-R4List@usfood.com',//'2S-DL-R4Ordering@usfood.com,2S-DL-Panamax@usfood.com,2S-DL-R4ProductDiscovery@usfood.com,2S-DL-R4Alerts@usfood.com',
+      to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com, d343d090.usfoods.onmicrosoft.com@amer.teams.ms',
       subject: 'Automation report',
       text: 'Automation',
       html: `<b> 👉🏻  <i>Regression Status</i>  👈🏻 </b><br>
