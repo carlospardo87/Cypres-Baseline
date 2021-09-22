@@ -52,7 +52,7 @@ module.exports = (on, config) => {
 					'browserName': results.browserName,
 					'baseUrl': results.config.baseUrl,
 					'viewport': results.config.viewportWidth + 'x' + results.config.viewportHeight,
-					'totalDuration:': parseFloat(((results.totalDuration)/1000).toFixed(2)),
+					'totalDuration:': ((parseFloat(results.totalDuration))/1000).toFixed(0),
 				}
 			]);
 

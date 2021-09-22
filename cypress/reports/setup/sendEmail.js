@@ -22,7 +22,7 @@ module.exports =  function(results,failedTest) {
     }
 
     const durationInSeconds = () => {
-      let seconds = parseFloat(((results.totalDuration)/1000).toFixed(2))
+      let seconds = ((parseFloat(results.totalDuration))/1000).toFixed(0)
       let minute = Math.floor((seconds / 60) % 60);
       minute = (minute < 10)? '0' + minute : minute;
       let second = seconds % 60;
