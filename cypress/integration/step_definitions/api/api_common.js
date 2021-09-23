@@ -28,7 +28,11 @@ Then('{string} response should be successful', (apiName) => {
     expect(response).to.have.property('messages')
     expect(response).to.have.property('requestHeaders')
     expect(response).to.have.property('statusText', 'OK')
+  })
+})
 
+Then('{string} response body should be successful', (apiName) => {
+  cy.get(`@get${apiName}`).then((response) => {
     expect(response.body[0]).to.have.property('_id')
     expect(response.body[0]).to.have.property('listKey')
   })
