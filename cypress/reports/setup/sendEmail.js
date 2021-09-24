@@ -44,8 +44,8 @@ module.exports =  function(results,failedTest) {
       port: 25, // port for secure SMTP
       requireTLS: false,
       auth: {
-        user: 'carlos.pardo@usfoods.com',
-        pass: 'Usfoods87'
+        user: 'no-reply@usfoods.com',
+        pass: ''
       },
       tls: {
         rejectUnauthorized: false
