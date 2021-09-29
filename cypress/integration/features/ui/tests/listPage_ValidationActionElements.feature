@@ -1,4 +1,4 @@
-@UI @R4LA-174  @LP
+@UI @R4LA-174  @LP  @SKIP
 Feature: Lists Page - Validate Action Elements
 
   As a user Internal or External I need to navigate to My List Page

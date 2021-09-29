@@ -1,4 +1,4 @@
-@UI @R4LA-305 @ELP
+@UI @R4LA-305 @ELP  @SKIP
 Feature: List Page - Validate Create Group
 
   As a user Internal or External, I need to navigate to Edit List page

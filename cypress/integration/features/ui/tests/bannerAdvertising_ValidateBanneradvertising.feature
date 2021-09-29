@@ -1,4 +1,4 @@
-@UI @R4LA-256  @BN
+@UI @R4LA-256  @BN @SKIP
 Feature: Banner advertising - Validate Banner advertising
 
   As a user Internal or External, I need to be able

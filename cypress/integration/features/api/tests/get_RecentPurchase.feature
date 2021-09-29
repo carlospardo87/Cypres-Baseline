@@ -1,4 +1,4 @@
-@API
+@API  @SKIP
 Feature: Getting Recent Purchase API
 
   Scenario: Getting Recent Purchase API

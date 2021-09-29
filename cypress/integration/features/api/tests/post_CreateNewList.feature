@@ -1,4 +1,4 @@
-@API @R4LA-434
+@API @R4LA-434  @SKIP
 Feature: View All Lists - User is able to create new list
 
   As a user Internal or External, when I go to View All Lists page

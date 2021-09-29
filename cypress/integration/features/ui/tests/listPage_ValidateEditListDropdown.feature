@@ -1,4 +1,4 @@
-@UI @R4LA-231  @LP  @SmokeTest
+@UI @R4LA-231  @LP  @SmokeTest  @SKIP
 Feature: List Page - Validate Edit List Dropdown
 
   As a user Internal or External, I need to be able
