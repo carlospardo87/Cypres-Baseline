@@ -14,11 +14,12 @@
 // ***********************************************************
 
 const cucumber = require('cypress-cucumber-preprocessor').default;
-const fs = require('fs')
+const fs = require('fs-extra')
 const chalk = require("chalk");
 const generateReport = require('../reports/setup/report_old.js')
 
 const sendingEmail = require("../reports/setup/sendEmail");
+const path = require("path");
 
 
 
@@ -66,6 +67,17 @@ module.exports = (on, config) => {
 		}
 	})
 
+	// accept a configFile value or use local by default
+	const file = config.env.configFile || 'sit';
+	return getConfigurationByFile(file)
+
+}
+
+
+function getConfigurationByFile (file) {
+	const pathToConfigFile = path.resolve('config', `${file}.env.json`);
+
+	return fs.readJson(pathToConfigFile)
 }
 
 
