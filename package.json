@@ -6,8 +6,8 @@
   "scripts": {
     "pretest": "node cypress/reports/setup/delete-results.js",
     "smokeTest:sit": "npx cypress-tags run -e TAGS='@SmokeTest'",
-    "smokeTest:dev": "npx cypress-tags run -e TAGS='@SmokeTest',baseUrl='https://ecomr4-dev.usfoods-a0-poc1.com/",
-    "apiTest:dev": "npx cypress-tags run -e TAGS=' @API',baseUrl='https://panamax-dev.usfoods-a0-poc1.com'",
+    "smokeTest:dev": "npx cypress-tags run -e TAGS='@SmokeTest' --env configFile=dev",
+    "apiTest:dev": "npx cypress-tags run -e TAGS=' @API' --env configFile=dev",
     "apiTest:sit": "npx cypress-tags run -e TAGS=' @API",
     "test": "npx cypress run"
   },
