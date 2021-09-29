@@ -51,13 +51,12 @@ module.exports =  function(results,failedTest) {
         rejectUnauthorized: false
       }
     }).sendMail({
-      from: '"Automation Report 👻" <foo@usfoods.com>',
-      to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com, d343d090.usfoods.onmicrosoft.com@amer.teams.ms',
+      from: '"List Automation Report 👻" <foo@usfoods.com>',
+      to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com, 07cb4008.usfoods.onmicrosoft.com@amer.teams.ms',
       subject: 'Automation report',
       text: 'Automation',
       html: `<b> 👉🏻  <i>Regression Status</i>  👈🏻 </b><br>
       <b>  ------------------------------------------------------------------------------------------------------------------------------------ </b>
-  
       <table class="default">
   <tr>
     <th>| Total_Tests | </th><th> Total_Passed |</th><th> Total_Failed |</th><th> Browser_Name |</th><th> Environmet </th><th>| Viewport |</th><th> % Success | </th><th> Duration (seconds) |</th>
