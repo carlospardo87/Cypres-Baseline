@@ -15,10 +15,5 @@
   "viewportWidth": 1920,
   "viewportHeight":1080,
   "retries": 0,
-  "trashAssetsBeforeRuns": true,
-
-  "env": {
-    "baseUrl" : "https://ecomr4-dev.usfoods-a0-poc1.com/",
-    "baseApi": "https://panamax-dev.usfoods-a0-poc1.com"
-  }
+  "trashAssetsBeforeRuns": true
 }
