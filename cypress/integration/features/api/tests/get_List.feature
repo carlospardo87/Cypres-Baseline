@@ -6,3 +6,4 @@ Feature: Getting List API
     When requesting Lists API
     Then "Lists" response should contain status "200"
     And "Lists" response should be successful
+    And "Lists" response body should be successful

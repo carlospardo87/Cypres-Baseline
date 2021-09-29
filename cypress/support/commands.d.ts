@@ -26,6 +26,10 @@ declare namespace Cypress {
 
         getListGroups(response)
 
+        getRecentPurchase(response)
+
+        getCustomers(response)
+
         getListItems(response)
 
         getListGroupsWithCustomerDetails(response, customerNro,divisionNro, departmentNro)

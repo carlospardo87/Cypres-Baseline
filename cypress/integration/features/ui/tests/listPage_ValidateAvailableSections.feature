@@ -1,4 +1,4 @@
-@UI @R4LA-175 @LP
+@UI @R4LA-175 @LP @SKIP
 Feature: List Page - Validate Available Sections
 
   As a user Internal or External I need to navigate to My List Page

@@ -6,3 +6,4 @@ Feature: Getting ListItems API
     When requesting ListItems API
     Then "ListItems" response should contain status "200"
     And "ListItems" response should be successful
+    And "ListItems" response body should be successful

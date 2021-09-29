@@ -1,4 +1,4 @@
-@UI @R4LA-262 @LP
+@UI @R4LA-45 @LP  @SKIP
 Feature: List Page - Validate Sort Menu
 
   As a user Internal or External I need to navigate to My List Page
@@ -10,7 +10,7 @@ Feature: List Page - Validate Sort Menu
   Scenario: User should be able to sort the list menu
     When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
     And clicks on My Lists button
-    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
+    #Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     And should be able to sort the lists by "List Name"
     And should be able to sort the lists by "Last Updated By"
     And should be able to sort the lists by "Products"

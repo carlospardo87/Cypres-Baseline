@@ -140,6 +140,30 @@ Cypress.Commands.add("getListGroups", (response) => {
   }).as('getListGroups')
 });
 
+Cypress.Commands.add("getCustomers", (response) => {
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/customer-domain-api/v1/customers`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+  }).as('getCustomers')
+});
+
+Cypress.Commands.add("getRecentPurchase", (response) => {
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/recentPurchase`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+  }).as('getRecentPurchase')
+});
+
 Cypress.Commands.add("getListGroupsWithCustomerDetails", (response, customerNro,divisionNro, departmentNro ) => {
   cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/listGroups?customerNumber=${customerNro}&divisionNumber=${divisionNro}&departmentNumber=${departmentNro}`,
     headers: {

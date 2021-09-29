@@ -1,4 +1,4 @@
-@UI @ELG
+@UI @ELG @R4LA-293  @SKIP
 Feature: Edit List Page - Validate List Groups And Product Selected Modal
 
   As a user Internal or External, I need to be able
