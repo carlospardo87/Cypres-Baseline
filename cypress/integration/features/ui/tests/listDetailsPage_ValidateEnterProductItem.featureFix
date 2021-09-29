@@ -1,4 +1,4 @@
-@UI @R4LA-214 @LDP @SmokeTest
+@UI @R4LA-55 @LDP @SmokeTest
 Feature: List Details page - Validate Enter Product Items
 
   As a user Internal or External I need to navigate to
@@ -12,7 +12,7 @@ Feature: List Details page - Validate Enter Product Items
     When "Internal" user logs in with valid credentials "R4TMID3" and "Winter246"
     And clicks on My Lists button
     Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
-    When goes to section "Public" and clicks on list "AutCypressPublic01"
+    #When goes to section "Public" and clicks on list "AutCypressPublic01"
     And should be able to see the group of list is ascending
     And should be able to enter a total of products "100"
     And should be able to click the card

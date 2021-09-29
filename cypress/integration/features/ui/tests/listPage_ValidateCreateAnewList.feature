@@ -1,4 +1,4 @@
-@UI @LP
+@UI @LP  @R4LA-240
 Feature: List Page - Validate Create a New List
 
   As a user Internal or External, I need to navigate to View All List
@@ -7,11 +7,11 @@ Feature: List Page - Validate Create a New List
   Background:
     Given User navigates to USF with "browser"
 
-  @R4LA-311  @SmokeTest
+  @SmokeTest
   Scenario Outline: "<userType>" user should be able to create a new list
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
     And clicks on My Lists button
-    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
+    #Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     When clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"
@@ -33,7 +33,7 @@ Feature: List Page - Validate Create a New List
   Scenario Outline: User cannot create duplicate list
     When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
     And clicks on My Lists button
-    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
+    #Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     When clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"

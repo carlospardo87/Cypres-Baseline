@@ -1,4 +1,4 @@
-@UI @R4LA-261  @LDP
+@UI @R4LA-103  @LDP
 Feature: List Details page - Validate Loading Spinner
 
   As a user Internal or External

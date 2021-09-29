@@ -11,7 +11,7 @@ Feature: Lists Page - Validate Action Elements
   Scenario: User should be able to see all the action elements
     When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
     And clicks on My Lists button
-    And should be able to see the loading spinner with text "One moment please while we cook up your lists."
+    #And should be able to see the loading spinner with text "One moment please while we cook up your lists."
     Then lists page URL should contain "/lists"
     And should be able to see the title contain "View All Lists"
     And should be able to see button Create Order
