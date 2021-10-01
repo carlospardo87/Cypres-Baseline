@@ -115,7 +115,7 @@ export default class ListsPage {
   }
 
   checkListInformation() {
-    let array_listItemsCss = ['.list-name', '.last-updated-by', '.products']
+    let array_listItemsCss = ['.list-name', '.last-updated-by-header', '.products-header', '.discontinued-products-header']
 
         for (let j = 0; j < array_listItemsCss.length; j++) {
           cy.shouldMatchRegex(`${array_listItemsCss[j]}`, 0, /\w+/)
@@ -220,7 +220,7 @@ export default class ListsPage {
     cy.get('.item-card.item').each($el => {
       if ($el.text().includes(listName)) {
         cy.wrap($el).find('ion-icon').click({force: true})
-        return ''
+       // return ''
       }
     });
     cy.xpath(`//ion-label[.='${optionName}']`).should('be.visible').click({force: true})
