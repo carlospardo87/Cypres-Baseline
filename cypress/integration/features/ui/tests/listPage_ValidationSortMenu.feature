@@ -1,7 +1,7 @@
-@UI @R4LA-45 @LP  @SKIP
+@UI @R4LA-45 @LP
 Feature: List Page - Validate Sort Menu
 
-  As a user Internal or External I need to navigate to My List Page
+  As a user Internal I need to navigate to View All Lists Page
   and check that I am able to sort the list
 
   Background:
