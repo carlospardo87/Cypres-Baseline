@@ -42,9 +42,3 @@ Then("should be able to see the ellipsis on the banner right",  () => {
 });
 
 
-afterEach(() => {
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-  })
-})
-

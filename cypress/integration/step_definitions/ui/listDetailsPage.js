@@ -63,8 +63,3 @@ And("should be able to see the loading spinner appears with text {string}",(spin
   new ListsPage().checkLoadingSpinnerIfExist(spinnerText)
 });
 
-afterEach(() => {
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-  })
-})

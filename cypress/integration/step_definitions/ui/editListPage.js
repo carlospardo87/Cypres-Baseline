@@ -97,9 +97,3 @@ Then("should be able to click on green checkmark circle",  () => {
   new EditListPage().clickGreenCheckmarkCircle();
 });
 
-
-afterEach(() => {
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-  })
-})
