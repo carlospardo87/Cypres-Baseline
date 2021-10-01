@@ -9,7 +9,7 @@
     "smokeTest:dev": "npx cypress-tags run -e TAGS='@SmokeTest' --env configFile=dev",
     "apiTest:dev": "npx cypress-tags run -e TAGS=' @API' --env configFile=dev",
     "apiTest:sit": "npx cypress-tags run -e TAGS=' @API",
-    "test": "npx cypress-tags run -e 'TAGS=not @SKIP' --env configFile=dev"
+    "test": "npx cypress-tags run -e 'TAGS=not @SKIP' --env configFile=sit"
   },
   "author": "KinAndCarta",
   "license": "ISC",
