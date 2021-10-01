@@ -1,6 +1,6 @@
 {
   "baseUrl" : "https://ecomr4-sit.usfoods-a0-poc1.com/",
-  "baseApi": "https://panamax-dev.usfoods-a0-poc1.com",
+  "baseApi": "https://panamax-sit.usfoods-a0-poc1.com",
   "defaultCommandTimeout": 15000,
   "responseTimeout" : 15000,
   "pageLoadTimeout": 15000,
@@ -15,5 +15,7 @@
   "viewportWidth": 1920,
   "viewportHeight":1080,
   "retries": 0,
+  "allureResultsPath": "allure-results",
+  "allure":true,
   "trashAssetsBeforeRuns": true
 }

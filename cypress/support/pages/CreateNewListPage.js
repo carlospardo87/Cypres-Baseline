@@ -40,6 +40,9 @@ export default class HomePage {
       case 'Private':
         cy.clickElementForce(this.radioButtonLists, 2)
         break
+      default:
+        cy.shouldElement(this.radioButtonLists, 0, 'be.not.visible')
+        break
     }
   }
 

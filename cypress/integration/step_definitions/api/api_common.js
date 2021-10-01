@@ -2,8 +2,8 @@
 
 import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps'
 
-Given('authorization token was requested', () => {
-  cy.getAuthToken()
+Given('authorization token was requested with account {string}', (user) => {
+  cy.getAuthToken(user)
   cy.checkStatusCode('@getAuthToken', 200)
 })
 

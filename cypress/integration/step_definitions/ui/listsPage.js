@@ -99,9 +99,3 @@ When("goes to {string} and clicks {string} button", (listName, optionMenu) => {
   new ListsPage().clickOnEditList(listName, optionMenu)
 });
 
-
-afterEach(() => {
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-  })
-})

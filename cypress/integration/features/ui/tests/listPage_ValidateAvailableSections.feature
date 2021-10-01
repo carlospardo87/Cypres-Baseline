@@ -1,16 +1,16 @@
-@UI @R4LA-175 @LP @SKIP
+@UI @R4LA-175 @LP
 Feature: List Page - Validate Available Sections
 
-  As a user Internal or External I need to navigate to My List Page
-  and check that I am able to interact all the
+  As a user Internal or External I need to navigate to
+  View All Lists Page and verify that I am able to see all the
   available sections
 
   Background:
     Given User navigates to USF with "browser"
 
-  Scenario Outline: User should be able to see the available section
+  Scenario Outline: "<userType>" user should be able to see the available section
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    And goes to dropdown and selects customer "74059163"
+    And goes to dropdown and selects customer "91150102"
     And clicks on My Lists button
     Then should be able to see the loading spinner
     Then "<userType>" should be able to see each section name
@@ -23,12 +23,12 @@ Feature: List Page - Validate Available Sections
       #| External |prodsupp101 |   today123     |
 
 
-  Scenario Outline: User should be able to see "There are no lists to show" on empty Lists
+  Scenario Outline: "<userType>" user should be able to see "There are no lists to show" on empty Lists
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    And goes to dropdown and selects customer "74059163"
+    And goes to dropdown and selects customer "91150102"
     And clicks on My Lists button
     Then should be able to see the loading spinner
-    Then should be able to see in each section "There are no lists to show"
+    And should be able to see in each section "There are no lists to show"
 
     Examples:
       | userType | uname   | password  |

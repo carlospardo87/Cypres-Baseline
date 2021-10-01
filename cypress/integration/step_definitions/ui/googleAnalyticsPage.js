@@ -18,7 +18,7 @@ Given("User goes to USF with {string}",(device) => {
 
 Then("goes to Home page and check google analytics",() => {
   cy.visit(analytics_config.pages.home,{timeout:3000})
-  //cy.wait(2000)
+
 
   cy.get('@ga')
     .should('be.calledWith', 'create', analytics_config.gaTrackerId)

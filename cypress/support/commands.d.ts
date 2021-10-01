@@ -41,7 +41,7 @@ declare namespace Cypress {
         /**
          * Get Token
          */
-        getAuthToken(),
+        getAuthToken(user),
 
         getRefreshTokenByCustomer(refreshToken, customerNro, divisionNro),
 

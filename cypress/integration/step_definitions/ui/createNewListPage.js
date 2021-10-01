@@ -50,10 +50,3 @@ And("should be able to see error message {string}", (errorMessage) => {
   new CreateNewListPage().checkErrorMessage(errorMessage)
 });
 
-
-
-afterEach(() => {
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-  })
-})

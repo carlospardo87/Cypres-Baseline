@@ -1,7 +1,7 @@
-@UI @LP  @R4LA-240  @SKIP
+@UI @LP  @R4LA-240
 Feature: List Page - Validate Create a New List
 
-  As a user Internal or External, I need to navigate to View All List
+  As a user Internal or External, I need to navigate to View All Lists
   and be able to create a new list
 
   Background:
@@ -11,7 +11,7 @@ Feature: List Page - Validate Create a New List
   Scenario Outline: "<userType>" user should be able to create a new list
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
     And clicks on My Lists button
-    #Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
+    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     When clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"
@@ -19,6 +19,7 @@ Feature: List Page - Validate Create a New List
     And should be able to select "<totalListType>" List Type
     And should be able to select List Type "<listType>"
     And should be able to see the "Create" button enabled
+    #And should be able to enter list name upto 30 characters
     And should be able to close create list modal
 
     Examples:
@@ -26,14 +27,14 @@ Feature: List Page - Validate Create a New List
       | Internal | R4TMID1 | Winter246 | New List    | Public   | 3             |
       | Internal | R4TMID1 | Winter246 | Copy List   | Internal | 3             |
       | Internal | R4TMID1 | Winter246 | Import List | Private  | 3             |
-      #| External | prodsupp101 | today123  | New List    | Public   | 1             |
+      #| External | prodsupp101 | today123  | New List    | None     | 0             |
 
 
   @R4LA-433
-  Scenario Outline: User cannot create duplicate list
+  Scenario Outline: User should not able to create duplicate list
     When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
     And clicks on My Lists button
-    #Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
+    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     When clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"

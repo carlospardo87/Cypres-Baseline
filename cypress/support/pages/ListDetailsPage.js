@@ -13,12 +13,13 @@ export default class ListDetailsPage {
     this.array_listGroupName = '.item > .list-details-page-group-name'
 
     this.array_productCardImg = '.usf-product-card-img > img'
-    this.icon_cartCountItems = '.icon-badge-wrapper > .badgeheader'
+    this.icon_cartCountItems = '.icon-badge-wrapper > .badge-header'
     this.title_listDetailsPage = '.list-page-banner-info'
   }
 
 
   checkCardElements(array_element, regexMach) {
+    cy.wait(5000)
     cy.get(array_element).should('be.visible').its('length')
       .then(arrLength => {
       for (let i = 0; i < arrLength ; i++) {

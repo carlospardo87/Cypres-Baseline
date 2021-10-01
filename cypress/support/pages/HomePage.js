@@ -16,6 +16,11 @@ export default class HomePage {
       .click()
 
     cy.highlightBorderElement(this.myListButton, 'transparent')
+
+    cy.on('uncaught:exception', (err, runnable) => {
+      expect(err.message).to.include('One of the specified object stores was not found')
+      return false
+    })
   }
 
   urlContain(endToEnd) {
@@ -67,7 +72,10 @@ export default class HomePage {
       } else if(browserToPage === 'Management List') {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists/management/SL-1016246`)
       }
-
+      cy.on('uncaught:exception', (err, runnable) => {
+        expect(err.message).to.include('One of the specified object stores was not found')
+        return false
+      })
     }
 
   checkBannerCss() {
@@ -85,6 +93,11 @@ export default class HomePage {
 
     selectNewCustomer(customerNumber) {
     cy.selectCustomer(this.btn_dropDownList, customerNumber)
+
+      cy.on('uncaught:exception', (err, runnable) => {
+        expect(err.message).to.include('One of the specified object stores was not found')
+        return false
+      })
 
     }
 }

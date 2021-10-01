@@ -12,10 +12,3 @@ When("{string} user logs in with valid credentials {string} and {string}", (user
 Given("User navigates to USF with {string}", (device) => {
   new LoginPage().navigateWithViewPort(device)
 });
-
-
-afterEach(() => {
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-  })
-})
