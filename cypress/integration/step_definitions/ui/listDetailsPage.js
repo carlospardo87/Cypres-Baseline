@@ -8,8 +8,8 @@ And('should be able to see product descriptions', () => {
   new ListDetailsPage().checkCardElements(new ListDetailsPage().array_descriptionCards, /\w+/)
 })
 
-And('should be able to see product brand names', () => {
-  new ListDetailsPage().checkCardElements(new ListDetailsPage().array_brandNames, /\w+/)
+And('should be able to see product brand names in capital letters', () => {
+  new ListDetailsPage().checkCardElements(new ListDetailsPage().array_brandNames, /[A-Z]/)
 })
 
 And("should be able to see pack size contains {string}", (packSizeList)=> {
@@ -27,7 +27,6 @@ And('should be able to enter numbers in quantity boxes', () => {
 });
 And("should be able to see the product prices contains $", () => {
   new ListDetailsPage().checkCardPrices(/\$+(\d{1,2})+(.\d{1,2})+( CS)/)
-  //new ListDetailsPage().checkCardPrices(/\$+(\d{1,2})+(.\d{1,2})/)
 });
 
 
@@ -63,3 +62,10 @@ And("should be able to see the loading spinner appears with text {string}",(spin
   new ListsPage().checkLoadingSpinnerIfExist(spinnerText)
 });
 
+Then("should be able to see value {string} in quantity boxes",  (placeHolder) => {
+  new ListDetailsPage().shouldHaveAttribute(new ListDetailsPage().array_priceContainer, 'placeholder', placeHolder)
+});
+
+Then("should be able to enter {string} in quantity boxes", (valueRanges) => {
+  new ListDetailsPage().shouldHaveAttribute(new ListDetailsPage().array_priceContainer, 'maxlength', '3')
+});

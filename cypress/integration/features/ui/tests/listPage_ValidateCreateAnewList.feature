@@ -16,18 +16,18 @@ Feature: List Page - Validate Create a New List
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"
     And should be able to enter list name "List Name Test"
+    And should be able to enter list name upto "30" characters
     And should be able to select "<totalListType>" List Type
     And should be able to select List Type "<listType>"
     And should be able to see the "Create" button enabled
-    #And should be able to enter list name upto 30 characters
     And should be able to close create list modal
 
     Examples:
-      | userType | uname   | password  | optionList  | listType | totalListType |
-      | Internal | R4TMID1 | Winter246 | New List    | Public   | 3             |
-      | Internal | R4TMID1 | Winter246 | Copy List   | Internal | 3             |
-      | Internal | R4TMID1 | Winter246 | Import List | Private  | 3             |
-      #| External | prodsupp101 | today123  | New List    | None     | 0             |
+      | userType | uname     | password  | optionList  | listType | totalListType |
+      | Internal | R4TMID1   | Winter246 | New List    | Public   | 3             |
+      | Internal | R4TMID1   | Winter246 | Copy List   | Internal | 3             |
+      | Internal | R4TMID1   | Winter246 | Import List | Private  | 3             |
+      | External | extuser01 | Welcome22 | New List    | None     | None          |
 
 
   @R4LA-433
