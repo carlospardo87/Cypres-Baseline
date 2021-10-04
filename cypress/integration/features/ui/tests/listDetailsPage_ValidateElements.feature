@@ -1,4 +1,4 @@
-@UI @R4LA-56  @LDP
+@UI @R4LA-56  @LDP @SKIP
 Feature: List Details page - Validate Elements
 
   As a user Internal I need to navigate to
