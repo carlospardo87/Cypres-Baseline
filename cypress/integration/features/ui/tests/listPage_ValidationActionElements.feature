@@ -22,14 +22,17 @@ Feature: Lists Page - Validate Action Elements
     And should be able to see customer verification icon
 
 
-  #Scenario: User filters a list that exists
-    #And should be able to enter text <"ListName"> in search box and filter lists
-    #And should be able to see list filtered
+  Scenario: User filters a list that exists
+    And should be able to enter text "AutCypress" in search box and filter lists
+    And should be able to see list filtered that contains text "AutCypress"
 
-  #Scenario: User filters a list that does not exist
-    #And should be able to enter text <"ListName"> in search box and filter lists
-    #And should be able to see in each section "There are no lists to show"
+  Scenario: User cleans text using clean icon "x"
+     And should be able to enter text "QaAutomation" in search box and filter lists
+     And should be able to use the icon "x" to clean the text
 
-   #Scenario: User cleans text using clean icon "x"
-    #And should be able to enter text <"ListName"> in search box and filter lists
-    #And should be able to use the icon "x" to clean the text
+  @SKIP
+  Scenario: User filters a list that does not exist
+    And should be able to enter text "QaAutomation" in search box and filter lists
+    And should be able to see in each section "There are no lists to show"
+
+

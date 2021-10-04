@@ -99,3 +99,29 @@ When("goes to {string} and clicks {string} button", (listName, optionMenu) => {
   new ListsPage().clickOnEditList(listName, optionMenu)
 });
 
+And("should be able to enter text {string} in search box and filter lists", (text) => {
+  cy.wait(3000)
+
+  cy.get(".searchbar-input[placeholder='Search']").type(`${text}`)
+      .should('have.value', text)
+      .clear()
+      .should('have.value', '')
+      .type(`${text}{movetostart}{enter}`)
+
+  cy.get('body').trigger('keydown', { key: "Enter", code: "Enter", which: 13 })
+  cy.get('body').trigger('keyup', { key: "Enter", code: "Enter", which: 13 })
+
+
+});
+
+And("should be able to see list filtered that contains text {string}", (text) => {
+  cy.get('.list-name').first().should('contain', text)
+});
+
+And("should be able to use the icon \"x\" to clean the text", () => {
+  cy.get('.list-search .searchbar-clear-button').click({force: true});
+  cy.get(".list-search")
+      .should('not.have.attr','class','searchbar-has-value')
+      .should('have.value', '')
+});
+

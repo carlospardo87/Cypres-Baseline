@@ -4,8 +4,8 @@ export default class EditListPage {
 
   constructor() {
     this.radioButton = 'ion-checkbox'
-    this.groupButtons = '.list-groups-button > span'
-    this.groupTitle = '.list-management-page-group-name'
+    this.groupButtons = '.list-groups-button'
+    this.groupTitle = '.list-management-group-name'
     this.greenFooter = '.list-product-selection'
     this.totalProductSelected = '.list-product-selection > ion-text.md'
     this.viewSelectedProducts = '.selected-product-input .products-list'
@@ -52,7 +52,8 @@ export default class EditListPage {
 
       cy.get(this.groupTitle).then($groupName=>{
         let title_listName = $groupName.text()
-          .replace("\u00a0","").replace(/\s/g, '')
+            .replace("\u00a0","")
+            .replace(/[(]/,'').replace(/[)]/,'').replace(/\s/g, '')
         cy.log(title_listName)
         cy.highlightBorderElement($groupName, 'magenta')
 

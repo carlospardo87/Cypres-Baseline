@@ -7,7 +7,6 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
   Background:
     Given User navigates to USF with "browser"
     When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
-    #And goes to dropdown and selects customer "24163578"
     And clicks on My Lists button
     Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     And goes to "AutCypressPublic_100" and clicks "Edit List" button
@@ -44,7 +43,6 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
   Scenario Outline: User should be able to select "<optNames>" check button enable/disable
     Then should be able to select "2" items
     And should be able to click on option "<optNames>"
-    #And should be able to see button "<optNames>" disabled
     And should be able to select where do you want to "<optNames>" this product?
     And should be able to see button "<optNames>" enabled
     And should be able to "<opt>" button "Select All"

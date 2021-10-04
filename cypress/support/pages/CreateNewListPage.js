@@ -41,7 +41,7 @@ export default class HomePage {
         cy.clickElementForce(this.radioButtonLists, 2)
         break
       default:
-        cy.shouldElement(this.radioButtonLists, 0, 'be.not.visible')
+        cy.get(this.radioButtonLists).should('not.exist')
         break
     }
   }
@@ -72,9 +72,14 @@ export default class HomePage {
   }
 
   checkTotalOfListType(totalListType) {
-    cy.get(this.radioButtonLists).its('length').then(eleLen =>{
-      expect(eleLen).to.be.equal(Number(totalListType))
-    })
+    if (totalListType === 'None') {
+      cy.get(this.radioButtonLists).should('not.exist');
+    } else {
+      cy.get(this.radioButtonLists).its('length').then(eleLen =>{
+        expect(eleLen).to.be.equal(Number(totalListType))
+      });
+    }
+
 
   }
 }

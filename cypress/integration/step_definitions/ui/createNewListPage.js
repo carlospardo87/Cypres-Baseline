@@ -50,3 +50,7 @@ And("should be able to see error message {string}", (errorMessage) => {
   new CreateNewListPage().checkErrorMessage(errorMessage)
 });
 
+And("should be able to enter list name upto {string} characters", (maxCharacters) => {
+  cy.get(`ion-input[maxlength='${maxCharacters}']`).should('exist')
+});
+
