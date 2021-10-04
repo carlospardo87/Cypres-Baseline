@@ -43,7 +43,6 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
   Scenario Outline: User should be able to select "<optNames>" check button enable/disable
     Then should be able to select "2" items
     And should be able to click on option "<optNames>"
-    #And should be able to see button "<optNames>" disabled
     And should be able to select where do you want to "<optNames>" this product?
     And should be able to see button "<optNames>" enabled
     And should be able to "<opt>" button "Select All"
