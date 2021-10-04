@@ -53,8 +53,8 @@ module.exports =  function(results,failedTest) {
     }).sendMail({
       from: '"List Automation Report 👻" <foo@usfoods.com>',
       to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com, 07cb4008.usfoods.onmicrosoft.com@amer.teams.ms',
-      subject: 'Automation report',
-      text: 'Automation',
+      subject: 'List Automation Report',
+      text: 'List Automation Report',
       html: `<b> 👉🏻  <i>Regression Status</i>  👈🏻 </b><br>
       <b>  ------------------------------------------------------------------------------------------------------------------------------------ </b>
       <table class="default">
