@@ -10,7 +10,6 @@ Feature: List Page - Validate Available Sections
 
   Scenario Outline: "<userType>" user should be able to see the available section
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    #And goes to dropdown and selects customer "91150102"
     And clicks on My Lists button
     Then should be able to see the loading spinner
     Then "<userType>" should be able to see each section name
