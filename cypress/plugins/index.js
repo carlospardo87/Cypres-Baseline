@@ -50,6 +50,7 @@ module.exports = (on, config) => {
 					'totalTests': results.totalTests,
 					'totalPassed': results.totalPassed,
 					'totalFailed': results.totalFailed,
+					'totalPending': results.totalPending,
 					'browserName': results.browserName,
 					'baseUrl': results.config.baseUrl,
 					'viewport': results.config.viewportWidth + 'x' + results.config.viewportHeight,

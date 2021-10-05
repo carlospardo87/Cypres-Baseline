@@ -1,6 +1,5 @@
 
 const chalk = require("chalk");
-const fs = require('fs')
 
 const nodemailer = require('nodemailer')
 
@@ -59,7 +58,7 @@ module.exports =  function(results,failedTest) {
       <b>  ------------------------------------------------------------------------------------------------------------------------------------ </b>
       <table class="default">
   <tr>
-    <th>| Total_Tests | </th><th> Total_Passed |</th><th> Total_Failed |</th><th> Browser_Name |</th><th> Environmet </th><th>| Viewport |</th><th> % Success | </th><th> Duration (seconds) |</th>
+    <th>| Total_Tests | </th><th> Total_Passed |</th><th> Total_Failed |</th><th> Total_Pending |</th><th> Browser_Name |</th><th> Environmet </th><th>| Viewport |</th><th> % Success | </th><th> Duration (seconds) |</th>
   </tr>
   <tr>
     <td>${results.totalTests}</td>
@@ -67,6 +66,8 @@ module.exports =  function(results,failedTest) {
     <td>${results.totalPassed}</td>
     
     <td>${results.totalFailed}</td>
+    
+    <td>${results.totalPending}</td>
    
     <td>${results.browserName}</td>
     
