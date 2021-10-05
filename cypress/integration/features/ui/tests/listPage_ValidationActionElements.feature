@@ -30,9 +30,9 @@ Feature: Lists Page - Validate Action Elements
      And should be able to enter text "QaAutomation" in search box and filter lists
      And should be able to use the icon "x" to clean the text
 
-  @SKIP
-  Scenario: User filters a list that does not exist
-    And should be able to enter text "QaAutomation" in search box and filter lists
-    And should be able to see in each section "There are no lists to show"
+  #@SKIP
+  #Scenario: User filters a list that does not exist
+  #  And should be able to enter text "QaAutomation" in search box and filter lists
+  #  And should be able to see in each section "There are no lists to show"
 
 
