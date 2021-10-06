@@ -16,8 +16,15 @@ export default class EditListPage {
     this.newGroupCard = '.list-new-group-card'
     this.edit_newGroup = 'input[placeholder="Enter Group Name"]'
     this.msg_errorGroup = '.new-group-error'
+    this.msg_errorListName = '.list-name-taken-message'
     this.clickGreenCheckmark = 'ion-icon[name="checkmark-circle-outline"]'
     this.redCloseCircle = 'ion-icon[name="close-circle-outline"]'
+    this.ellipsisMenuIcon = '.list-page-options'
+    this.editListNameModal = '.modal-wrapper > .ion-page'
+    this.input_newListName = '[data-cy=new-list-name] > .native-input'
+    this.btn_submit = '[data-cy=submit]'
+    this.btn_closeIcon = '.close-icon'
+    this.titleModal = '[data-cy=title]'
   }
 
 
@@ -138,9 +145,9 @@ export default class EditListPage {
     cy.get(this.edit_newGroup).type(groupName)
   }
 
-  checkErrorMessage(errorMessage) {
+  checkErrorMessage(locator, errorMessage) {
     //cy.findByText(errorMessage)
-    cy.shouldElement(this.msg_errorGroup,0, 'contain.text',errorMessage)
+    cy.shouldElement(locator,0, 'contain.text',errorMessage)
   }
 
   checkGreenCheckmarkCircle() {
@@ -153,5 +160,34 @@ export default class EditListPage {
 
   clickGreenCheckmarkCircle() {
     cy.get(this.clickGreenCheckmark).click()
+  }
+
+  clickOnEllipsisAndOption(optionMenu) {
+    cy.clickElement(this.ellipsisMenuIcon, 0)
+
+     cy.xpath(`//ion-item[.='${optionMenu}']`)
+         .should('be.visible').click()
+  }
+
+  enterNewListName(modalTitle, newListName) {
+    cy.wait(2000)
+    cy.shouldElement(this.editListNameModal, 0, 'be.visible')
+
+    cy.shouldElement(this.titleModal, 0, 'contain',modalTitle)
+
+    cy.get(this.input_newListName)
+        .should('be.visible')
+        .clear()
+        .should('have.value', '')
+        .type(newListName)
+        .should('have.value', newListName)
+  }
+
+  clickOnSubmitButton() {
+    cy.clickElement(this.btn_submit, 0)
+  }
+
+  clickOnCloseIcon() {
+    cy.clickElement(this.btn_closeIcon, 0)
   }
 }
