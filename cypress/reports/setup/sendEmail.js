@@ -51,7 +51,7 @@ module.exports =  function(results,failedTest) {
       }
     }).sendMail({
       from: '"List Automation Report 👻" <foo@usfoods.com>',
-      to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com, 07cb4008.usfoods.onmicrosoft.com@amer.teams.ms',
+      to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com, 07cb4008.usfoods.onmicrosoft.com@amer.teams.ms , 7445d681.usfoods.onmicrosoft.com@amer.teams.ms',
       subject: 'List Automation Report',
       text: 'List Automation Report',
       html: `<b> 👉🏻  <i>Regression Status</i>  👈🏻 </b><br>

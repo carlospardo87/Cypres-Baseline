@@ -1,4 +1,4 @@
-@UI @ELN @R4LA-545
+@ELN @R4LA-545
 Feature: Edit List Name - Validate List Name can be changed
 
   As a user Internal/External , I need to be able
