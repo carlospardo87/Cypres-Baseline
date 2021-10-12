@@ -8,7 +8,6 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
     Given User navigates to USF with "browser"
     When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
     And clicks on My Lists button
-    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     And goes to "AutCypressPublic_100" and clicks "Edit List" button
     Then should be able to see the header title contain "AutCypressPublic_100"
 

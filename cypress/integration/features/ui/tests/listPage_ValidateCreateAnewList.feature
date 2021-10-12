@@ -11,7 +11,6 @@ Feature: List Page - Validate Create a New List
   Scenario Outline: "<userType>" user should be able to create a new list
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
     And clicks on My Lists button
-    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     When clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"
@@ -34,7 +33,6 @@ Feature: List Page - Validate Create a New List
   Scenario Outline: User should not able to create duplicate list
     When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
     And clicks on My Lists button
-    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     When clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"

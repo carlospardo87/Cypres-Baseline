@@ -11,7 +11,6 @@ Feature: List Page - Validate Available Sections
   Scenario Outline: "<userType>" user should be able to see the available section
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
     And clicks on My Lists button
-    Then should be able to see the loading spinner
     Then "<userType>" should be able to see each section name
     And should be able to see column description per section
     And should be able to see list description per section
@@ -26,7 +25,6 @@ Feature: List Page - Validate Available Sections
     When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
     And goes to dropdown and selects customer "<customerNro>"
     And clicks on My Lists button
-    Then should be able to see the loading spinner
     And should be able to see in each section "There are no lists to show"
 
     Examples:

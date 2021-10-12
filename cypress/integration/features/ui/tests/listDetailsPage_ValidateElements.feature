@@ -11,7 +11,6 @@ Feature: List Details page - Validate Elements
   Scenario: User should be able to see product description and other product information
     When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
     And clicks on My Lists button
-    Then should be able to see the loading spinner with text "One moment please while we cook up your lists."
     When goes to section "Public" and clicks on list "AutCypressPublic_100"
     Then should be able to see the proper URL on "List Details" page
     And should be able to see product brand names in capital letters
