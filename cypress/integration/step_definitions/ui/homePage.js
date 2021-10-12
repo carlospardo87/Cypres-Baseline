@@ -2,6 +2,7 @@
 
 import {When, Then} from 'cypress-cucumber-preprocessor/steps'
 import HomePage from '../../../support/pages/HomePage';
+import ListsPage from "../../../support/pages/ListsPage";
 
 When('I take a screenshot', () => {
   cy.screenshot()
@@ -9,6 +10,7 @@ When('I take a screenshot', () => {
 
 And("clicks on My Lists button",() => {
   new HomePage().clickMyListButton()
+  new ListsPage().checkLoadingSpinnerIfExist('One moment please while we cook up your lists.')
 });
 
 When("goes to dropdown and selects customer {string}",(customerNumber) => {

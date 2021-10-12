@@ -101,8 +101,8 @@ Then("should be able to dropdown the ellipsis menu and click on option {string}"
   new EditListPage().clickOnEllipsisAndOption(optionMenu)
 });
 
-Then("should be able to see the {string} modal, and enter a new list name {string}",  (modalTitle, newListName) => {
-  new EditListPage().enterNewListName(modalTitle, newListName)
+Then("should be able to see the {string} modal",  (modalTitle, newListName) => {
+  new EditListPage().checkModalTitle(modalTitle, newListName)
 });
 
 Then("should be able to click on the Submit button",  () => {
@@ -110,9 +110,20 @@ Then("should be able to click on the Submit button",  () => {
 });
 
 
-Then("should be able to see list name error {string}",  (errorListName) => {
-  new EditListPage().checkErrorMessage(new EditListPage().msg_errorListName, errorListName)
+Then("should be able to enter list name ,click Submit and see list name error {string}",  (errorListName, datatable) => {
+  datatable.hashes().forEach((row) => {
+    new EditListPage().enterNewListName(row.newListName)
+    new EditListPage().clickOnSubmitButton()
+    new EditListPage().checkErrorMessage(new EditListPage().msg_errorListName, errorListName)
+  });
 });
+
+Then("should be able to enter list name {string} and click Submit button",  (newListName) => {
+    new EditListPage().enterNewListName(newListName)
+    new EditListPage().clickOnSubmitButton()
+});
+
+
 
 Then("should be able close the modal",  () => {
   new EditListPage().clickOnCloseIcon()
@@ -124,8 +135,10 @@ Then("should be able to revert the changes on {string} with the previous name {s
 
   cy.log('should click on ellipsis icon and choose the option')
   new EditListPage().clickOnEllipsisAndOption(actionName)
-  cy.log('should see the modal title and enter the list name')
-  new EditListPage().enterNewListName(actionName, revertListName)
+  cy.log('should see the modal title')
+  new EditListPage().checkModalTitle(actionName)
+  cy.log('should enter the list name and click Submit button')
+  new EditListPage().enterNewListName(revertListName)
 });
 
 

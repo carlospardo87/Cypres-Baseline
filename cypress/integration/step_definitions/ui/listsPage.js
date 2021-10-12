@@ -60,9 +60,6 @@ When("goes to section {string} and clicks on list {string}", (sectionList,listTo
   new ListsPage().clickCustomerList(listToClick)
 });
 
-And("should be able to see the loading spinner with text {string}",(spinnerText) => {
-  new ListsPage().checkLoadingSpinnerIfExist(spinnerText)
-});
 
 // This step does not wait for the View All List request
 And("should be able to see the loading spinner",() => {
@@ -74,7 +71,7 @@ Then('should be able to sort the lists by {string}',  (sortMenuOption)=> {
   new ListsPage().clickAndSortMenuOption(sortMenuOption)
 });
 
-When("goes to section {string} and edits the first list", (sectionName) => {
+When("goes to section {string} and edits the first list", () => {
   new ListsPage().clickIconEllipsis(new ListsPage().array_ellipsisIcon)
 });
 

@@ -169,15 +169,17 @@ export default class EditListPage {
          .should('be.visible').click()
   }
 
-  enterNewListName(modalTitle, newListName) {
+  checkModalTitle(modalTitle) {
     cy.wait(2000)
     cy.shouldElement(this.editListNameModal, 0, 'be.visible')
 
-    cy.shouldElement(this.titleModal, 0, 'contain',modalTitle)
+    cy.shouldElement(this.titleModal, 0, 'contain', modalTitle)
+  }
 
+  enterNewListName(newListName) {
     cy.get(this.input_newListName)
         .should('be.visible')
-        .clear()
+        .clear({timeout: 2000})
         .should('have.value', '')
         .type(newListName)
         .should('have.value', newListName)
