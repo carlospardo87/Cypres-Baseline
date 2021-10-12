@@ -1,4 +1,4 @@
-@API
+@API @SKIP
 Feature: Getting ListItems API
 
   Scenario: Getting ListItems API

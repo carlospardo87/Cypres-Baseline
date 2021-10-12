@@ -1,4 +1,4 @@
-@API
+@API @SKIP
 Feature: Sending POST product inventory API
 
   Scenario: Checking product inventory API

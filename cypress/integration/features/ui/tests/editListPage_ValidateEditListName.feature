@@ -1,4 +1,4 @@
-@ELN @R4LA-545
+@UI @ELN @R4LA-545
 Feature: Edit List Name - Validate List Name can be changed
 
   As a user Internal/External , I need to be able
@@ -27,6 +27,7 @@ Feature: Edit List Name - Validate List Name can be changed
       | Edit List Name | kb list     |
 
 
+  @BUGFIX
   Scenario Outline: User should able to edit a new list name if the list name entered does not exists.
     And should be able to dropdown the ellipsis menu and click on option "<optionMenu>"
     And should be able to see the "Edit List Name" modal, and enter a new list name "<newListName>"

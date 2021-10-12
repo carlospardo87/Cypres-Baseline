@@ -1,4 +1,4 @@
-@API
+@API @SKIP
 Feature: Getting Customers API
 
   Scenario: Getting Customers API
