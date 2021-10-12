@@ -11,7 +11,6 @@ Feature: Lists Page - Validate Action Elements
     And clicks on My Lists button
 
   Scenario: User should be able to see all the action elements
-    And should be able to see the loading spinner with text "One moment please while we cook up your lists."
     Then lists page URL should contain "/lists"
     And should be able to see the title contain "View All Lists"
     And should be able to see button Create Order
