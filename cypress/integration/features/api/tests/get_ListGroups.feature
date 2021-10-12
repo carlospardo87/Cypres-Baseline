@@ -1,4 +1,4 @@
-@API
+@API @SKIP
 Feature: Getting ListGroup API
 
   Scenario: Getting ListGroup API without customer details

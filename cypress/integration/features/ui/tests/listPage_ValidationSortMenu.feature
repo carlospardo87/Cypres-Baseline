@@ -1,4 +1,4 @@
-@UI @R4LA-45 @LP
+@UI @R4LA-45 @LP @SKIP
 Feature: List Page - Validate Sort Menu
 
   As a user Internal I need to navigate to View All Lists Page

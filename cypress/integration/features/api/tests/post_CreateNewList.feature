@@ -1,4 +1,4 @@
-@API @R4LA-434  @SKIP
+@API @R4LA-434 @SKIP
 Feature: Sending POST create a new list API
 
   Scenario: Checking create list API

@@ -1,4 +1,4 @@
-@UI @LP  @R4LA-240
+@UI @LP  @R4LA-240 @SKIP
 Feature: List Page - Validate Create a New List
 
   As a user Internal or External, I need to navigate to View All Lists

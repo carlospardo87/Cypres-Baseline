@@ -1,4 +1,4 @@
-@API  @SKIP
+@API @SKIP
 Feature: Getting List Item Notes API with customer details
 
   Scenario: Getting List Item Notes API with customer details

@@ -1,4 +1,4 @@
-@API
+@API @SKIP
 Feature: Getting List API
 
   Scenario: Getting List API
