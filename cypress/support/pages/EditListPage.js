@@ -192,4 +192,9 @@ export default class EditListPage {
   clickOnCloseIcon() {
     cy.clickElement(this.btn_closeIcon, 0)
   }
+
+  checkOptionsList(optionMenu) {
+    cy.xpath(`//ion-item[.='${optionMenu}']`)
+        .should('be.visible')
+  }
 }
