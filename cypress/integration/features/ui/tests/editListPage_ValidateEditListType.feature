@@ -11,8 +11,8 @@ Feature: Edit List Name - Validate List Type can be changed
 
 
   Scenario: User should not able to switch Public lists
-    And goes to "AutCypressPublic" and clicks "Edit List" button
-    Then should be able to see the header title contain "AutCypressPublic"
+    And goes to "#1AutoPb210818_230051" and clicks "Edit List" button
+    Then should be able to see the header title contain "#1AutoPb210818_230051"
     And should be able to see the edit options list
       | dropdownOptions |
       | Edit List Name  |
@@ -21,8 +21,8 @@ Feature: Edit List Name - Validate List Type can be changed
 
 
   Scenario: User should able to switch to Internal lists to Public or Private
-    And goes to "AutCypressInternal" and clicks "Edit List" button
-    Then should be able to see the header title contain "AutCypressInternal"
+    And goes to "#1AutoIn210827_133508" and clicks "Edit List" button
+    Then should be able to see the header title contain "#1AutoIn210827_133508"
     And should be able to see the edit options list
       | dropdownOptions     |
       | Set list as private |
@@ -32,8 +32,8 @@ Feature: Edit List Name - Validate List Type can be changed
 
 
   Scenario: User should able to switch to Private lists to Internal
-    And goes to "AutCypressPrivate" and clicks "Edit List" button
-    Then should be able to see the header title contain "AutCypressPrivate"
+    And goes to "#1AutoPr210818_230326" and clicks "Edit List" button
+    Then should be able to see the header title contain "#1AutoPr210818_230326"
     And should be able to see the edit options list
       | dropdownOptions      |
       | Set list as internal |
