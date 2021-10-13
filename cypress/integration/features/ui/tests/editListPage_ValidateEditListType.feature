@@ -11,8 +11,8 @@ Feature: Edit List Name - Validate List Type can be changed
 
 
   Scenario: User should not able to switch Public lists
-    And goes to "#1AutoPb210818_230051" and clicks "Edit List" button
-    Then should be able to see the header title contain "#1AutoPb210818_230051"
+    And goes to "#1AutoPb210930_124612" and clicks "Edit List" button
+    Then should be able to see the header title contain "#1AutoPb210930_124612"
     And should be able to see the edit options list
       | dropdownOptions |
       | Edit List Name  |
@@ -21,8 +21,8 @@ Feature: Edit List Name - Validate List Type can be changed
 
 
   Scenario: User should able to switch to Internal lists to Public or Private
-    And goes to "#1AutoIn210827_133508" and clicks "Edit List" button
-    Then should be able to see the header title contain "#1AutoIn210827_133508"
+    And goes to "#1AutoIn210930_124653" and clicks "Edit List" button
+    Then should be able to see the header title contain "#1AutoIn210930_124653"
     And should be able to see the edit options list
       | dropdownOptions     |
       | Set list as private |
@@ -32,8 +32,8 @@ Feature: Edit List Name - Validate List Type can be changed
 
 
   Scenario: User should able to switch to Private lists to Internal
-    And goes to "#1AutoPr210818_230326" and clicks "Edit List" button
-    Then should be able to see the header title contain "#1AutoPr210818_230326"
+    And goes to "#1AutoPr210930_124633" and clicks "Edit List" button
+    Then should be able to see the header title contain "#1AutoPr210930_124633"
     And should be able to see the edit options list
       | dropdownOptions      |
       | Set list as internal |
