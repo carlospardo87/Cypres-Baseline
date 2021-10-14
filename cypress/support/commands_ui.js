@@ -204,6 +204,8 @@ Cypress.Commands.add("selectCustomer", (locator, customerInfo) => {
         .its('response.statusCode')
         .should('eq', 200)
 
+    cy.get(locator).should('have.attr','class','outlined-green-btn md button button-block button-small button-round button-outline ion-activatable ion-focusable hydrated')
+
     cy.get(locator).then($el => {
         if (!$el.text().includes(customerInfo)) {
 
