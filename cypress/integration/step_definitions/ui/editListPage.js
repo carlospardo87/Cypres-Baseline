@@ -118,6 +118,16 @@ Then("should be able to enter list name ,click Submit and see list name error {s
   });
 });
 
+Then("should be able to see the edit options list",  (datatable) => {
+  cy.clickElement(new EditListPage().ellipsisMenuIcon, 0)
+  datatable.hashes().forEach((row) => {
+    new EditListPage().checkOptionsList(row.dropdownOptions)
+  });
+});
+
+
+
+
 Then("should be able to enter list name {string} and click Submit button",  (newListName) => {
     new EditListPage().enterNewListName(newListName)
     new EditListPage().clickOnSubmitButton()

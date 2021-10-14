@@ -198,27 +198,36 @@ Cypress.Commands.add("removeDomElement", (selector) => {
 })
 
 
-Cypress.Commands.add("selectCustomer", (locator, customerName) => {
-  cy.intercept({method: 'GET', url: `/customer-domain-api/v1/customers`,}).as('customer')
+Cypress.Commands.add("selectCustomer", (locator, customerInfo) => {
 
-  cy.wait(2000)
+  // Waiting API customer variable obtained in login step has status code 200
+  cy.wait('@customer')
+      .its('response.statusCode')
+      .should('eq', 200)
 
-  cy.highlightBorderElement(locator,'magenta')
-  cy.get(locator).then((customer)=>{
-    if (!customer.text().trim().includes(customerName)){
-      cy.wrap(customer).should('be.visible')
-          .click()
-      cy.highlightBorderElement(locator,'transparent')
+  cy.get(locator).then($el =>{
+    if (!$el.text().includes(customerInfo)) {
 
-      cy.contains(customerName)
-          .click({force: true})
+  // Intercepting and saving customer API when a new customer is chosen
+  cy.intercept({method: 'GET', url: `/customer-domain-api/v1/customers`})
+      .as('customerChange')
 
-      // wait to list api response with code 200
-      cy.wait('@customer')
-          .its('response.statusCode')
-          .should('eq', 200)
+  // Clicking customer dropdown
+  cy.clickElement(locator, 0)
+  cy.wait(1000)
+
+  // Clicking dropdown option by any string on the name, could be a number
+  cy.xpath(`//ion-label[contains(.,'${customerInfo}')]`)
+      .click({force: true})
+
+  // Waiting new customer API intercepted has the status code 200
+  cy.wait('@customerChange')
+      .its('response.statusCode')
+      .should('eq', 200)
+
     }
   })
+
 })
 
 

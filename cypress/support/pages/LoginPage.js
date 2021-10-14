@@ -10,6 +10,8 @@ export default class LoginPage {
   }
 
   loggingIn(uname, password) {
+    cy.intercept({method: 'GET', url: `/customer-domain-api/v1/customers`,}).as('customer')
+
     cy.highlightBorderElement(this.userNameInput,'magenta')
     cy.get(this.userNameInput).should('be.visible').type(uname)
     cy.highlightBorderElement(this.passwordInput,'magenta')

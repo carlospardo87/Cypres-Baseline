@@ -13,8 +13,10 @@ And("clicks on My Lists button",() => {
   new ListsPage().checkLoadingSpinnerIfExist('One moment please while we cook up your lists.')
 });
 
-When("goes to dropdown and selects customer {string}",(customerNumber) => {
+When("goes to dropdown and selects customer {string} and click My Lists button",(customerNumber) => {
   new HomePage().selectNewCustomer(customerNumber)
+  new HomePage().clickMyListButton()
+  new ListsPage().checkLoadingSpinnerIfExist('One moment please while we cook up your lists.')
 });
 
 
