@@ -1,4 +1,4 @@
-@UI @R4LA-174  @LP @SKIP
+@UI @R4LA-174  @LP
 Feature: Lists Page - Validate Action Elements
 
   As a user Internal I need to navigate to View All Lists Page
@@ -6,9 +6,8 @@ Feature: Lists Page - Validate Action Elements
   the available elements
 
   Background:
-    Given User navigates to USF with "browser"
-    When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
-    And clicks on My Lists button
+    Given "Internal" user navigates to USF and logs in
+    When clicks on My Lists button
 
   Scenario: User should be able to see all the action elements
     Then lists page URL should contain "/lists"
@@ -17,7 +16,7 @@ Feature: Lists Page - Validate Action Elements
     And should be able to see button My Lists
     And should be able to see button Search Box and icon magnifier
     And should be able to see Create a New List button
-    And should be able to see the customer drop down "83761619"
+    And should be able to see the customer drop down "91150102"
     And should be able to see customer verification icon
 
 
