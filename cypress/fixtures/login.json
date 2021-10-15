@@ -1,0 +1,18 @@
+{
+  "device": "browser",
+
+  "internal": {
+    "user": "R4TMID4",
+    "password": "Welcome20"
+  },
+
+  "external": {
+    "user": "extuser01",
+    "password": "Welcome22"
+  },
+
+  "api": {
+    "user": "R4TMID4",
+    "password": "V2VsY29tZTIw"
+  }
+}
