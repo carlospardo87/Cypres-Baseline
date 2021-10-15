@@ -22,7 +22,7 @@ Feature: Edit List Name - Validate List Name can be changed
     And should be able close the modal
     And should be able to see the header title contain "AutCypressPublic"
 
-
+  @BUGFIX
   Scenario: User should able to edit a new list name if the list name entered does not exists.
     And should be able to dropdown the ellipsis menu and click on option "Edit List Name"
     And should be able to see the "Edit List Name" modal
