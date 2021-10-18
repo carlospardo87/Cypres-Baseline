@@ -10,7 +10,7 @@ export default class ListDetailsPage {
     this.array_packSize = '.usf-product-card-desc > :nth-child(3) > :nth-child(3)'
     this.array_priceContainer = '.native-input.sc-ion-input-md'
     this.array_prices = '.usf-product-card-price span'
-    this.array_listGroupName = '.item > .list-details-page-group-name'
+    this.array_listGroupName = '.list-details-group-name'
 
     this.array_productCardImg = '.usf-product-card-img > img'
     this.icon_cartCountItems = '.icon-badge-wrapper > .badge-header'
@@ -112,7 +112,7 @@ export default class ListDetailsPage {
 
     let arr_group = ['Unassigned Group','Grp1','Grp2','Grp3']
     cy
-      .get(this.array_listGroupName).its('length').then(arr_length=>{
+      .get(this.array_listGroupName).should('be.visible').its('length').then(arr_length=>{
       for (let i = 0; i < arr_length; i++) {
         cy.shouldElement(this.array_listGroupName, i, 'contain.text', `${arr_group[i]}`)
       }

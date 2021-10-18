@@ -1,4 +1,4 @@
-@UI @LP  @R4LA-240 @SKIP
+@UI @LP  @R4LA-240
 Feature: List Page - Validate Create a New List
 
   As a user Internal or External, I need to navigate to View All Lists
@@ -8,32 +8,47 @@ Feature: List Page - Validate Create a New List
     Given User navigates to USF with "browser"
 
   @SmokeTest
-  Scenario Outline: "<userType>" user should be able to create a new list
-    When "<userType>" user logs in with valid credentials "<uname>" and "<password>"
-    And clicks on My Lists button
+  Scenario Outline: User should be able to create a new list
+    Given "Internal" user navigates to USF and logs in
+    When clicks on My Lists button
     When clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"
     And should be able to enter list name "List Name Test"
     And should be able to enter list name upto "30" characters
-    And should be able to select "<totalListType>" List Type
+    And should be able to select "3" List Type
     And should be able to select List Type "<listType>"
     And should be able to see the "Create" button enabled
     And should be able to close create list modal
 
     Examples:
-      | userType | uname     | password  | optionList  | listType | totalListType |
-      | Internal | R4TMID1   | Winter246 | New List    | Public   | 3             |
-      | Internal | R4TMID1   | Winter246 | Copy List   | Internal | 3             |
-      | Internal | R4TMID1   | Winter246 | Import List | Private  | 3             |
-      | External | extuser01 | Welcome22 | New List    | None     | None          |
+      | optionList  | listType |
+      | New List    | Public   |
+      | Copy List   | Internal |
+      | Import List | Private  |
+
+
+  @SmokeTest
+  Scenario: User should be able to create a new list
+    Given "External" user navigates to USF and logs in
+    When clicks on My Lists button
+    When clicks on button "Create A New List"
+    Then should be able to see create lists modal
+    And should be able to select your option "New List"
+    And should be able to enter list name "List Name Test"
+    And should be able to enter list name upto "30" characters
+    And should be able to select "None" List Type
+    And should be able to select List Type "None"
+    And should be able to see the "Create" button enabled
+    And should be able to close create list modal
+
 
 
   @R4LA-433
   Scenario Outline: User should not able to create duplicate list
-    When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
-    And clicks on My Lists button
-    When clicks on button "Create A New List"
+    Given "Internal" user navigates to USF and logs in
+    When clicks on My Lists button
+    And clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"
     And should be able to enter list name "My List"

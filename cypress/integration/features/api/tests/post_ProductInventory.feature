@@ -1,8 +1,8 @@
-@API @SKIP
+@API
 Feature: Sending POST product inventory API
 
   Scenario: Checking product inventory API
-    Given authorization token was requested with account "r4tmid1"
+    Given authorization token was requested
     When product inventory number "1712140" was requested
     Then "ProductInventory" response should contain status "200"
     And "ProductInventory" response should be successful

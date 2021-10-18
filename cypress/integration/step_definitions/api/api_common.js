@@ -1,10 +1,13 @@
 /// <reference types="Cypress" />
 
-import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps'
+import {Given,Then} from 'cypress-cucumber-preprocessor/steps'
 
-Given('authorization token was requested with account {string}', (user) => {
-  cy.getAuthToken(user)
-  cy.checkStatusCode('@getAuthToken', 200)
+Given('authorization token was requested', () => {
+  cy.fixture('login').then( (login) => {
+    cy.getAuthToken(login.api.user, login.api.password)
+    cy.checkStatusCode('@getAuthToken', 200)
+  })
+
 })
 
 Given('refresh token was requested with customer: {string} and division: {string}', (customerNro, divisionNro) => {

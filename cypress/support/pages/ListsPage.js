@@ -224,7 +224,7 @@ export default class ListsPage {
         cy.wrap($el).find('ion-icon').click({force: true})
       }
     });
-    cy.xpath(`//ion-label[.='${optionName}']`).should('exist').click({force: true})
+    cy.xpath(`//ion-label[.='${optionName}']`).should('exist').click()
 
   }
 }

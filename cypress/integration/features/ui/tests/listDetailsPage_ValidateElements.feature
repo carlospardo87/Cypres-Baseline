@@ -1,17 +1,14 @@
 @UI @R4LA-56 @LDP @SKIP
 Feature: List Details page - Validate Elements
 
-  As a user Internal I need to navigate to
+  As a user Internal, I need to navigate to
   Product Details page and verify that I am able
   to see product attributes.
 
-  Background:
-    Given User navigates to USF with "browser"
-
   Scenario: User should be able to see product description and other product information
-    When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
-    And clicks on My Lists button
-    When goes to section "Public" and clicks on list "AutCypressPublic_100"
+    Given "Internal" user navigates to USF and logs in
+    When clicks on My Lists button
+    When goes to section "Public" and clicks on list "AutCypressPublic"
     Then should be able to see the proper URL on "List Details" page
     And should be able to see product brand names in capital letters
     And should be able to see product descriptions

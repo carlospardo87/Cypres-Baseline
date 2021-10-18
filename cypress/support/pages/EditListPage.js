@@ -25,6 +25,7 @@ export default class EditListPage {
     this.btn_submit = '[data-cy=submit]'
     this.btn_closeIcon = '.close-icon'
     this.titleModal = '[data-cy=title]'
+    this.btn_AddGroup = '.list-groups-header > .md'
   }
 
 
@@ -137,7 +138,7 @@ export default class EditListPage {
   }
 
   clickBtnAddGroup() {
-    cy.findByText('Add Group').click()
+    cy.clickElement(this.btn_AddGroup, 0)
   }
 
   enterGroupName(groupName) {
@@ -179,7 +180,7 @@ export default class EditListPage {
   enterNewListName(newListName) {
     cy.get(this.input_newListName)
         .should('be.visible')
-        .clear({timeout: 2000})
+        .clear({timeout: 5000})
         .should('have.value', '')
         .type(newListName)
         .should('have.value', newListName)

@@ -8,7 +8,7 @@ const data = {
 }
 
 
-Cypress.Commands.add("getAuthToken", (user) => {
+Cypress.Commands.add("getAuthToken", (user, password) => {
   cy.api({method: "POST", url: `${Cypress.config('baseApi')}/auth-api/v1/oauth/token`,
     headers: {
       "Authorization": "Bearer undefined",
@@ -19,7 +19,7 @@ Cypress.Commands.add("getAuthToken", (user) => {
     },
     body: {
       username: user,
-      password: "V2ludGVyMjQ2",
+      password: password,
       grantType: "password",
       scopes: "usf-user usf-customer usf-list usf-order usf-product usf-alert",
       platform: "DESKTOP",

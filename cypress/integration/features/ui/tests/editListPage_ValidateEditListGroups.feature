@@ -1,15 +1,14 @@
-@UI @ELG @R4LA-293 @SKIP
+@UI @ELG @R4LA-293
 Feature: Edit List Page - Validate List Groups And Product Selected Modal
 
   As a user Internal, I need to be able
   to edit, move, copy and delete lists
 
   Background:
-    Given User navigates to USF with "browser"
-    When "Internal" user logs in with valid credentials "R4TMID1" and "Winter246"
-    And clicks on My Lists button
-    And goes to "AutCypressPublic_100" and clicks "Edit List" button
-    Then should be able to see the header title contain "AutCypressPublic_100"
+    Given "Internal" user navigates to USF and logs in
+    When clicks on My Lists button
+    And goes to "AutCypressPublic" and clicks "Edit List" button
+    Then should be able to see the header title contain "AutCypressPublic"
 
   @R4LA-329  @SmokeTest
   Scenario: User should be able to select/unselect and to navigate through the groups
