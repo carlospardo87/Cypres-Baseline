@@ -1,4 +1,4 @@
-@UI @ELG @R4LA-293 @BUGFIX
+@UI @ELG @R4LA-293
 Feature: Edit List Page - Validate List Groups And Product Selected Modal
 
   As a user Internal, I need to be able
