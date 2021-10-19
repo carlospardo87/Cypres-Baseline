@@ -30,17 +30,28 @@ export default class HomePage {
 
   urlContainProductDetails(pageName) {
 
-    let partialUrl = ''
-
     switch (pageName) {
       case 'List Management':
-        partialUrl = '/lists/management/';
+        this.checkPartialUrlEnd('/lists/management/')
         break;
-      case 'List Deatils':
-        partialUrl = '/lists/detail/';
+      case 'List Details':
+        this.checkPartialUrlEnd('/lists/detail/')
+        break;
+      case 'Home Page':
+        this.checkPartialUrl('/desktop/home')
         break;
     }
+  }
 
+  checkPartialUrl(partialUrl) {
+    cy.url().then(fullUrl => {
+      cy.log(fullUrl)
+      expect(fullUrl).to.contain(partialUrl)
+
+    })
+  }
+
+  checkPartialUrlEnd(partialUrl) {
     cy.url().then(fullUrl => {
       cy.log(fullUrl)
       let arr = fullUrl.split("/")
@@ -49,9 +60,9 @@ export default class HomePage {
       cy.log(`${endPartUrl}`)
 
       expect(fullUrl).to.contain(partialUrl)
+
+      //Validate end part of the URL contain proper text
       expect(endPartUrl).to.be.match(/^[A-Z_.-]+(\d{5,8})$/)
-
-
     })
   }
 
@@ -100,4 +111,35 @@ export default class HomePage {
       })
 
     }
+
+  checkBannerAndText(bannerText) {
+    cy.highlightBorderElement('.home-banner', 'magenta')
+    cy.highlightBorderElement('.home-banner-text > span', 'magenta')
+
+  cy.get('.home-banner')
+        .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/assets/images/home-banner-desktop.png")')
+        .should('have.text', bannerText)
+
+    cy.highlightBorderElement('.home-banner-text > span', 'transparent')
+    cy.highlightBorderElement('.home-banner', 'transparent')
+  }
+
+  checkOptionsCards() {
+
+    let cardText = ['My Lists Needs attention', 'Browse Explore new products', 'Deliveries  1 order en route'];
+
+    for (let card of cardText) {
+      cy.xpath(`//ion-card-header[contains(.,'${card}')]`).then($el=>{
+        cy.highlightBorderElement($el, 'magenta')
+        cy.wrap($el).should('be.visible')
+        cy.highlightBorderElement($el, 'transparent')
+      })
+    }
+  }
+
+  checkEndBanner() {
+    cy.shouldElement('.home-shop-products', 0, 'be.visible')
+    cy.get('.home-shop-products')
+        .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/assets/images/home-shop-prods-desktop.png")')
+  }
 }
