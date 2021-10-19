@@ -1,4 +1,4 @@
-FROM 016091837043.dkr.ecr.us-west-2.amazonaws.com/panamax-app-cypress-included:master-9 as cypress
+FROM 016091837043.dkr.ecr.us-west-2.amazonaws.com/panamax-app-cypress-included:master-9 as cypress-CYPLDQA
 
 # USF custom cypress image includes all node_modules needed to run these tests.
 # Simply copy in our test definitions and fixtures.
