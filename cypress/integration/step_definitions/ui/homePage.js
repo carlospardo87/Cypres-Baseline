@@ -46,3 +46,12 @@ Then("should be able to see the ellipsis on the banner right",  () => {
 });
 
 
+Then("should be able to see a banner with text {string}",  (bannerText)=> {
+  new HomePage().checkBannerAndText(bannerText)
+});
+Then("should be able to see {string}, {string}, and {string} cards",  () => {
+  new HomePage().checkOptionsCards()
+});
+Then("should be able to see a banner at the end of the page", () => {
+  new HomePage().checkEndBanner()
+});
