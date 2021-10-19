@@ -16,6 +16,7 @@ Feature: Edit List Name - Validate List Type can be changed
       | dropdownOptions |
       | Edit List Name  |
       | Delete List     |
+    And option list should contains "2" items
 
 
 
@@ -28,6 +29,7 @@ Feature: Edit List Name - Validate List Type can be changed
       | Set list as public  |
       | Edit List Name      |
       | Delete List         |
+    And option list should contains "4" items
 
 
   Scenario: User should able to switch to Private lists to Internal
@@ -38,5 +40,6 @@ Feature: Edit List Name - Validate List Type can be changed
       | Set list as internal |
       | Edit List Name       |
       | Delete List          |
+    And option list should contains "3" items
 
 
