@@ -40,6 +40,14 @@ export default class HomePage {
       case 'Home Page':
         this.checkPartialUrl('/desktop/home')
         break;
+      case 'My Orders':
+        this.checkPartialUrl('/desktop/order/my-orders')
+        break;
+      case 'My Lists':
+        this.checkPartialUrl('/desktop/lists')
+        break;
+
+
     }
   }
 
