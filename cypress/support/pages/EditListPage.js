@@ -202,4 +202,18 @@ export default class EditListPage {
   checkTotalItems(totalItemsDropdown) {
     cy.get(`.list-ios > ion-item`).its('length').should('eq',Number(totalItemsDropdown))
   }
+
+  clickOnButtonDeleteList(buttonName) {
+    switch (buttonName) {
+      case 'Cancel(X)':
+        cy.clickElement("[name='close-outline']", 0)
+        break;
+      case 'NO':
+        cy.clickElement("[data-cy='delete-no']", 0)
+        break;
+      case 'YES':
+        cy.clickElement("[data-cy='delete-yes']", 0)
+        break;
+    }
+  }
 }
