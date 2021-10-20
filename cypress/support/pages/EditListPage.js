@@ -198,4 +198,8 @@ export default class EditListPage {
     cy.xpath(`//ion-item[.='${optionMenu}']`)
         .should('be.visible')
   }
+
+  checkTotalItems(totalItemsDropdown) {
+    cy.get(`.list-ios > ion-item`).its('length').should('eq',Number(totalItemsDropdown))
+  }
 }

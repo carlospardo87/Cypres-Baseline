@@ -55,3 +55,11 @@ Then("should be able to see {string}, {string}, and {string} cards",  () => {
 Then("should be able to see a banner at the end of the page", () => {
   new HomePage().checkEndBanner()
 });
+
+When("user clicks on {string} card",  (cardName)=>{
+  cy.xpath(`//ion-card-header[contains(.,'${cardName}')]`).then($el=>{
+    cy.highlightBorderElement($el, 'magenta')
+    cy.wrap($el).should('be.visible').click()
+    cy.highlightBorderElement($el, 'transparent')
+  })
+});

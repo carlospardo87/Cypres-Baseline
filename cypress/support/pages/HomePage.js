@@ -40,6 +40,14 @@ export default class HomePage {
       case 'Home Page':
         this.checkPartialUrl('/desktop/home')
         break;
+      case 'My Orders':
+        this.checkPartialUrl('/desktop/order/my-orders')
+        break;
+      case 'My Lists':
+        this.checkPartialUrl('/desktop/lists')
+        break;
+
+
     }
   }
 
@@ -138,7 +146,7 @@ export default class HomePage {
   }
 
   checkEndBanner() {
-    cy.shouldElement('.home-shop-products', 0, 'be.visible')
+    cy.shouldElement('.home-shop-products', 0, 'be.exist')
     cy.get('.home-shop-products')
         .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/assets/images/home-shop-prods-desktop.png")')
   }

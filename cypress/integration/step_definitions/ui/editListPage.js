@@ -162,6 +162,11 @@ Then("should be able to click on the Submit button and close the modal",  () => 
 });
 
 
+Then("option list should contains {string} items",  (numberOfItems) => {
+  new EditListPage().checkTotalItems(numberOfItems)
+});
+
+
 
 
 
