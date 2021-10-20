@@ -5,7 +5,7 @@ Feature: Delete Lists - Validate Delete Lists
   to Delete, Cancel and Close List operation
   on Edit List page
 
-  Scenario: User should able to click on 'YES' button and delete list
+  Scenario: User should be able to click on 'YES' button and delete list
     Given "External" user navigates to USF and logs in
     When clicks on My Lists button
     And clicks on button "Create A New List"
@@ -20,7 +20,7 @@ Feature: Delete Lists - Validate Delete Lists
     And should not able to see "AutCypressPublicTestDelete" on View All List page
 
 
-  Scenario Outline: User should able to click on "<buttonName>" button
+  Scenario Outline: User should be able to click on "<buttonName>" button
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button
     And goes to "AutCypressPublic" and clicks "Edit List" button
