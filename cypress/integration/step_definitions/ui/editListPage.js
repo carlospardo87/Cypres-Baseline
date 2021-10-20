@@ -126,13 +126,10 @@ Then("should be able to see the edit options list",  (datatable) => {
 });
 
 
-
-
 Then("should be able to enter list name {string} and click Submit button",  (newListName) => {
     new EditListPage().enterNewListName(newListName)
     new EditListPage().clickOnSubmitButton()
 });
-
 
 
 Then("should be able close the modal",  () => {
@@ -167,6 +164,17 @@ Then("option list should contains {string} items",  (numberOfItems) => {
 });
 
 
+Then("should be able to click on {string} button",  (buttonName) => {
+  new EditListPage().clickOnButtonDeleteList(buttonName)
+  });
 
 
+Then("should be able to see the proper list name {string} to delete", (listName) => {
+  cy.shouldElement("[class='delete-list-confirm-text']", 0, 'contain.text', `Are you sure you want to delete ${listName}?`)
+  cy.shouldElement("[class='delete-list-modal']", 0, 'contain.text', `Note: To recover deleted lists, please call Help Desk at 1-888-648-2580.`)
+});
 
+
+Then("should not able to see {string} on View All List page",  (listName) => {
+  cy.xpath(`//p[contains(.,'${listName}')]`).should('not.exist')
+});

@@ -37,8 +37,12 @@ And("should be able to click on button {string}", (btnName) => {
   new CreateNewListPage().clickOnCreate(btnName)
 });
 
-And("should be able to see the {string} button enabled", (btnName) => {
+And("should be able to see the {string} button enabled", () => {
   new CreateNewListPage().checkButtonEnable()
+});
+
+And("should be able to click {string} button", () => {
+  new CreateNewListPage().clickButtonCreate()
 });
 
 And("should be able to close create list modal", () => {

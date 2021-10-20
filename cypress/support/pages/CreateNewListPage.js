@@ -61,6 +61,10 @@ export default class HomePage {
     cy.highlightBorderElement(this.btn_createList, 'transparent')
   }
 
+  clickButtonCreate() {
+    cy.clickElement(this.btn_createList, 0)
+  }
+
   closeCreateNewListModal() {
     cy.clickElement(this.icon_closeModal, 0)
   }
