@@ -132,17 +132,12 @@ export default class HomePage {
     cy.highlightBorderElement('.home-banner', 'transparent')
   }
 
-  checkOptionsCards() {
-
-    let cardText = ['My Lists Needs attention', 'Browse Explore new products', 'Deliveries  1 order en route'];
-
-    for (let card of cardText) {
-      cy.xpath(`//ion-card-header[contains(.,'${card}')]`).then($el=>{
+  checkOptionsCards(cardTitle) {
+    cy.xpath(`//ion-card-header[contains(.,'${cardTitle}')]`).then($el=>{
         cy.highlightBorderElement($el, 'magenta')
         cy.wrap($el).should('be.visible')
         cy.highlightBorderElement($el, 'transparent')
       })
-    }
   }
 
   checkEndBanner() {
