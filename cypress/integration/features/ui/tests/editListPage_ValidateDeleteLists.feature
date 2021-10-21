@@ -20,7 +20,7 @@ Feature: Delete Lists - Validate Delete Lists
     And should not able to see "AutCypressPublicTestDelete" on View All List page
 
 
-  #@BUGFIX
+  @BUGFIX
   Scenario: User should be able to click on 'YES' button and delete list
     Given "External" user navigates to USF and logs in
     When clicks on My Lists button
