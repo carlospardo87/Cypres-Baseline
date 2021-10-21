@@ -3,7 +3,7 @@
 export default class HomePage {
 
   constructor(){
-    this.edit_newListName = '.ng-untouched > .native-input'
+    this.edit_newListName = '.create-list-name > .ng-valid > .native-input'
     this.radioButtonLists = '.mat-radio-outer-circle'
     this.modal_createNewList = 'ion-nav'
     this.btn_createNewList = '.create-new-list'
@@ -24,7 +24,8 @@ export default class HomePage {
 
   enterListName(listName) {
     cy.highlightBorderElement(this.edit_newListName, 'magenta')
-    cy.get(this.edit_newListName).should('be.visible').type(listName)
+
+    cy.get(this.edit_newListName).should('be.visible').type(listName, {force:true})
     cy.highlightBorderElement(this.edit_newListName, 'transparent')
   }
 

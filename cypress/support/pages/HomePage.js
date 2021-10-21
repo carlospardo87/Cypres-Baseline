@@ -90,6 +90,8 @@ export default class HomePage {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists/detail/SL-1016246`)
       } else if(browserToPage === 'Management List') {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists/management/SL-1016246`)
+      } else if(browserToPage === 'View All Lists') {
+        cy.visit(`${Cypress.config('baseUrl')}desktop/lists`)
       }
       cy.on('uncaught:exception', (err, runnable) => {
         expect(err.message).to.include('One of the specified object stores was not found')
