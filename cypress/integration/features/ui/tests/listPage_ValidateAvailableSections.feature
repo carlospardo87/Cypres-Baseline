@@ -1,4 +1,4 @@
-@UI @R4LA-175 @LP @FIX
+@UI @R4LA-175 @LP
 Feature: List Page - Validate Available Sections
 
   As a user Internal/External I need to navigate to
