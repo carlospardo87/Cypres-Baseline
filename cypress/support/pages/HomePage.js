@@ -102,7 +102,7 @@ export default class HomePage {
   checkBannerCss() {
     cy
         .get('.list-page-banner')
-        .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/list-banner.3b650be7eb471096df9e.png")')
+        .should('have.css', 'background-image', 'url("https://ecomr4-sit.ama-nonprod.usfoods.com/list-banner.3b650be7eb471096df9e.png")')
   }
 
 
@@ -127,7 +127,7 @@ export default class HomePage {
     cy.highlightBorderElement('.home-banner-text > span', 'magenta')
 
   cy.get('.home-banner')
-        .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/assets/images/home-banner-desktop.png")')
+        .should('have.css', 'background-image', 'url("https://ecomr4-sit.ama-nonprod.usfoods.com/assets/images/home-banner-desktop.png")')
         .should('have.text', bannerText)
 
     cy.highlightBorderElement('.home-banner-text > span', 'transparent')
@@ -143,8 +143,8 @@ export default class HomePage {
   }
 
   checkEndBanner() {
-    cy.shouldElement('.home-shop-products', 0, 'be.exist')
+    cy.get('.home-shop-products').scrollIntoView().should('exist')
     cy.get('.home-shop-products')
-        .should('have.css', 'background-image', 'url("https://ecomr4-sit.usfoods-a0-poc1.com/assets/images/home-shop-prods-desktop.png")')
+        .should('have.css', 'background-image', 'url("https://ecomr4-sit.ama-nonprod.usfoods.com/assets/images/home-shop-prods-desktop.png")')
   }
 }

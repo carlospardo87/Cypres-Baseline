@@ -4,8 +4,11 @@ import {Given, When} from "cypress-cucumber-preprocessor/steps";
 
 import LoginPage from '../../../support/pages/LoginPage';
 
-When("logs in with valid credentials {string} and {string}", (uname, password) => {
-  new LoginPage().loggingIn(uname, password)
+When("{string} user navigates to USF and logs in with {string} and {string}", (userType, uname, password) => {
+  cy.fixture('login').then( (login) => {
+    new LoginPage().navigateWithViewPort(login.device)
+    new LoginPage().loggingIn(uname, password)
+  })
 });
 
 
