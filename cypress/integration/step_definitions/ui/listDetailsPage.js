@@ -39,7 +39,7 @@ And('should be able to enter a total of products {string}', (inputItems)=> {
     new ListDetailsPage().fillInputItems(inputItems)
 });
 
-And("should be able to see {string} products in the cart", (carItems) =>{
+And("should be able to see {string} products in the cart on {string} page", (carItems, pageName) =>{
   new ListDetailsPage().checkCartItems(carItems)
 });
 
@@ -70,3 +70,12 @@ Then("should be able to see value {string} in quantity boxes",  (placeHolder) =>
 Then("should be able to enter {string} in quantity boxes", (valueRanges) => {
   new ListDetailsPage().shouldHaveAttribute(new ListDetailsPage().array_priceContainer, 'maxlength', '3')
 });
+
+Then("should be able to see the correct Order Total for {string} products", (totalProd) => {
+  new ListDetailsPage().checkTotalPrice(totalProd);
+});
+
+Then("should be able to see {string} total Cases in total order section", (totalCases) => {
+  new ListDetailsPage().checkTotalCases(totalCases)
+});
+

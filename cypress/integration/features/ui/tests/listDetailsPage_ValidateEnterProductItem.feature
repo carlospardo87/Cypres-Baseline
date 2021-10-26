@@ -1,4 +1,4 @@
-@UI @R4LA-55 @LDP @SmokeTest @SKIP
+@UI @R4LA-55 @LDP @SmokeTest
 Feature: List Details page - Validate Enter Product Items
 
   As a user Internal, I need to navigate to
@@ -9,10 +9,26 @@ Feature: List Details page - Validate Enter Product Items
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button
     When goes to section "Public" and clicks on list "AutCypressPublic"
-    And should be able to see the group of list is ascending
     And should be able to enter a total of products "100"
+    And should be able to see "100" products in the cart on "List Details" page
     And should be able to click the card
     And should be able to see product number into the URL
-    And should be able to see "100" products in the cart
+    And should be able to see "100" products in the cart on "Product Details" page
+
+
+  Scenario: User should be able to see Order Information is displayed properly
+    Given "Internal" user navigates to USF and logs in
+    When clicks on My Lists button
+    When goes to section "Public" and clicks on list "AutCypressPublic"
+    And should be able to enter a total of products "10"
+    And should be able to see the correct Order Total for "10" products
+    And should be able to see "10" total Cases in total order section
+
+
+  Scenario: User should be able to see the group of list is sorted ascending
+    Given "Internal" user navigates to USF and logs in
+    When clicks on My Lists button
+    When goes to section "Public" and clicks on list "AutCypressPublic"
+    And should be able to see the group of list is ascending
 
 
