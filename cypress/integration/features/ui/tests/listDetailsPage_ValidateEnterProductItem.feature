@@ -1,4 +1,4 @@
-@UI @R4LA-55 @LDP @SmokeTest
+@UI @R4LA-55 @LDP @SmokeTest @BUGFIX
 Feature: List Details page - Validate Enter Product Items
 
   As a user Internal, I need to navigate to
