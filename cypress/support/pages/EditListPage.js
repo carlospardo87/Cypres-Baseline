@@ -207,4 +207,55 @@ export default class EditListPage {
         break;
     }
   }
+
+
+
+  checkTotalProductsGroup() {
+    //Checking group 1 has 1 product less and group 2 has 1 product more
+    this.isLessThan('groupOne', 0)
+    this.isGreaterThan('groupTwo', 1)
+  }
+
+  savingCurrentState() {
+    //Getting text number on the groups 1 and 2
+    cy.get('.button-content > p').eq(0).invoke('text').as('groupOne')
+    cy.get('.button-content > p').eq(1).invoke('text').as('groupTwo')
+  }
+
+
+  isLessThan(alias, groupOrder){
+    cy.get(`@${alias}`).then(text => {
+      let numberBefore = text.toString()
+          .replace(/[(]/, '')
+          .replace(/[)]/, '')
+
+      cy.get('.button-content > p').eq(groupOrder).invoke('text').then(text => {
+        let numberAfter = text
+            .replace(/[(]/, '')
+            .replace(/[)]/, '')
+
+        expect(Number(numberAfter), 'Number should be less than').to.be.lessThan(Number(numberBefore));
+
+      })
+    });
+  }
+
+  isGreaterThan(alias, groupOrder){
+    cy.get(`@${alias}`).then(text => {
+      let numberBefore = text.toString()
+          .replace(/[(]/, '')
+          .replace(/[)]/, '')
+
+      cy.get('.button-content > p').eq(groupOrder).invoke('text').then(text => {
+        let numberAfter = text
+            .replace(/[(]/, '')
+            .replace(/[)]/, '')
+
+        expect(Number(numberAfter), 'Number should be less than').to.be.greaterThan(Number(numberBefore));
+
+      })
+    });
+  }
 }
+
+

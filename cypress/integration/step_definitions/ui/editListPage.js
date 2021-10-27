@@ -176,9 +176,21 @@ Then("should not able to see {string} on View All List page",  (listName) => {
 
 
 Then("should be able to drag {string} product and drop on group name {string}",  (productNumb, groupName) => {
+
+  new EditListPage().savingCurrentState()
+
   cy.get('.is-checked > .original-product-card').drag(`[groupname='${groupName}']`, {force: true})
-  //cy.wait(20000)
-  //cy.reload()
 });
+
+
+Then("should be able to see groups are updated properly",  () => {
+  //This reload should be removed once fixed the issue with the API
+  cy.reload()
+
+  new EditListPage().checkTotalProductsGroup()
+});
+
+
+
 
 
