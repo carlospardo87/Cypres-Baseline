@@ -20,7 +20,7 @@ Feature: Edit List Name - Validate List Name can be changed
     And should be able close the modal
     And should be able to see the header title contain "AutCypressPublic"
 
-
+  @BUGFIX
   Scenario: User should able to edit a new list name if the list name entered does not exists.
     Given "External" user navigates to USF and logs in
     When clicks on My Lists button
