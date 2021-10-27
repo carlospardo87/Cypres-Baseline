@@ -3,7 +3,7 @@
 export default class EditListPage {
 
   constructor() {
-    this.radioButton = 'ion-checkbox'
+    this.radioButton = '#usf-product-card > .dot'
     this.groupButtons = '.list-groups-button'
     this.groupTitle = '.list-management-group-name'
     this.greenFooter = '.list-product-selection'
@@ -32,10 +32,10 @@ export default class EditListPage {
   checkRadioButton() {
     cy.wait(1500)
     cy.get(this.radioButton).eq(0).should('be.visible').click({force: true})
-    cy.get(this.radioButton).eq(0).should('have.class', 'checkbox-checked')
+    cy.get(this.radioButton).eq(0).should('have.class', 'is-selected')
 
     cy.get(this.radioButton).eq(0).should('be.visible').click({force: true})
-    cy.get(this.radioButton).eq(0).should('not.have.class', 'checkbox-checked')
+    cy.get(this.radioButton).eq(0).should('not.have.class', 'is-selected')
   }
 
   selectMultipleRadioButton(index) {
@@ -126,15 +126,6 @@ export default class EditListPage {
 
   checkBtnEnabled() {
     cy.get('.selected-product-action-btns .button').should('not.have.class', 'button-disabled')
-  }
-
-  clickBtnSelectAll(opt, btnName) {
-    if ((btnName === 'Select All') && (opt === 'click on')) {
-      cy.clickByName('ion-button',` ${btnName} `);
-    }
-    if ((btnName === 'Deselect All') && (opt === 'click on')) {
-      cy.clickByName('ion-button',` ${btnName} `);
-    }
   }
 
   clickBtnAddGroup() {

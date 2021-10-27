@@ -65,11 +65,6 @@ Then("should be able to see button {string} enabled",  () => {
 });
 
 
-Then("should be able to {string} button {string}",  (option, btnName) => {
-  new EditListPage().clickBtnSelectAll(option, btnName)
-});
-
-
 When("should be able to add a group to the bottom of the groups",  () => {
   new EditListPage().clickBtnAddGroup()
 });
