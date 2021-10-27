@@ -15,7 +15,7 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
     And should be able to check and uncheck the radio element
     And should be able to navigate through the groups
 
-  @R4LA-363
+  @R4LA-363  @BUGFIX
   Scenario: User should be able to select multiple items and see green footer options
     Then should be able to select "2" items
     And should be able to see the green footer if 1 or more product are selected
@@ -43,15 +43,12 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
     And should be able to click on option "<optNames>"
     And should be able to select where do you want to "<optNames>" this product?
     And should be able to see button "<optNames>" enabled
-    And should be able to "<opt>" button "Select All"
-    And should be able to "<opt>" button "Deselect All"
-
 
     Examples:
-      | optNames | opt      |
-      | Move     | not see  |
-      | Copy     | click on |
-      | Delete   | click on |
+      | optNames |
+      | Move     |
+      | Copy     |
+      | Delete   |
 
 
 

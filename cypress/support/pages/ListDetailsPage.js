@@ -98,9 +98,16 @@ export default class ListDetailsPage {
 
   fillInputItems(priceValue) {
   cy.reload()
-    cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'magenta')
-    cy.get(this.array_priceContainer).eq(0).type(priceValue)
-    cy.highlightBorderElement(cy.get(this.array_priceContainer).eq(0), 'transparent')
+
+    cy.wait(2000)
+
+    cy.get(this.array_priceContainer).eq(0).type(priceValue,{delay:10})
+
+    cy.wait(1000)
+
+    cy.clickElement('.usf-product-card-img > img', 0)
+
+    cy.wait(1000)
   }
 
   checkCartItems(expectedPrice) {
@@ -112,8 +119,12 @@ export default class ListDetailsPage {
 
     let arr_group = ['Unassigned Group','Grp1','Grp2','Grp3']
     cy
-      .get(this.array_listGroupName).should('be.visible').its('length').then(arr_length=>{
+      .get(this.array_listGroupName).its('length').then(arr_length=>{
       for (let i = 0; i < arr_length; i++) {
+        cy.wait(500)
+        cy
+            .get(this.array_listGroupName).eq(i).scrollIntoView().should('exist')
+
         cy.shouldElement(this.array_listGroupName, i, 'contain.text', `${arr_group[i]}`)
       }
     })
@@ -151,4 +162,28 @@ export default class ListDetailsPage {
     cy.highlightBorderElement(this.title_listDetailsPage, 'transparent')
   }
 
+
+    checkTotalPrice(totalProd) {
+
+     cy.get('.usf-product-card-price span').first().invoke('text').then(itemPrice => {
+       let _itemPrice =itemPrice.replace('$','').replace('CS', '')
+       let _totalProd = (Number(_itemPrice) * Number(totalProd)).toFixed(2);
+       cy.log('productPrice * totalPrice = '+_totalProd)
+
+       cy.get('.order-info-row > span').eq(1).invoke('text').then(totalPrice => {
+         let _totalPrice = Number(totalPrice.replace('$','')).toFixed(2);
+         cy.log('orderTotal = '+_totalPrice)
+
+         cy.xpath(`//span[.='$${_totalProd}']`).should('be.visible')
+         expect(_totalProd).to.be.equal(_totalPrice, `Total price should be equal to expected for ${totalProd} products`)
+       })
+     })
+    }
+
+  checkTotalCases(totalCases) {
+    cy.get('.order-cases-eaches span').eq(1).invoke('text').then(_totalCases => {
+      expect(_totalCases).to.be.equal(totalCases, `Total cases should be equal to expected for ${totalCases} cases`)
+    })
+
+  }
 }

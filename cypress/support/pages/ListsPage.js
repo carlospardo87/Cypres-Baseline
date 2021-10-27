@@ -219,12 +219,19 @@ export default class ListsPage {
     cy.intercept({method: 'GET', url:'/list-domain-api/v1/list*',}).as('editList')
 
     cy.get('.item-card.item').each($el => {
+
       if ($el.text().includes(listName)) {
+
         cy.wrap($el).scrollIntoView().should('exist')
         cy.wrap($el).find('ion-icon').click({force: true})
+        cy.xpath(`//ion-label[.='${optionName}']`).should('exist').click()
+
+      }
+    }).then($el =>{
+
+      if (!($el.text().includes(listName))) {
+        throw new Error(` ---- List ${listName} was not displayed or does not exist ----`)
       }
     });
-    cy.xpath(`//ion-label[.='${optionName}']`).should('exist').click()
-
   }
 }
