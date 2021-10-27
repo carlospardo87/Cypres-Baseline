@@ -197,21 +197,30 @@ export default class ListsPage {
     })
   }
 
+  waitSpinnerFinish(locator) {
+      cy.get(locator, {timeout:30000})
+          .should('not.exist')
+    }
+
+
 
   ifExists(selector, iter, spinnerText) {
-    for (let i = 0; i < iter; i++) {
+    let i = 0
+
+    for (i ; i < iter; i++) {
       cy.document({log:false}).then(($document) => {
         const documentResult = $document.querySelectorAll(selector)
         if (documentResult.length) {
           cy.shouldAppearLoadingSpinner(this.loadingSpinner, spinnerText);
-          this.removeSpinner();
+          //this.removeSpinner();
+          this.waitSpinnerFinish(this.loadingSpinner)
           return ''
         } else {
           cy.wait(250,{log:false})
         }
       })
     }
-    cy.log('=======  Loading Spinner does not appear =======')
+    (i === iter) ? cy.log('=======  Loading Spinner does not appear =======') : "cy.log('=======  Loading Spinner appears =======')"
   }
 
 
