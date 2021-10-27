@@ -173,3 +173,12 @@ Then("should be able to see the proper list name {string} to delete", (listName)
 Then("should not able to see {string} on View All List page",  (listName) => {
   cy.xpath(`//p[contains(.,'${listName}')]`).should('not.exist')
 });
+
+
+Then("should be able to drag {string} product and drop on group name {string}",  (productNumb, groupName) => {
+  cy.get('.is-checked > .original-product-card').drag(`[groupname='${groupName}']`, {force: true})
+  //cy.wait(20000)
+  //cy.reload()
+});
+
+
