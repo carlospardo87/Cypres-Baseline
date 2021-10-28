@@ -173,3 +173,24 @@ Then("should be able to see the proper list name {string} to delete", (listName)
 Then("should not able to see {string} on View All List page",  (listName) => {
   cy.xpath(`//p[contains(.,'${listName}')]`).should('not.exist')
 });
+
+
+Then("should be able to drag {string} product and drop on group name {string}",  (productNumb, groupName) => {
+
+  new EditListPage().savingCurrentState()
+
+  cy.get('.is-checked > .original-product-card').drag(`[groupname='${groupName}']`, {force: true})
+});
+
+
+Then("should be able to see groups are updated properly",  () => {
+  //This reload should be removed once fixed the issue with the API
+  cy.reload()
+
+  new EditListPage().checkTotalProductsGroup()
+});
+
+
+
+
+
