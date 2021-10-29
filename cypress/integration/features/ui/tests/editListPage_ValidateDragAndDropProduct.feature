@@ -1,11 +1,11 @@
-@UI @ELN @R4LA-504
+@UI @ELN @R4LA-474 @BUGFIX
 Feature: List Details page - Validate Drag and Drop Lists
 
   As a user Internal, I need to be able
   to drag and drop the lists to other group
   and within the same group.
 
-  @SKIP
+
   Scenario: User should be able to drag and drop a product to a different groups
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button
