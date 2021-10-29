@@ -45,6 +45,12 @@ Then("should be able to see column description per section", () => {
 
 
 Then("should be able to see in each section {string}", function (expectedText) {
+
+  /**
+   * Todo will be removed once be solved socked issues
+   */
+  cy.reload()
+
   new ListsPage().checkNoListMessage(expectedText)
 });
 
