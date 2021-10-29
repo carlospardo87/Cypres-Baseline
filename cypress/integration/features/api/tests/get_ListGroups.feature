@@ -9,6 +9,7 @@ Feature: Getting ListGroup API
     And "ListGroups" response body should be successful
 
 
+  @SKIP
   Scenario: Getting ListGroup API with customer details
     Given authorization token was requested
     When requesting ListGroup API with customer:"83761619", divisionNro:"4117" and departmentNro:"0"

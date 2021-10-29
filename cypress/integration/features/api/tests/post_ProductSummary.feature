@@ -1,4 +1,4 @@
-@API
+@API  @SKIP
 Feature: Sending POST product summary API
 
   Scenario: Checking product summary API
