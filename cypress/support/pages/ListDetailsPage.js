@@ -124,7 +124,7 @@ export default class ListDetailsPage {
         cy.wait(500)
         cy
             .get(this.array_listGroupName).eq(i).scrollIntoView().should('exist')
-
+        cy.wait(500)
         cy.shouldElement(this.array_listGroupName, i, 'contain.text', `${arr_group[i]}`)
       }
     })

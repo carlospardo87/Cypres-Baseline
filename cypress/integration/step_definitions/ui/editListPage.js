@@ -176,21 +176,28 @@ Then("should not able to see {string} on View All List page",  (listName) => {
 
 
 Then("should be able to drag {string} product and drop on group name {string}",  (productNumb, groupName) => {
-
   new EditListPage().savingCurrentState()
-
   cy.get('.is-checked > .original-product-card').drag(`[groupname='${groupName}']`, {force: true})
 });
 
 
-Then("should be able to see groups are updated properly",  () => {
-  //This reload should be removed once fixed the issue with the API
-  cy.reload()
+Then("should be able to drag {string} product and drop within the same group",  () => {
+  new EditListPage().savingCurrentProducts()
+  cy.get('.is-checked > .original-product-card').drag('span:nth-of-type(3) .original-product-card', {force: true})
 
-  new EditListPage().checkTotalProductsGroup()
 });
 
 
+//This reload should be removed once fixed the issue with the API
+Then("should be able to see {string} are updated properly",  (itemType) => {
+  if (itemType === 'groups') {
+    cy.reload();
+    new EditListPage().checkTotalGroupUpdated();
 
+  } else if (itemType === 'products') {
+    cy.reload();
+    new EditListPage().checkTotalProductsUpdated();
+  }
+});
 
 

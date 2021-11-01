@@ -1,4 +1,4 @@
-@API
+@API  @SKIP
 Feature: Sending POST pricing API
 
   Scenario: Checking pricing API with request token

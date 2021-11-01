@@ -198,6 +198,7 @@ export default class ListsPage {
   }
 
   waitSpinnerFinish(locator) {
+    cy.highlightBorderElement(locator, 'magenta')
       cy.get(locator, {timeout:30000})
           .should('not.exist')
     }
@@ -206,6 +207,7 @@ export default class ListsPage {
 
   ifExists(selector, iter, spinnerText) {
     let i = 0
+    let status = false
 
     for (i ; i < iter; i++) {
       cy.document({log:false}).then(($document) => {
@@ -214,13 +216,14 @@ export default class ListsPage {
           cy.shouldAppearLoadingSpinner(this.loadingSpinner, spinnerText);
           //this.removeSpinner();
           this.waitSpinnerFinish(this.loadingSpinner)
-          return ''
+          //return ''
+          status = true
         } else {
           cy.wait(250,{log:false})
         }
       })
     }
-    (i === iter) ? cy.log('=======  Loading Spinner does not appear =======') : "cy.log('=======  Loading Spinner appears =======')"
+    (status = true) ? cy.log('=======  Loading Spinner was showed =======') : "cy.log('=======  Loading Spinner was not showed =======')"
   }
 
 

@@ -16,7 +16,7 @@ Feature: Lists Page - Validate Action Elements
     And should be able to see button My Lists
     And should be able to see button Search Box and icon magnifier
     And should be able to see Create a New List button
-    And should be able to see the customer drop down "91150102"
+    And should be able to see the customer drop down "34229328"
     And should be able to see customer verification icon
 
 

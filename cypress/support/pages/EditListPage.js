@@ -209,17 +209,29 @@ export default class EditListPage {
   }
 
 
+  checkTotalProductsUpdated() {
+    cy.get(`@productTwo`).then(productNumber => {
 
-  checkTotalProductsGroup() {
-    //Checking group 1 has 1 product less and group 2 has 1 product more
+      cy
+          .get('.usf-product-card-desc > :nth-child(3) > :nth-child(1)').eq(0)
+          .should('have.text',productNumber )
+      })
+  }
+//Checking group 1 has 1 product less and group 2 has 1 product more
+  checkTotalGroupUpdated() {
     this.isLessThan('groupOne', 0)
     this.isGreaterThan('groupTwo', 1)
   }
 
+  //Getting text number on the groups 1 and 2
   savingCurrentState() {
-    //Getting text number on the groups 1 and 2
     cy.get('.button-content > p').eq(0).invoke('text').as('groupOne')
     cy.get('.button-content > p').eq(1).invoke('text').as('groupTwo')
+  }
+
+  //Getting product number in product 2
+  savingCurrentProducts() {
+    cy.get('.usf-product-card-desc > :nth-child(3) > :nth-child(1)').eq(1).invoke('text').as('productTwo')
   }
 
 
