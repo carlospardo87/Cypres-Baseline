@@ -183,19 +183,25 @@ Then("should be able to drag {string} product and drop on group name {string}", 
 
 Then("should be able to drag {string} product and drop within the same group",  () => {
   new EditListPage().savingCurrentProducts()
-  cy.get('.is-checked > .original-product-card').drag('span:nth-of-type(3) .original-product-card', {force: true})
+  cy.get('span:nth-of-type(2) .original-product-card').drag('span:nth-of-type(3) .original-product-card', {force: true, timeout:1000})
 
+});
+
+Then("should be able to drag {string} product and drop on itself",  () => {
+  cy.get('.is-checked > .original-product-card').drag('.is-checked > .original-product-card', {force: true, timeout:1000})
 });
 
 
 //This reload should be removed once fixed the issue with the API
 Then("should be able to see {string} are updated properly",  (itemType) => {
   if (itemType === 'groups') {
-    cy.reload();
+    //cy.reload();
+    cy.wait(2000)
     new EditListPage().checkTotalGroupUpdated();
 
   } else if (itemType === 'products') {
-    cy.reload();
+    //cy.reload();
+    cy.wait(2000)
     new EditListPage().checkTotalProductsUpdated();
   }
 });
