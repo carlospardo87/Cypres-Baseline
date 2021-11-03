@@ -210,6 +210,9 @@ export default class EditListPage {
 
 
   checkTotalProductsUpdated() {
+
+    cy.reload()
+    cy.wait(2000)
     cy.get(`@productTwo`).then(productNumber => {
 
       cy
