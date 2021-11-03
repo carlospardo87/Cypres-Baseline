@@ -17,8 +17,7 @@ Feature: Edit List Name - Validate List Type can be changed
       | Delete List     |
     And option list should contains "2" items
 
-
-
+  @BUGFIX
   Scenario: User should able to switch to Internal lists to Public or Private
     And goes to "AutCypressInternal" and clicks "Edit List" button
     Then should be able to see the header title contain "AutCypressInternal"
@@ -30,7 +29,7 @@ Feature: Edit List Name - Validate List Type can be changed
       | Delete List         |
     And option list should contains "4" items
 
-
+  @BUGFIX
   Scenario: User should able to switch to Private lists to Internal
     And goes to "AutCypressPrivate" and clicks "Edit List" button
     Then should be able to see the header title contain "AutCypressPrivate"
