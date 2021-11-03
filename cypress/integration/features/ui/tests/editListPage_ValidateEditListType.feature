@@ -6,8 +6,7 @@ Feature: Edit List Name - Validate List Type can be changed
 
   Background:
     Given "Internal" user navigates to USF and logs in
-    And goes to dropdown and selects customer "91150102" and click My Lists button
-
+    When clicks on My Lists button
 
   Scenario: User should not able to switch Public lists
     And goes to "AutCypressPublic" and clicks "Edit List" button
