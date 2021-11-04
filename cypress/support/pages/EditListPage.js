@@ -163,9 +163,13 @@ export default class EditListPage {
 
   checkModalTitle(modalTitle) {
     cy.wait(2000)
-    cy.shouldElement(this.editListNameModal, 0, 'be.visible')
+    cy.shouldElement(this.editListNameModal, 0, 'be.visible');
 
-    cy.shouldElement(this.titleModal, 0, 'contain', modalTitle)
+    if (modalTitle.includes('Delete Group')) {
+      cy.shouldElement('.title', 0, 'contain', modalTitle);
+    } else {
+      cy.shouldElement(this.titleModal, 0, 'contain', modalTitle);
+    }
   }
 
   enterNewListName(newListName) {
@@ -175,10 +179,6 @@ export default class EditListPage {
         .should('have.value', '')
         .type(newListName)
         .should('have.value', newListName)
-  }
-
-  clickOnSubmitButton() {
-    cy.clickElement(this.btn_submit, 0)
   }
 
   clickOnCloseIcon() {
@@ -204,6 +204,14 @@ export default class EditListPage {
         break;
       case 'YES':
         cy.clickElement("[data-cy='delete-yes']", 0)
+        break;
+      case 'Cancel':
+        cy.clickElement(".cancel-button", 0)
+        break;
+      case 'Continue':
+        //validate button is visible until delete group be implemented
+        cy.shouldElement(".continue-button", 0,'be.visible')
+        //cy.clickElement(".continue-button", 0)
         break;
     }
   }
@@ -271,6 +279,37 @@ export default class EditListPage {
       })
     });
   }
+
+  selectOptionToDelete(optionInfo) {
+    if (optionInfo === 'Delete the group and move the products to the Unassigned group.') {
+      cy.clickElementForce('span[class=\'mat-radio-outer-circle\']', 1);
+    }
+  }
+
+
+  validateButtonGroupNameChanged(groupNumber, newGroupName) {
+    cy.reload()
+      cy.get(`button:nth-of-type(${groupNumber}) > .button-content`)
+          .should('contain.text', newGroupName, {matchCase: false})
+  }
+
+  clickOnSubmitButton() {
+    cy.clickElement(this.btn_submit, 0)
+  }
+
+  validateGroupNameChanged(groupNumber, newGroupName) {
+    cy.clickElement(`button:nth-of-type(${groupNumber}) > .button-content`, 0)
+
+    cy.get('.list-management-group-name')
+        .should('contain.text', newGroupName, {matchCase: false})
+  }
+
+  generateRandomNumber() {
+    return Math.floor(Math.random() * (1000000 - 10) + 10)
+  }
+
 }
+
+
 
 
