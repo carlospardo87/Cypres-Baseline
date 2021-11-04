@@ -25,6 +25,7 @@ Feature: List Details page - Validate Enter Product Items
     And should be able to see "10" total Cases in total order section
 
 
+  @BUGFIX
   Scenario: User should be able to see the group of list is sorted ascending
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button

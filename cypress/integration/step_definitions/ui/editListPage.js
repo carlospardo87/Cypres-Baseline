@@ -2,6 +2,8 @@
 
 import {When, Then} from 'cypress-cucumber-preprocessor/steps'
 import EditListPage from '../../../support/pages/EditListPage';
+import ListsPage from "../../../support/pages/ListsPage";
+import ListDetailsPage from "../../../support/pages/ListDetailsPage";
 
 When('should be able to check and uncheck the radio element', () => {
   new EditListPage().checkRadioButton()
@@ -121,36 +123,36 @@ Then("should be able to see the edit options list",  (datatable) => {
 });
 
 
-Then("should be able to enter list name {string} and click Submit button",  (newListName) => {
-    new EditListPage().enterNewListName(newListName)
-    new EditListPage().clickOnSubmitButton()
+Then("should be able to enter {string} name {string} and click Submit button",  (itemType, newListName) => {
+  let randomNumber = new EditListPage().generateRandomNumber();
+  let newGroupName = newListName+randomNumber
+
+  if (itemType === 'list') {
+    new EditListPage().enterNewListName(newGroupName);
+    cy.log('-----> Click on Submit Button <----')
+    new EditListPage().clickOnSubmitButton();
+    cy.log('-----> Wait for spinner completed <----')
+    new ListsPage().checkLoadingSpinnerIfExist('Changing list name')
+    cy.log('-----> Validate Page title <----')
+    new ListDetailsPage().checkListDetailsPageTitle(newGroupName)
+
+  } else if(itemType === 'product') {
+    cy.log('-----> Enter New List Name <----')
+    new EditListPage().enterNewListName(newGroupName);
+    cy.log('-----> Click on Submit Button <----')
+    new EditListPage().clickOnSubmitButton();
+    cy.log('-----> Wait for spinner completed <----')
+    new ListsPage().checkLoadingSpinnerIfExist('')
+    cy.log('-----> Validate group button name  <----')
+    new EditListPage().validateButtonGroupNameChanged("3", newGroupName)
+    cy.log('-----> Validate group title name  <----')
+    new EditListPage().validateGroupNameChanged("3", newGroupName)
+  }
 });
 
 
 Then("should be able close the modal",  () => {
   new EditListPage().clickOnCloseIcon()
-});
-
-Then("should be able to revert the changes on {string} with the previous name {string}",  (actionName, revertListName) => {
-
-  cy.removeDomElement('#ion-overlay-2')
-
-  cy.log('should click on ellipsis icon and choose the option')
-  new EditListPage().clickOnEllipsisAndOption(actionName)
-  cy.log('should see the modal title')
-  new EditListPage().checkModalTitle(actionName)
-  cy.log('should enter the list name and click Submit button')
-  new EditListPage().enterNewListName(revertListName)
-});
-
-
-Then("should be able to click on the Submit button and close the modal",  () => {
-
-  cy.log('should click on button Submit button')
-  new EditListPage().clickOnSubmitButton()
-
-  cy.log('should close the modal after click on button Submit')
-  cy.shouldElement(new EditListPage().editListNameModal, 0, 'not.exist')
 });
 
 
@@ -189,6 +191,26 @@ Then("should be able to drag {string} product and drop within the same group",  
 
 Then("should be able to drag {string} product and drop on itself",  () => {
   cy.get('.is-checked > .original-product-card').drag('.is-checked > .original-product-card', {force: true, timeout:1000})
+});
+
+Then("should be able to see the {string} updated",  () => {
+  expect(true).equal(true)
+});
+
+
+
+Then("should be able to click on group {string} and {string}",  (groupNumber, optionMenu) => {
+
+  cy.log('--->Click on button group <---')
+  cy.clickElement(`button:nth-of-type(${groupNumber}) > .button-content`, 0)
+
+  cy.log('--->Click on ellipsis to show dropdown menu to edit groups <---')
+  cy.get('.product-wrapper > .item > ion-icon.md').click({force: true})
+  cy.wait(250)
+
+  cy.log('--->Click on dropdown menu option <---')
+  cy.xpath(`//ion-item[.='${optionMenu}']`)
+      .should('be.visible').click()
 });
 
 
