@@ -111,6 +111,10 @@ Cypress.Commands.add('clickElement', (locator, item) => {
         cy.highlightBorderElement($elementCss, 'transparent')
     })
 
+    cy.on('uncaught:exception', (err, runnable) => {
+        expect(err.message).to.include('One of the specified object stores was not found')
+        return false
+    })
 })
 
 Cypress.Commands.add('clickElementForce', (locator, item) => {
