@@ -21,7 +21,7 @@ Feature: Edit List Page - Validate Edit/Delete Groups Name
       | grp2 |
       | GRP2 |
 
-  @BUGFIX
+
   Scenario: User should be able to Edit group name
     And should be able to click on group "3" and "Edit Group Name"
     And should be able to see the "Edit Group Name" modal
