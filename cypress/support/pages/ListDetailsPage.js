@@ -99,15 +99,15 @@ export default class ListDetailsPage {
   fillInputItems(priceValue) {
   cy.reload()
 
-    cy.wait(2000)
+    cy.wait(1000)
 
     cy.get(this.array_priceContainer).eq(0).type(priceValue,{delay:10})
 
-    cy.wait(1000)
+    cy.wait(500)
 
     cy.clickElement('.usf-product-card-img > img', 0)
 
-    cy.wait(1000)
+    cy.wait(500)
   }
 
   checkCartItems(expectedPrice) {
