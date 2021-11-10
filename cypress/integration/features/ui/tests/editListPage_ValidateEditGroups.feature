@@ -12,7 +12,7 @@ Feature: Edit List Page - Validate Edit/Delete Groups Name
 
 
 
-  Scenario: User should able to see error message if the list name (case insensitive) entered already exists.
+  Scenario: User should be able to see error message if the list name (case insensitive) entered already exists.
     And should be able to click on group "2" and "Edit Group Name"
     And should be able to see the "Edit Group Name" modal
     And should be able to enter list name ,click Submit and see list name error 'The group name already exists. Please enter a new group name.'
@@ -25,8 +25,12 @@ Feature: Edit List Page - Validate Edit/Delete Groups Name
   Scenario: User should be able to Edit group name
     And should be able to click on group "3" and "Edit Group Name"
     And should be able to see the "Edit Group Name" modal
-    And should be able to enter "product" name "Grp2" and click Submit button
-    And should be able to see the "group name" updated
+    And should be able to enter "group" name "Grp2" and click Submit button
+    And authorization token was requested
+    And refresh token was requested with customer: "91150102" and division: "2160"
+    And requesting all lists groups API
+    Then "ListGroups" response should contain status "200"
+    And "ListGroups" response body should be contain group name "Grp2"
 
 
 
