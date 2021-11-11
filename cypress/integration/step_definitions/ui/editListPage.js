@@ -187,7 +187,7 @@ Then("should be able to click on group {string} and {string}",  (groupNumber, op
   cy.clickElement(`button:nth-of-type(${groupNumber}) > .button-content`, 0)
 
   cy.log('--->Click on ellipsis to show dropdown menu to edit groups <---')
-  cy.get('.product-wrapper > .item > ion-icon.md').click({force: true})
+  cy.get('ion-grid.md > :nth-child(1) > .item > ion-icon.md').click({force: true})
   cy.wait(250)
 
   cy.log('--->Click on dropdown menu option <---')
