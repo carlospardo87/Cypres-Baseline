@@ -105,7 +105,7 @@ export default class ListDetailsPage {
 
     cy.wait(500)
 
-    cy.clickElement('.usf-product-card-img > img', 0)
+    cy.clickElement('.usf-product-card-img', 0)
 
     cy.wait(500)
   }
@@ -115,7 +115,7 @@ export default class ListDetailsPage {
   }
 
   checkAscendingOrder() {
-    cy.reload()
+    //cy.reload()
 
     let arr_group = ['Unassigned Group','Grp1','Grp2','Grp3']
     cy
