@@ -17,7 +17,7 @@ Feature: List Details page - Validate Drag and Drop Lists
     And should be able to see the loading spinner appears with text ""
     And should be able to see "groups" are updated properly
 
-
+  @BUGFIX
   Scenario: User should be able to drag and drop a product within the same groups
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button
