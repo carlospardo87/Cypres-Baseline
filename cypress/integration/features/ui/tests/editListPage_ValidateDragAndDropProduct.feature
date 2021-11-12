@@ -10,9 +10,10 @@ Feature: List Details page - Validate Drag and Drop Lists
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button
     And goes to "Large List Cypress" and clicks "Edit List" button
-    Then should be able to see the header title contain "Large List Cypress"
-    When should be able to select "1" items
-    Then should be able to drag "1" product and drop on group name "Group1"
+    And should be able to see the header title contain "Large List Cypress"
+    And should be able to click on group "Group1"
+    And should be able to select "1" items
+    Then should be able to drag "1" product and drop on group name "Group2"
     And should be able to see the loading spinner appears with text ""
     And should be able to see "groups" are updated properly
 

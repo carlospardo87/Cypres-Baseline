@@ -5,35 +5,26 @@ Feature: Delete Lists - Validate Delete Lists
   to Delete, Cancel and Close List operation
   on Edit List page
 
-  @BUGFIX
   Scenario: User should be able to "Delete" list on View All Lists page
     Given "External" user navigates to USF and logs in
     When clicks on My Lists button
-    And clicks on button "Create A New List"
-    Then should be able to see create lists modal
-    And should be able to enter list name "AutCypressPublicTestDelete"
-    And should be able to click "Create" button
-    And goes to the page "View All Lists"
-    And goes to "AutCypressPublicTestDelete" and clicks "Delete" button
+    And should create a list "CypressListToDelete" if not exist
+    And goes to "CypressListToDelete" and clicks "Delete" button
     And should be able to see the "Delete List" modal
     And should be able to click on "YES" button
-    And should not able to see "AutCypressPublicTestDelete" on View All List page
+    Then should not able to see "CypressListToDelete" on View All List page
 
 
-  @BUGFIX
   Scenario: User should be able to click on 'YES' button and delete list
     Given "External" user navigates to USF and logs in
     When clicks on My Lists button
-    And clicks on button "Create A New List"
-    Then should be able to see create lists modal
-    And should be able to enter list name "AutCypressPublicTestDelete"
-    And should be able to click "Create" button
-    And goes to "AutCypressPublicTestDelete" and clicks "Edit List" button
-    And should be able to see the header title contain "AutCypressPublicTestDelete"
+    And should create a list "CypressListToDelete" if not exist
+    And goes to "CypressListToDelete" and clicks "Edit List" button
+    And should be able to see the header title contain "CypressListToDelete"
     And should be able to dropdown the ellipsis menu and click on option "Delete List"
     And should be able to see the "Delete List" modal
     And should be able to click on "YES" button
-    And should not able to see "AutCypressPublicTestDelete" on View All List page
+    And should not able to see "CypressListToDelete" on View All List page
 
 
   Scenario Outline: User should be able to click on "<buttonName>" button

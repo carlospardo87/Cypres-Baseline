@@ -12,6 +12,12 @@ When('requesting Lists API', (productNum) => {
   })
 })
 
+When('requesting all lists API', (productNum) => {
+  cy.get('@getRefreshToken').then((resToken) => {
+    cy.getLists(resToken)
+  })
+})
+
 
 When('Lists name {string} was created', (newListName) => {
   cy.get('@getAuthToken').then((resToken) => {
@@ -34,4 +40,24 @@ When('{string} response should contain {string}', (apiName, newListName) => {
       }
       expect(newListName+timeNow, 'New list was not created').to.equal('')
       })
+})
+
+
+Then('{string} response body should be contain list name {string}', (apiName, newListName) => {
+  cy.get(`@get${apiName}`).then((response) => {
+
+    console.log('====>>>> '+response.body.length)
+
+    for (let i = 0; i < response.body.length; i++) {
+
+      console.log('====>>>> '+response.body[i].listName)
+
+      if (response.body[i].listName === newListName+global.randomNumber) {
+
+        expect(response.body[i].listName, 'New group name was updated properly').to.equal(newListName+global.randomNumber)
+        return ''
+      }
+    }
+    expect(newListName+global.randomNumber, 'Group name was not updated properly').to.equal('')
+  })
 })

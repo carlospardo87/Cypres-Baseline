@@ -46,6 +46,9 @@ export default class HomePage {
       case 'My Lists':
         this.checkPartialUrl('/desktop/lists')
         break;
+      case 'Browse Products':
+        this.checkPartialUrl('/desktop/search/catalog')
+        break;
 
 
     }
@@ -124,14 +127,11 @@ export default class HomePage {
 
   checkBannerAndText(bannerText) {
     cy.highlightBorderElement('.home-banner', 'magenta')
-    cy.highlightBorderElement('.home-banner-text > span', 'magenta')
-
-  cy.get('.home-banner')
+    cy.get('.home-banner')
         .should('have.css', 'background-image', 'url("https://ecomr4-sit.ama-nonprod.usfoods.com/assets/images/home-banner-desktop.png")')
-        .should('have.text', bannerText)
-
-    cy.highlightBorderElement('.home-banner-text > span', 'transparent')
     cy.highlightBorderElement('.home-banner', 'transparent')
+
+    cy.shouldElement('.home-banner-text > span', 0, 'have.text', bannerText)
   }
 
   checkOptionsCards(cardTitle) {

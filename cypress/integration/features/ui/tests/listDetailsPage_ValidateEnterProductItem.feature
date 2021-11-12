@@ -5,7 +5,7 @@ Feature: List Details page - Validate Enter Product Items
   List Product Details page and verify that I am able
   to navigate to PDP and see the card product item
 
-  Scenario: User should be able to see navigate to PLD and see the card product item
+  Scenario: User should be able to see navigate to PDP and see the card product item
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button
     When goes to section "Public" and clicks on list "AutCypressPublic"
@@ -24,8 +24,6 @@ Feature: List Details page - Validate Enter Product Items
     And should be able to see the correct Order Total for "10" products
     And should be able to see "10" total Cases in total order section
 
-
-  @BUGFIX
   Scenario: User should be able to see the group of list is sorted ascending
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button

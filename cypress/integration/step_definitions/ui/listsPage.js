@@ -96,12 +96,6 @@ When("goes to {string} and clicks {string} button", (listName, optionMenu) => {
   new ListsPage().clickOnEditList(listName, optionMenu)
 });
 
-When("clicks on list name that contains {string}", (listName) => {
-  cy.xpath(`//p[contains(.,'${listName}')]`).should('be.visible').click()
-});
-
-
-
 And("should be able to enter text {string} in search box and filter lists", (text) => {
   cy.wait(3000)
 

@@ -3,7 +3,7 @@
 import {When, Then} from 'cypress-cucumber-preprocessor/steps'
 import EditListPage from '../../../support/pages/EditListPage';
 import ListsPage from "../../../support/pages/ListsPage";
-import ListDetailsPage from "../../../support/pages/ListDetailsPage";
+
 
 When('should be able to check and uncheck the radio element', () => {
   new EditListPage().checkRadioButton()
@@ -125,29 +125,16 @@ Then("should be able to see the edit options list",  (datatable) => {
 
 Then("should be able to enter {string} name {string} and click Submit button",  (itemType, newListName) => {
   let randomNumber = new EditListPage().generateRandomNumber();
+  global.randomNumber = randomNumber.toString()
   let newGroupName = newListName+randomNumber
 
-  if (itemType === 'list') {
-    new EditListPage().enterNewListName(newGroupName);
-    cy.log('-----> Click on Submit Button <----')
-    new EditListPage().clickOnSubmitButton();
-    cy.log('-----> Wait for spinner completed <----')
-    new ListsPage().checkLoadingSpinnerIfExist('Changing list name')
-    cy.log('-----> Validate Page title <----')
-    new ListDetailsPage().checkListDetailsPageTitle(newGroupName)
+  cy.log('====>>>> '+newGroupName)
 
-  } else if(itemType === 'product') {
-    cy.log('-----> Enter New List Name <----')
     new EditListPage().enterNewListName(newGroupName);
     cy.log('-----> Click on Submit Button <----')
     new EditListPage().clickOnSubmitButton();
     cy.log('-----> Wait for spinner completed <----')
     new ListsPage().checkLoadingSpinnerIfExist('')
-    cy.log('-----> Validate group button name  <----')
-    new EditListPage().validateButtonGroupNameChanged("3", newGroupName)
-    cy.log('-----> Validate group title name  <----')
-    new EditListPage().validateGroupNameChanged("3", newGroupName)
-  }
 });
 
 
@@ -193,11 +180,6 @@ Then("should be able to drag {string} product and drop on itself",  () => {
   cy.get('.is-checked > .original-product-card').drag('.is-checked > .original-product-card', {force: true, timeout:1000})
 });
 
-Then("should be able to see the {string} updated",  () => {
-  expect(true).equal(true)
-});
-
-
 
 Then("should be able to click on group {string} and {string}",  (groupNumber, optionMenu) => {
 
@@ -205,7 +187,7 @@ Then("should be able to click on group {string} and {string}",  (groupNumber, op
   cy.clickElement(`button:nth-of-type(${groupNumber}) > .button-content`, 0)
 
   cy.log('--->Click on ellipsis to show dropdown menu to edit groups <---')
-  cy.get('.product-wrapper > .item > ion-icon.md').click({force: true})
+  cy.get('ion-grid.md > :nth-child(1) > .item > ion-icon.md').click({force: true})
   cy.wait(250)
 
   cy.log('--->Click on dropdown menu option <---')
@@ -214,10 +196,18 @@ Then("should be able to click on group {string} and {string}",  (groupNumber, op
 });
 
 
+Then("should be able to click on group {string}", (groupNumber) => {
+
+  cy.log('--->Click on button group <---')
+  //cy.clickElement(`button:nth-of-type(${groupNumber}) > .button-content`, 0);
+  cy.xpath(`//span[contains(.,'${groupNumber}')]`).click()
+});
+
+
 //This reload should be removed once fixed the issue with the API
 Then("should be able to see {string} are updated properly",  (itemType) => {
   if (itemType === 'groups') {
-    //cy.reload();
+    cy.reload();
     cy.wait(2000)
     new EditListPage().checkTotalGroupUpdated();
 

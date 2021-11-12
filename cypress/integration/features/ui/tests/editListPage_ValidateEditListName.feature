@@ -21,16 +21,18 @@ Feature: Edit List Name - Validate List Name can be changed
    And should be able to see the header title contain "AutCypressPublic"
 
 
-
-  @BUGFIX
-  Scenario: User should able to edit a new list name with a new list name.
+  Scenario: User should be able to "Edit List Name"
     Given "Internal" user navigates to USF and logs in
     When goes to dropdown and selects customer "91150102" and click My Lists button
-    And clicks on list name that contains "NewListName"
+    And goes to "NewListName" and clicks "Edit List" button
     Then should be able to dropdown the ellipsis menu and click on option "Edit List Name"
     And should be able to see the "Edit List Name" modal
     And should be able to enter "list" name "NewListName" and click Submit button
-    And should be able to see the "list name" updated
+    And authorization token was requested
+    And refresh token was requested with customer: "91150102" and division: "2160"
+    When requesting all lists API
+    Then "Lists" response should contain status "200"
+    And "Lists" response body should be contain list name "NewListName"
 
 
 

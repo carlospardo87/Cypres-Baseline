@@ -2,8 +2,32 @@
 
 import {When, Then, And } from 'cypress-cucumber-preprocessor/steps'
 import CreateNewListPage from '../../../support/pages/CreateNewListPage';
+import ListDetailsPage from "../../../support/pages/ListDetailsPage";
 
 
+
+And('should create a list {string} if not exist', (listName) => {
+
+  const allListNames = Cypress.$('.list-md .list-name').text()
+
+  if (!allListNames.includes(listName)) {
+    cy.log('-------> Creating a new Lists <-------')
+    new CreateNewListPage().clickCreateNewList(listName);
+    cy.log('-------> Checking modal to create list <-------')
+    new CreateNewListPage().checkModalAppears()
+    cy.log('-------> Entering list name <-------')
+    new CreateNewListPage().enterListName(listName)
+    cy.log('-------> Clicking button create <-------')
+    new CreateNewListPage().clickButtonCreate()
+    cy.log('-------> Validate List Details page open <-------')
+    new ListDetailsPage().checkListDetailsPageTitle(listName)
+    cy.log('-------> Returning back to View All Lists page <-------')
+    cy.go('back')
+    cy.wait(500)
+  }
+  cy.log('-------> List is already created <-------')
+
+});
 
 And('clicks on button {string}', (buttonName) => {
   new CreateNewListPage().clickCreateNewList(buttonName)

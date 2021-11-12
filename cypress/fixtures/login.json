@@ -14,5 +14,10 @@
   "api": {
     "user": "R4TMID4",
     "password": "V2VsY29tZTIw"
+  },
+
+  "api_ext": {
+    "user": "EXTUSER01",
+    "password": "V2VsY29tZTIx"
   }
 }

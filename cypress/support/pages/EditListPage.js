@@ -230,14 +230,14 @@ export default class EditListPage {
   }
 //Checking group 1 has 1 product less and group 2 has 1 product more
   checkTotalGroupUpdated() {
-    this.isLessThan('groupOne', 0)
-    this.isGreaterThan('groupTwo', 1)
+    this.isLessThan('groupOne', 1)
+    this.isGreaterThan('groupTwo', 2)
   }
 
   //Getting text number on the groups 1 and 2
   savingCurrentState() {
-    cy.get('.button-content > p').eq(0).invoke('text').as('groupOne')
-    cy.get('.button-content > p').eq(1).invoke('text').as('groupTwo')
+    cy.get('.button-content > p').eq(1).invoke('text').as('groupOne')
+    cy.get('.button-content > p').eq(2).invoke('text').as('groupTwo')
   }
 
   //Getting product number in product 2

@@ -99,15 +99,15 @@ export default class ListDetailsPage {
   fillInputItems(priceValue) {
   cy.reload()
 
-    cy.wait(2000)
+    cy.wait(1000)
 
     cy.get(this.array_priceContainer).eq(0).type(priceValue,{delay:10})
 
-    cy.wait(1000)
+    cy.wait(500)
 
-    cy.clickElement('.usf-product-card-img > img', 0)
+    cy.clickElement('.usf-product-card-img', 0)
 
-    cy.wait(1000)
+    cy.wait(500)
   }
 
   checkCartItems(expectedPrice) {
@@ -115,7 +115,7 @@ export default class ListDetailsPage {
   }
 
   checkAscendingOrder() {
-    cy.reload()
+    //cy.reload()
 
     let arr_group = ['Unassigned Group','Grp1','Grp2','Grp3']
     cy

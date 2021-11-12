@@ -58,10 +58,20 @@ Then("should be able to see a banner at the end of the page", () => {
   new HomePage().checkEndBanner()
 });
 
-When("user clicks on {string} card",  (cardName)=>{
+When("user clicks on card {string}",  (cardName)=>{
   cy.xpath(`//ion-card-header[contains(.,'${cardName}')]`).then($el=>{
     cy.highlightBorderElement($el, 'magenta')
     cy.wrap($el).should('be.visible').click()
     cy.highlightBorderElement($el, 'transparent')
   })
 });
+
+
+When("user clicks on button {string}",  (btnName)=>{
+  if(btnName === 'Create Order')
+  cy.clickElement('.home-my-orders-btns > ion-button',0)
+  else if(btnName === 'View All Order')
+  cy.clickElement('.home-my-orders-btns > ion-button',1)
+});
+
+

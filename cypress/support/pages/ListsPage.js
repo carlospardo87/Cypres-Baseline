@@ -236,6 +236,7 @@ export default class ListsPage {
 
         cy.wrap($el).scrollIntoView().should('exist')
         cy.wrap($el).find('ion-icon').click({force: true})
+        cy.wait(500)
         cy.xpath(`//ion-label[.='${optionName}']`).should('exist').click()
 
       }
