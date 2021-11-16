@@ -43,7 +43,7 @@ export default class HomePage {
       case 'My Orders':
         this.checkPartialUrl('/desktop/order/my-orders')
         break;
-      case 'My Lists':
+      case 'My Lists' || 'View All Lists':
         this.checkPartialUrl('/desktop/lists')
         break;
       case 'Browse Products':
