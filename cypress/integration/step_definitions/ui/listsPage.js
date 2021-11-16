@@ -97,18 +97,14 @@ When("goes to {string} and clicks {string} button", (listName, optionMenu) => {
 });
 
 And("should be able to enter text {string} in search box and filter lists", (text) => {
-  cy.wait(3000)
 
-  cy.get(".searchbar-input[placeholder='Search']").type(`${text}`)
+  cy.get(".list-search > .searchbar-input-container > .searchbar-input").should('be.visible')
+      .type(text)
       .should('have.value', text)
       .clear()
       .should('have.value', '')
-      .type(`${text}{movetostart}{enter}`)
-
-  cy.get('body').trigger('keydown', { key: "Enter", code: "Enter", which: 13 })
-  cy.get('body').trigger('keyup', { key: "Enter", code: "Enter", which: 13 })
-
-
+      .type(text,{delay:50}).trigger("search").trigger("search")
+  cy.wait(500)
 });
 
 And("should be able to see list filtered that contains text {string}", (text) => {

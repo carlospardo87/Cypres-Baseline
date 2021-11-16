@@ -3,7 +3,7 @@ Feature: Lists Page - Validate Action Elements
 
   As a user Internal I need to navigate to View All Lists Page
   and verify that I am able to interact with
-  the available elements
+  the available action elements and search bar
 
   Background:
     Given "Internal" user navigates to USF and logs in
@@ -21,16 +21,15 @@ Feature: Lists Page - Validate Action Elements
 
 
   Scenario: User filters a list that exists
-    And should be able to enter text "AutCypress" in search box and filter lists
-    And should be able to see list filtered that contains text "AutCypress"
+    And should be able to enter text "AutCypressPub" in search box and filter lists
+    And should be able to see list filtered that contains text "AutCypressPub"
 
   Scenario: User cleans text using clean icon "x"
      And should be able to enter text "QaAutomation" in search box and filter lists
      And should be able to use the icon "x" to clean the text
 
-  #@SKIP
-  #Scenario: User filters a list that does not exist
-  #  And should be able to enter text "QaAutomation" in search box and filter lists
-  #  And should be able to see in each section "There are no lists to show"
+  Scenario: User filters a list that does not exist
+    And should be able to enter text "QaAutomation" in search box and filter lists
+    And should be able to see in each section "There are no lists to show"
 
 
