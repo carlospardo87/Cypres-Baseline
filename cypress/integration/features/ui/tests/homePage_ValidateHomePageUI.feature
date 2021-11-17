@@ -26,7 +26,7 @@ Feature: Home Page - Validate UI Elements
       | cardName   | pageName        |
       | Deliveries | My Orders       |
       | Browse     | Browse Products |
-      #| MY LISTS   | My Lists  |   Not implemented yet
+      | My Lists   | View All Lists  |
 
 
   Scenario Outline: User should be able click on "<btnName>" card

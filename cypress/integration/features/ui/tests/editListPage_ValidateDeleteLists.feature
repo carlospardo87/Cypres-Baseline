@@ -5,6 +5,7 @@ Feature: Delete Lists - Validate Delete Lists
   to Delete, Cancel and Close List operation
   on Edit List page
 
+  @BUGFIX
   Scenario: User should be able to "Delete" list on View All Lists page
     Given "External" user navigates to USF and logs in
     When clicks on My Lists button
@@ -14,7 +15,7 @@ Feature: Delete Lists - Validate Delete Lists
     And should be able to click on "YES" button
     Then should not able to see "CypressListToDelete" on View All List page
 
-
+  @BUGFIX
   Scenario: User should be able to click on 'YES' button and delete list
     Given "External" user navigates to USF and logs in
     When clicks on My Lists button

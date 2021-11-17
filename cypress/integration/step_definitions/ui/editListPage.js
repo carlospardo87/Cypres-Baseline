@@ -165,13 +165,19 @@ Then("should not able to see {string} on View All List page",  (listName) => {
 
 
 Then("should be able to drag {string} product and drop on group name {string}",  (productNumb, groupName) => {
-  new EditListPage().savingCurrentState()
+
+  let groupText = Cypress.$(`[groupname='${groupName}'] p`).text()
+  let groupUpdate  =   Number(groupText.replace(/[(]/, '').replace(/[)]/, '')) + 1
+  global.addingProducts = groupUpdate
+  console.log(`=== Current total products on ${groupName} is: ${groupText} adding one is : ${groupUpdate}`)
+
+
   cy.get('.is-checked > .original-product-card').drag(`[groupname='${groupName}']`, {force: true})
 });
 
 
 Then("should be able to drag {string} product and drop within the same group",  () => {
-  new EditListPage().savingCurrentProducts()
+  //new EditListPage().savingCurrentProducts()
   cy.get('span:nth-of-type(2) .original-product-card').drag('span:nth-of-type(3) .original-product-card', {force: true, timeout:1000})
 
 });
@@ -198,24 +204,15 @@ Then("should be able to click on group {string} and {string}",  (groupNumber, op
 
 Then("should be able to click on group {string}", (groupNumber) => {
 
+  let groupText = Cypress.$(`[groupname='${groupNumber}'] p`).text()
+  let groupUpdate  =   Number(groupText.replace(/[(]/, '').replace(/[)]/, '')) - 1
+  global.subtractingProduct = groupUpdate
+  console.log(`=== Current total products on ${groupNumber} is: ${groupText} subtracting one is : ${groupUpdate}`)
+
   cy.log('--->Click on button group <---')
   //cy.clickElement(`button:nth-of-type(${groupNumber}) > .button-content`, 0);
   cy.xpath(`//span[contains(.,'${groupNumber}')]`).click()
 });
 
-
-//This reload should be removed once fixed the issue with the API
-Then("should be able to see {string} are updated properly",  (itemType) => {
-  if (itemType === 'groups') {
-    cy.reload();
-    cy.wait(2000)
-    new EditListPage().checkTotalGroupUpdated();
-
-  } else if (itemType === 'products') {
-    //cy.reload();
-    cy.wait(2000)
-    new EditListPage().checkTotalProductsUpdated();
-  }
-});
 
 
