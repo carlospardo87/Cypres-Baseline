@@ -199,7 +199,7 @@ export default class ListsPage {
 
   waitSpinnerFinish(locator) {
     cy.highlightBorderElement(locator, 'magenta')
-      cy.get(locator, {timeout:30000})
+      cy.get(locator, {timeout:60000})
           .should('not.exist')
     }
 
