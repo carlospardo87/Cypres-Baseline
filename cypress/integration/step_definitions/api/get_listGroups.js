@@ -3,6 +3,7 @@
 import {Given, When, Then} from 'cypress-cucumber-preprocessor/steps'
 
 
+
 When('requesting ListGroup API', (productNum) => {
   cy.get('@getAuthToken').then((resToken) => {
     cy.getListGroups(resToken)
@@ -43,7 +44,31 @@ Then('{string} response body should be contain group name {string}', (apiName, n
   })
 })
 
+Then('{string} response body should {string} products on group {string}', (apiName, type,  groupName) => {
+  cy.get(`@get${apiName}`).then((response) => {
 
+    console.log('==Body length ==>>>> '+response.body.length)
+
+    for (let i = 0; i < response.body.length; i++) {
+
+      if (response.body[i].groupName === groupName && response.body[i].listKey.listId  === 6923864) {
+
+        console.log('=== List number  =>>>> ' + response.body[i].listKey.listId)
+        console.log('=== Total groups =>>>> ' + response.body[i].listItemKeys.length)
+        console.log('=== Total group plus one =>>>> ' + global.groupNumber)
+
+        if (groupName === 'Group2') {
+          expect(response.body[i].listItemKeys.length, 'Group was increased properly').to.equal(global.addingProducts);
+          return ''
+        } else if (groupName === 'Group1') {
+          expect(response.body[i].listItemKeys.length, 'Group was increased properly').to.equal(global.subtractingProduct);
+          return ''
+        }
+      }
+    }
+    expect(global.randomNumber, 'Group was not increased properly').to.equal('')
+  })
+})
 
 
 
