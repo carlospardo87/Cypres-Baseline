@@ -211,73 +211,8 @@ export default class EditListPage {
       case 'Continue':
         //validate button is visible until delete group be implemented
         cy.shouldElement(".continue-button", 0,'be.visible')
-        //cy.clickElement(".continue-button", 0)
         break;
     }
-  }
-
-
-  checkTotalProductsUpdated() {
-
-    cy.reload()
-    cy.wait(2000)
-    cy.get(`@productTwo`).then(productNumber => {
-
-      cy
-          .get('.usf-product-card-desc > :nth-child(3) > :nth-child(1)').eq(0)
-          .should('have.text',productNumber )
-      })
-  }
-//Checking group 1 has 1 product less and group 2 has 1 product more
-  checkTotalGroupUpdated() {
-    this.isLessThan('groupOne', 1)
-    this.isGreaterThan('groupTwo', 2)
-  }
-
-  //Getting text number on the groups 1 and 2
-  savingCurrentState() {
-    cy.get('.button-content > p').eq(1).invoke('text').as('groupOne')
-    cy.get('.button-content > p').eq(2).invoke('text').as('groupTwo')
-  }
-
-  //Getting product number in product 2
-  savingCurrentProducts() {
-    cy.get('.usf-product-card-desc > :nth-child(3) > :nth-child(1)').eq(1).invoke('text').as('productTwo')
-  }
-
-
-  isLessThan(alias, groupOrder){
-    cy.get(`@${alias}`).then(text => {
-      let numberBefore = text.toString()
-          .replace(/[(]/, '')
-          .replace(/[)]/, '')
-
-      cy.get('.button-content > p').eq(groupOrder).invoke('text').then(text => {
-        let numberAfter = text
-            .replace(/[(]/, '')
-            .replace(/[)]/, '')
-
-        expect(Number(numberAfter), 'Number should be less than').to.be.lessThan(Number(numberBefore));
-
-      })
-    });
-  }
-
-  isGreaterThan(alias, groupOrder){
-    cy.get(`@${alias}`).then(text => {
-      let numberBefore = text.toString()
-          .replace(/[(]/, '')
-          .replace(/[)]/, '')
-
-      cy.get('.button-content > p').eq(groupOrder).invoke('text').then(text => {
-        let numberAfter = text
-            .replace(/[(]/, '')
-            .replace(/[)]/, '')
-
-        expect(Number(numberAfter), 'Number should be less than').to.be.greaterThan(Number(numberBefore));
-
-      })
-    });
   }
 
   selectOptionToDelete(optionInfo) {
