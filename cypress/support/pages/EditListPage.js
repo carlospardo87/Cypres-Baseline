@@ -133,6 +133,7 @@ export default class EditListPage {
   }
 
   enterGroupName(groupName) {
+    cy.get(this.edit_newGroup).scrollIntoView().should('exist')
     cy.shouldElement(this.newGroupCard, 0, 'be.visible')
     cy.get(this.edit_newGroup).type(groupName)
   }
