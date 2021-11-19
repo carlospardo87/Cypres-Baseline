@@ -117,7 +117,7 @@ export default class ListDetailsPage {
   checkAscendingOrder() {
     //cy.reload()
 
-    let arr_group = ['Unassigned Group','Grp1','Grp2','Grp3']
+    let arr_group = ['Unassigned Group','Grp1','Grp2','Grp3','Grp4']
     cy
       .get(this.array_listGroupName).its('length').then(arr_length=>{
       for (let i = 0; i < arr_length; i++) {
