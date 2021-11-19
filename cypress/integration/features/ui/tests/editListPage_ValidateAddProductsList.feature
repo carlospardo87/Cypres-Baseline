@@ -46,6 +46,7 @@ Feature: List Details page - Validate Add Product
     And should be able to see enabled "Submit"
     And should be able to see the loading spinner appears with text ""
     And should be able to see alert message "Could not add products at this time, please try again."
+    #Create steps to validate API , products should be added if was ok
 
 
 
