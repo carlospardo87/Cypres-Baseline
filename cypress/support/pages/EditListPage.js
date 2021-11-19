@@ -151,8 +151,12 @@ export default class EditListPage {
     cy.shouldHaveAttribute(this.redCloseCircle, 'name', 'close-circle-outline')
   }
 
-  clickGreenCheckmarkCircle() {
-    cy.get(this.clickGreenCheckmark).click()
+  clickCheckmarkCircle(colorType) {
+    if (colorType === "green") {
+      cy.clickElement(this.clickGreenCheckmark, 0);
+    } else {
+      cy.clickElement(this.redCloseCircle, 0);
+    }
   }
 
   clickOnEllipsisAndOption(optionMenu) {
@@ -210,8 +214,7 @@ export default class EditListPage {
         cy.clickElement(".cancel-button", 0)
         break;
       case 'Continue':
-        //validate button is visible until delete group be implemented
-        cy.shouldElement(".continue-button", 0,'be.visible')
+        cy.clickElement(".continue-button", 0)
         break;
     }
   }
