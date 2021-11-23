@@ -190,6 +190,8 @@ Then("should be able to drag {string} product and drop on itself",  () => {
 
 Then("should be able to click on group {string} and {string}",  (groupNumber, optionMenu) => {
 
+  global.groupName  = Cypress.$('.button-content > span').eq(1).text()
+
   cy.log('--->Click on button group <---')
   cy.clickElement(`button:nth-of-type(${groupNumber}) > .button-content`, 0)
 

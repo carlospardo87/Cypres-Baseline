@@ -71,6 +71,21 @@ Then('{string} response body should {string} products on group {string}', (apiNa
 })
 
 
+Then('{string} response body should not include deleted group', (apiName) => {
+  cy.get(`@get${apiName}`).then((response) => {
+
+    console.log('==Body length ==>>>> '+response.body.length)
+    console.log('==Group Name ==>>>> '+global.groupName)
+
+    for (let i = 0; i < response.body.length; i++) {
+
+      if (response.body[i].groupName === global.groupName && response.body[i].listKey.listId === 6923863) {
+        expect(true).to.equal(false, 'Group was not removed properly')
+      }
+      }
+    expect(true).to.equal(true, 'Group was removed properly ')
+  })
+})
 
 
 
