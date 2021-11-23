@@ -13,7 +13,7 @@ export default class ListDetailsPage {
     this.array_listGroupName = '.list-details-group-name'
 
     this.array_productCardImg = '.usf-product-card-img > img'
-    this.icon_cartCountItems = '.icon-badge-wrapper > .badge-header'
+    this.icon_cartCountItems = '.cart-badge-header-multiple-digit'
     this.title_listDetailsPage = '.list-page-banner-info'
   }
 
