@@ -86,8 +86,10 @@ export default class ListsPage {
     let array_columnDescription = ['List Name', 'Last Updated By', 'Products', 'Discontinued'] //, 'Discontinued'
     cy.get(this.array_section_list).its('length').then(arr_length => {
       for (let i = 1; i <= arr_length; i++) {
+        cy.log('== Section # ==> '+i)
         for (let j = 0; j < array_columnDescription.length; j++) {
-          cy.xpath(`//app-list-section[${i}]//div[.='${array_columnDescription[j]}']`)
+          cy.log(`--- ${array_columnDescription[j]} --`)
+          cy.xpath(`//app-list-section[${i}]//div[contains(.,'${array_columnDescription[j]}')]`)
             .should('contain.text', array_columnDescription[j])
         }
       }
@@ -115,9 +117,10 @@ export default class ListsPage {
   }
 
   checkListInformation() {
-    let array_listItemsCss = ['.list-name', '.last-updated-by-header', '.products-header', '.discontinued-products-header']
+    let array_listItemsCss = ['.list-name', '.last-updated-by', '.products'] //, '.discontinued-products'
 
         for (let j = 0; j < array_listItemsCss.length; j++) {
+
           cy.shouldMatchRegex(`${array_listItemsCss[j]}`, 0, /\w+/)
         }
   }
