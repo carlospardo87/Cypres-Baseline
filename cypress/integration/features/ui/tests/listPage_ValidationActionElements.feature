@@ -30,6 +30,6 @@ Feature: Lists Page - Validate Action Elements
 
   Scenario: User filters a list that does not exist
     And should be able to enter text "QaAutomation" in search box and filter lists
-    And should be able to see in each section "There are no lists to show"
+    Then should be able to see in each section "There are no lists for the current customer."
 
 
