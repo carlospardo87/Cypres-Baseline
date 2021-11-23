@@ -1,4 +1,4 @@
-@UI @R4LA-472 @LMP
+@UI @R4LA-472 @LMP  @BUGFIX
 Feature: List Details page - Validate Add Product
 
   As a user Internal, I navigate to

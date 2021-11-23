@@ -47,7 +47,15 @@ When("should be able to see the modal {string}", (modalTitle) => {
 
 When("should be able to click on {string} and select {string}", (select, option) => {
   cy.xpath(`//ion-item[contains(.,'${select}')]`).click()
-  cy.xpath(`//label[contains(.,'${option}')]`).click()
+
+  const listLength = Cypress.$('list-label').length
+
+  for (let i = 0; i < listLength ; i++) {
+    if (Cypress.$('list-label').eq(i).text() === option) {
+      cy.clickElement('.mat-radio-outer-circle', i)
+      break
+    }
+  }
 });
 
 

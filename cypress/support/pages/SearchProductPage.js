@@ -9,7 +9,11 @@ export default class SearchProductPage {
     }
 
     clickElementIfContain(sectionName) {
-        cy.wait(1000)
+       /* while (Cypress.$('.view-all-toggle-section > .md').text() === '') {
+            cy.wait(1000);
+        }*/
+
+        cy.wait(1000);
         cy.contains(sectionName, {timeout: 30000}).then($el => {
             cy.wrap($el).scrollIntoView().should('exist')
             cy.wait(500)
