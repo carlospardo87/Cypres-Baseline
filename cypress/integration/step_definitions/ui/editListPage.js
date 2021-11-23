@@ -77,6 +77,7 @@ When("enters a new group name {string}",  (newGroupName) => {
 });
 
 Then("should be able to see error {string}",  (errorMsg) => {
+  cy.get(new EditListPage().msg_errorGroup).scrollIntoView().should('exist')
   new EditListPage().checkErrorMessage(new EditListPage().msg_errorGroup, errorMsg)
 });
 
@@ -90,8 +91,8 @@ Then("should be able to see red close circle enabled",  () => {
 });
 
 
-Then("should be able to click on green checkmark circle",  () => {
-  new EditListPage().clickGreenCheckmarkCircle();
+Then("should be able to click on {string} checkmark circle",  (colorCheckmark) => {
+  new EditListPage().clickCheckmarkCircle(colorCheckmark);
 });
 
 Then("should be able to dropdown the ellipsis menu and click on option {string}",  (optionMenu) => {
@@ -188,6 +189,8 @@ Then("should be able to drag {string} product and drop on itself",  () => {
 
 
 Then("should be able to click on group {string} and {string}",  (groupNumber, optionMenu) => {
+
+  global.groupName  = Cypress.$('.button-content > span').eq(1).text()
 
   cy.log('--->Click on button group <---')
   cy.clickElement(`button:nth-of-type(${groupNumber}) > .button-content`, 0)

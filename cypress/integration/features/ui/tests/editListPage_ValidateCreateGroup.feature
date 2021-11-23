@@ -12,7 +12,7 @@ Feature: Edit List Page - Validate Create Group
   Scenario: User should not enter duplicate group name
     And should be able to add a group to the bottom of the groups
     When enters a new group name "Unassigned Group"
-    And should be able to click on green checkmark circle
+    And should be able to click on "green" checkmark circle
     Then should be able to see error "This group name already exists.  Please enter a new group name."
 
   @SmokeTest
@@ -25,3 +25,4 @@ Feature: Edit List Page - Validate Create Group
     And should be able to add a group to the bottom of the groups
     When enters a new group name "New Group"
     Then should be able to see red close circle enabled
+    And should be able to click on "red" checkmark circle
