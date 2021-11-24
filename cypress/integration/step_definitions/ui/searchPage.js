@@ -40,7 +40,8 @@ When("should be able to see enabled {string}", (btnName) => {
 
 
 When("should be able to see the modal {string}", (modalTitle) => {
-  cy.shouldElement('.modal-wrapper > .ion-page', 0, 'be.visible');
+  cy.wait(1000)
+  cy.shouldElement('.modal-wrapper > .ion-page', 0, 'be.visible'); //#add-to-list
   cy.contains(modalTitle)
 });
 
