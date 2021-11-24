@@ -21,10 +21,10 @@ And('should be able to see the quantity boxes', function () {
 });
 
 
-And('should be able to enter numbers in quantity boxes', () => {
-   new ListDetailsPage().shouldHaveAttribute(new ListDetailsPage().array_priceContainer, 'inputmode', 'numeric')
-
+And('should be able to {string}:{string}', (attr, value) => {
+  cy.get(`*input[${attr}='${value}']`).should('exist')
 });
+
 And("should be able to see the product prices contains $", () => {
   new ListDetailsPage().checkCardPrices(/\$+(\d{1,2})+(.\d{1,2})/)
   //new ListDetailsPage().checkCardPrices(/\$+(\d{1,2})+(.\d{1,2})+( CS)/)
@@ -61,14 +61,6 @@ Then("should be able to see the header title contain {string}", (headerTitle) =>
 
 And("should be able to see the loading spinner appears with text {string}",(spinnerText) => {
   new ListsPage().checkLoadingSpinnerIfExist(spinnerText)
-});
-
-Then("should be able to see value {string} in quantity boxes",  (placeHolder) => {
-  new ListDetailsPage().shouldHaveAttribute(new ListDetailsPage().array_priceContainer, 'placeholder', placeHolder)
-});
-
-Then("should be able to enter {string} in quantity boxes", (valueRanges) => {
-  new ListDetailsPage().shouldHaveAttribute(new ListDetailsPage().array_priceContainer, 'maxlength', '3')
 });
 
 Then("should be able to see the correct Order Total for {string} products", (totalProd) => {
