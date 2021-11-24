@@ -47,16 +47,7 @@ When("should be able to see the modal {string}", (modalTitle) => {
 
 
 When("should be able to click on {string} and select {string}", (select, option) => {
-  cy.xpath(`//ion-item[contains(.,'${select}')]`).click()
-
-  const listLength = Cypress.$('list-label').length
-
-  for (let i = 0; i < listLength ; i++) {
-    if (Cypress.$('list-label').eq(i).text() === option) {
-      cy.clickElement('.mat-radio-outer-circle', i)
-      break
-    }
-  }
+  new SearchProductPage().selectListGroupPosition(select, option)
 });
 
 
@@ -66,8 +57,8 @@ When("should be able to click on product card", () => {
   cy.clickElementForce('.usf-product-card-desc-heading-txt', 0)
 });
 
-When("should be able to see alert message {string}", (alertMsg) => {
-  new SearchProductPage().validateToastMsg(alertMsg)
+When("should be able to see alert message", () => {
+  new SearchProductPage().validateToastMsg()
 });
 
 

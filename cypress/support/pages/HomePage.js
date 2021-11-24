@@ -97,12 +97,14 @@ export default class HomePage {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists`)
       } else if(browserToPage === 'Current Order') {
         cy.visit(`${Cypress.config('baseUrl')}/desktop/order`)
+      }else if(browserToPage === 'Shop Products') {
+        cy.visit(`${Cypress.config('baseUrl')}/desktop/search/catalog`);
       }
-      cy.on('uncaught:exception', (err, runnable) => {
-        expect(err.message).to.include('One of the specified object stores was not found')
-        return false
-      })
-    }
+        cy.on('uncaught:exception', (err, runnable) => {
+          expect(err.message).to.include('One of the specified object stores was not found')
+          return false
+        })
+      }
 
   checkBannerCss() {
     cy
