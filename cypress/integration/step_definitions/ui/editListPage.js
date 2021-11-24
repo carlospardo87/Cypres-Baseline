@@ -96,8 +96,18 @@ Then("should be able to click on {string} checkmark circle",  (colorCheckmark) =
 });
 
 Then("should be able to dropdown the ellipsis menu and click on option {string}",  (optionMenu) => {
+  new EditListPage().saveProductCardInformation()
   new EditListPage().clickOnEllipsisAndOption(optionMenu)
 });
+
+Then("should be able to see ellipsis option menu {string}",  (optionMenu) => {
+  new EditListPage().verifyEllipsisOptionMenu(optionMenu)
+});
+
+Then("should be able to click on product option",  (optionMenu) => {
+  new EditListPage().clickProductCardEllipsis()
+});
+
 
 Then("should be able to see the {string} modal",  (modalTitle, newListName) => {
   new EditListPage().checkModalTitle(modalTitle, newListName)
@@ -217,5 +227,44 @@ Then("should be able to click on group {string}", (groupNumber) => {
   cy.xpath(`//span[contains(.,'${groupNumber}')]`).click()
 });
 
+Then("should be able to enter product notes", () => {
+
+  cy.get('.native-textarea').type('Texting modal on expand product view, entering random notes to add notes to the product')
+});
+
+
+Then("should be able to click on text link {string}", (textLink) => {
+  cy.clickElement('.quick-view-more-details', 0)
+});
+
+
+Then('should be able to see product card order number',  ()=> {
+  cy.shouldElement('.quick-view-other-info > p', 0, 'contain.text', global.productNumber)
+});
+
+
+Then('should be able to see product card description',  ()=> {
+  cy.shouldElement('.quick-view-subtitle-txt', 0, 'contain.text', global.productDescription)
+});
+
+
+Then('should be able to see product card price',   ()=> {
+  cy.shouldElement('.quick-view-product-cases > span', 0, 'contain.text', global.productPrice)
+});
+
+Then('should be able to see product detail page',   ()=> {
+  let pdNumber = global.productNumber.toString().replace("#", "");
+  cy.url().should('include', `/products/${pdNumber}`)
+});
+
+
+Then('should be able to enter {string} on quantity box',    (value)=> {
+  cy.get("[placeholder='0']")
+      .clear()
+      .type(value)
+      .should('have.value', value)
+      .clear()
+      .should('have.value', '0')
+});
 
 

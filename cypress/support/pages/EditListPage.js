@@ -20,6 +20,7 @@ export default class EditListPage {
     this.clickGreenCheckmark = 'ion-icon[name="checkmark-circle-outline"]'
     this.redCloseCircle = 'ion-icon[name="close-circle-outline"]'
     this.ellipsisMenuIcon = '.list-page-options'
+    this.ellipsisMenuProductCard = '.usf-product-card-ellipsis'
     this.editListNameModal = '.modal-wrapper > .ion-page'
     this.input_newListName = '[data-cy=new-list-name] > .native-input'
     this.btn_submit = '[data-cy=submit]'
@@ -160,10 +161,31 @@ export default class EditListPage {
   }
 
   clickOnEllipsisAndOption(optionMenu) {
-    cy.clickElement(this.ellipsisMenuIcon, 0)
+    if (optionMenu === 'Expand' || optionMenu === 'Search for Subs') {
+      cy.clickElement(this.ellipsisMenuProductCard, 0)
+    } else {
+      cy.clickElement(this.ellipsisMenuIcon, 0);
+    }
 
-     cy.xpath(`//ion-item[.='${optionMenu}']`)
+     cy.xpath(`//*[.='${optionMenu}']`).eq(0)
          .should('be.visible').click()
+  }
+
+  verifyEllipsisOptionMenu(optionMenu) {
+    cy.xpath(`//*[.='${optionMenu}']`).eq(0).should('be.visible')
+  }
+
+  clickProductCardEllipsis() {
+    cy.wait(5000)
+    cy.clickElement('.usf-product-card-ellipsis > ion-icon', 0)
+    cy.shouldElement('.list-ios', 0 , 'be.visible')
+  }
+
+
+  saveProductCardInformation() {
+    global.productNumber = Cypress.$('.usf-product-card-desc-body-txt > p').first().text()
+    global.productPrice = Cypress.$('.usf-product-card-price > div > span').first().text()
+    global.productDescription = Cypress.$('.usf-product-card-desc-heading-txt').first().text()
   }
 
   checkModalTitle(modalTitle) {
@@ -172,6 +194,8 @@ export default class EditListPage {
 
     if (modalTitle.includes('Delete Group')) {
       cy.shouldElement('.title', 0, 'contain', modalTitle);
+    } else if (modalTitle.includes('Quick View')) {
+      cy.shouldElement('.quick-view-title-txt', 0, 'contain', modalTitle);
     } else {
       cy.shouldElement(this.titleModal, 0, 'contain', modalTitle);
     }

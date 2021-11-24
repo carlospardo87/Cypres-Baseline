@@ -19,7 +19,7 @@ export default class ListDetailsPage {
 
 
   checkCardElements(array_element, regexMach) {
-    cy.wait(5000)
+    //cy.wait(2000)
     cy.get(array_element).should('be.visible').its('length')
       .then(arrLength => {
       for (let i = 0; i < arrLength ; i++) {

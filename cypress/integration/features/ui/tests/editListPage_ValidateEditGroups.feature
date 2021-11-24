@@ -38,9 +38,6 @@ Feature: Edit List Page - Validate Edit/Delete Groups Name
     And should be able to click on group "4" and "Delete Group"
     And should be able to see the "Delete Group" modal
     And should be able to select option "<deleteOption>"
-    And should be able to click on "Continue" button
-    #And should be able to see the loading spinner appears with text ""
-    #And should not be able to see the group
     Examples:
       | deleteOption                                                    |
       | Delete the group and all products in it.                        |
