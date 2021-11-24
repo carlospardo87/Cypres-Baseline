@@ -64,10 +64,6 @@ export default class ListDetailsPage {
       });
   }
 
-  shouldHaveAttribute(locator, attrName, attrValue) {
-    cy.reload()
-    cy.shouldHaveAttribute(locator,attrName, attrValue )
-  }
 
   checkCardPrices(regexMach) {
     let iter = 0

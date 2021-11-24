@@ -1,4 +1,4 @@
-@UI @R4LA-56 @LDP @SKIP
+@UI @R4LA-56 @LDP
 Feature: List Details page - Validate Elements
 
   As a user Internal, I need to navigate to
@@ -16,11 +16,12 @@ Feature: List Details page - Validate Elements
     And should be able to see product descriptions
     And should be able to see pack size contains "OZ,LBA,CN,LB,BG,ML,LT,GA,CT,EA"
     And should be able to see the quantity boxes
-    And should be able to enter numbers in quantity boxes
-    And should be able to see value "0" in quantity boxes
-    And should be able to enter "0-999" in quantity boxes
     And should be able to see the product numbers contains #
     And should be able to see the product prices contains $
+    And should be able to "inputmode":"numeric"
+    And should be able to "min":"0"
+    And should be able to "maxlength":"3"
+    And should be able to "placeholder":"0"
     #And should able to see the product note and full product note
 
 
