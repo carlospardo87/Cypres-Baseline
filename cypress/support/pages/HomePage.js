@@ -90,9 +90,9 @@ export default class HomePage {
 
     navigateTo(browserToPage) {
       if (browserToPage === 'Detail List') {
-        cy.visit(`${Cypress.config('baseUrl')}desktop/lists/detail/SL-1016246`)
+        cy.visit(`${Cypress.config('baseUrl')}desktop/lists/detail/SL-6923860`)
       } else if(browserToPage === 'Management List') {
-        cy.visit(`${Cypress.config('baseUrl')}desktop/lists/management/SL-1016246`)
+        cy.visit(`${Cypress.config('baseUrl')}desktop/lists/management/SL-6923860`)
       } else if(browserToPage === 'View All Lists') {
         cy.visit(`${Cypress.config('baseUrl')}desktop/lists`)
       } else if(browserToPage === 'Current Order') {

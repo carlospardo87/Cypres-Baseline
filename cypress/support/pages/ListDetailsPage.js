@@ -136,7 +136,7 @@ export default class ListDetailsPage {
       .as('cardImg')
 
     cy
-      .clickElementForce('@cardImg',0)
+      .clickElementForce('.usf-product-card-img',0)
   }
 
   checkUrlContain() {
@@ -160,7 +160,7 @@ export default class ListDetailsPage {
 
 
     checkTotalPrice(totalProd) {
-
+     cy.get('.order-info-total > span').eq(1).should('not.include.text', '$0.00')
      cy.get('.usf-product-card-price span').first().invoke('text').then(itemPrice => {
        let _itemPrice =itemPrice.replace('$','').replace('CS', '')
        let _totalProd = (Number(_itemPrice) * Number(totalProd)).toFixed(2);
