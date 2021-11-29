@@ -41,7 +41,8 @@ export default class EditListPage {
 
   selectMultipleRadioButton(index) {
     for (let i = 0; i < Number(index); i++) {
-    cy.wait(1500)
+      cy.get(this.radioButton).eq(i).scrollIntoView().should('be.exist')
+    cy.wait(500)
       cy.get(this.radioButton).eq(i).should('be.visible').click({force: true})
     }
   }
