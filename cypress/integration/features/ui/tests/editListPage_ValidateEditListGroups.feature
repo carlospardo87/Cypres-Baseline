@@ -17,9 +17,9 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
 
   @R4LA-363
   Scenario: User should be able to select multiple items and see green footer options
-    Then should be able to select "2" items
+    Then should be able to select "5" items
     And should be able to see the green footer if 1 or more product are selected
-    And should be able to see "2" Products Selected
+    And should be able to see "5" Products Selected
     And should be able to see other options "Deselect All,Move,Copy,Delete"
 
   @R4LA-363
