@@ -53,8 +53,19 @@ When("should be able to click on {string} and select {string}", (select, option)
 
 
 When("should be able to click on product card", () => {
+  cy.wait(1000)
   cy.reload()
-  cy.clickElementForce('.usf-product-card-desc-heading-txt', 0)
+  cy.clickElementForce('.usf-product-card-desc-heading-txt', 1)
+
+ /* let itemList = Cypress.$('.usf-product-card-desc-heading-txt').length
+  cy.log('===>'+itemList)
+  for (let i = 0; i < itemList; i++) {
+    cy.log('===>'+Cypress.$('.usf-product-card-content').eq(i).text())
+    if (!(Cypress.$('.usf-product-card-content').eq(i).text().includes('Replacement'))) {
+      cy.clickElementForce('.usf-product-card-desc-heading-txt', i)
+      break
+    }
+  }*/
 });
 
 When("should be able to see alert message", () => {
