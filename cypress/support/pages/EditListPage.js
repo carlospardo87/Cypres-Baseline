@@ -18,7 +18,7 @@ export default class EditListPage {
     this.msg_errorGroup = '.new-group-error'
     this.msg_errorListName = '.list-name-taken-message'
     this.clickGreenCheckmark = 'ion-icon[name="checkmark-circle-outline"]'
-    this.redCloseCircle = 'ion-icon[name="close-circle-outline"]'
+    this.redCloseCircle = '.new-group-input > .ion-color'
     this.ellipsisMenuIcon = '.list-page-options'
     this.ellipsisMenuProductCard = '.usf-product-card-ellipsis'
     this.editListNameModal = '.modal-wrapper > .ion-page'
@@ -154,8 +154,10 @@ export default class EditListPage {
 
   clickCheckmarkCircle(colorType) {
     if (colorType === "green") {
+      cy.get(this.clickGreenCheckmark).eq(0).scrollIntoView().should('be.exist')
       cy.clickElement(this.clickGreenCheckmark, 0);
     } else {
+      cy.get(this.redCloseCircle).eq(0).scrollIntoView().should('be.exist')
       cy.clickElement(this.redCloseCircle, 0);
     }
   }
@@ -169,6 +171,18 @@ export default class EditListPage {
 
      cy.xpath(`//*[.='${optionMenu}']`).eq(0)
          .should('be.visible').click()
+  }
+
+
+  clickProductOptionByText(optionMenu) {
+    cy.contains("Replacement").then($el => {
+      cy.wrap($el).scrollIntoView().should('exist')
+      cy.wait(500)
+      cy.clickElement(this.ellipsisMenuProductCard, 1)
+    })
+
+    cy.xpath(`//*[.='${optionMenu}']`).eq(0)
+        .should('be.visible').click()
   }
 
   verifyEllipsisOptionMenu(optionMenu) {
@@ -244,7 +258,7 @@ export default class EditListPage {
   }
 
   selectOptionToDelete(optionInfo) {
-    if (optionInfo === 'Delete the group and move the products to the Unassigned group.') {
+    if (optionInfo === 'Delete the group and move the products to the Unassigned group.' || optionInfo === 'Replace from all 1 lists on which this product is included') {
       cy.clickElementForce('span[class=\'mat-radio-outer-circle\']', 1);
     }
   }
