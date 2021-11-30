@@ -165,6 +165,7 @@ export default class EditListPage {
 
   clickOnEllipsisAndOption(optionMenu) {
     if (optionMenu === 'Expand' || optionMenu === 'Search for Subs') {
+      cy.wait(5000)
       cy.clickElement(this.ellipsisMenuProductCard, 0)
     } else {
       cy.clickElement(this.ellipsisMenuIcon, 0);
