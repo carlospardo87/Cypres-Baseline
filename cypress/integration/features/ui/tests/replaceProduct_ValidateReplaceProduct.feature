@@ -6,7 +6,7 @@ Feature: Banner advertising - Validate Modal Replace Product
   to see modal replace product.
 
 
-  Scenario Outline: User should be able to replace product
+  Scenario Outline: User should be able to "Cancel(X)" replace product on "<namePage>"
     Given "Internal" user navigates to USF and logs in
     When goes to the page "<namePage>"
     Then should be able to click option "Accept Replacement" in a discontinued product
@@ -19,7 +19,7 @@ Feature: Banner advertising - Validate Modal Replace Product
       #| Detail List     |
       | Management List |
 
-  Scenario Outline: User should be able to replace product
+  Scenario Outline: User should be able to "Cancel" replace product on "<namePage>"
     Given "Internal" user navigates to USF and logs in
     When goes to the page "<namePage>"
     Then should be able to click option "Accept Replacement" in a discontinued product
