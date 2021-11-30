@@ -28,7 +28,7 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
     And should be able to click on option "<optNames>"
     And should be able to see "<optNames>" modal
     And should be able to see: Where do you want to "<optNames>" this product?
-    And should be able to click on item "View Selected Products (2)"
+    And should be able to click on item "View selected products (2)"
     And should be able to see "2" products selected
 
     Examples:
