@@ -10,7 +10,7 @@ Feature: List Details page - Validate Enter Product Items
     When goes to the page "Current Order"
     And clicks on button "Cancel" order
 
-    @BUGFIX
+
   Scenario: User should be able to see navigate to PDP and see the card product item
     #Given goes to the page "Detail List"
     Given "Internal" user navigates to USF and logs in
@@ -22,7 +22,7 @@ Feature: List Details page - Validate Enter Product Items
     And should be able to see product number into the URL
     And should be able to see "100" products in the cart on "Product Details" page
 
-  @BUGFIX
+
   Scenario: User should be able to see Order Information is displayed properly
     #Given goes to the page "Detail List"
     Given "Internal" user navigates to USF and logs in
