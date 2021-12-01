@@ -1,8 +1,8 @@
 @UI @ELG @R4LA-293
-Feature: Edit List Page - Validate List Groups And Product Selected Modal
+Feature: Edit List Page - Validate Edit Products
 
   As a user Internal, I need to be able
-  to edit, move, copy and delete lists
+  to edit, move, copy and delete products
 
   Background:
     Given "Internal" user navigates to USF and logs in
@@ -49,7 +49,6 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
       | Move     |
       | Copy     |
       | Delete   |
-
 
 
 
