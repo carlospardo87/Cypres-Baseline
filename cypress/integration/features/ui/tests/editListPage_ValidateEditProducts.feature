@@ -1,8 +1,8 @@
 @UI @ELG @R4LA-293
-Feature: Edit List Page - Validate List Groups And Product Selected Modal
+Feature: Edit List Page - Validate Edit Products
 
   As a user Internal, I need to be able
-  to edit, move, copy and delete lists
+  to edit, move, copy and delete products
 
   Background:
     Given "Internal" user navigates to USF and logs in
@@ -17,9 +17,9 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
 
   @R4LA-363
   Scenario: User should be able to select multiple items and see green footer options
-    Then should be able to select "2" items
+    Then should be able to select "5" items
     And should be able to see the green footer if 1 or more product are selected
-    And should be able to see "2" Products Selected
+    And should be able to see "5" Products Selected
     And should be able to see other options "Deselect All,Move,Copy,Delete"
 
   @R4LA-363
@@ -28,7 +28,7 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
     And should be able to click on option "<optNames>"
     And should be able to see "<optNames>" modal
     And should be able to see: Where do you want to "<optNames>" this product?
-    And should be able to click on item "View Selected Products (2)"
+    And should be able to click on item "View selected products (2)"
     And should be able to see "2" products selected
 
     Examples:
@@ -49,7 +49,6 @@ Feature: Edit List Page - Validate List Groups And Product Selected Modal
       | Move     |
       | Copy     |
       | Delete   |
-
 
 
 

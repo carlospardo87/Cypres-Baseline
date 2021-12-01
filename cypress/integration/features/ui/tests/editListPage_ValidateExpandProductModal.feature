@@ -1,8 +1,8 @@
 @UI @LMP @R4LA-664
-Feature: Edit List Name - Validate Modal Replacing Product
+Feature: Edit List Name - Validate Modal Expand Product
 
   As a user Internal, I need to be able
-  to see Modal Replacing Product
+  see Modal to expand Product
 
   Background:
     Given "Internal" user navigates to USF and logs in

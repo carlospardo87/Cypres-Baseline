@@ -110,6 +110,8 @@ declare namespace Cypress {
 
         clickElement(locator,item)
 
+        scrollToElement(locator, item)
+
         clickElementForce(locator,item)
 
         getIfExists(getIfExists)

@@ -117,6 +117,24 @@ Cypress.Commands.add('clickElement', (locator, item) => {
     })
 })
 
+
+Cypress.Commands.add('scrollToElement', (locator, item) => {
+    cy.get(locator).eq(item).then($elementCss => {
+        cy.highlightBorderElement($elementCss, 'magenta')
+        cy.wrap($elementCss, {log: false})
+            .eq(item)
+            .scrollIntoView()
+            .should('be.exist')
+        cy.wait(500)
+        cy.highlightBorderElement($elementCss, 'transparent')
+    })
+
+    cy.on('uncaught:exception', (err, runnable) => {
+        expect(err.message).to.include('One of the specified object stores was not found')
+        return false
+    })
+})
+
 Cypress.Commands.add('clickElementForce', (locator, item) => {
     cy.get(locator).eq(item).then($elementCss => {
         cy.highlightBorderElement($elementCss, 'magenta')

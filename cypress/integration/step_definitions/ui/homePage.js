@@ -8,6 +8,20 @@ When('I take a screenshot', () => {
   cy.screenshot()
 })
 
+When('clicks on button {string} order', () => {
+
+    cy.document({log:false}).then(($document) => {
+    const documentResult = $document.querySelectorAll('.btn-delete')
+
+    if (documentResult.length) {
+      cy.clickElement('.btn-delete', 0)
+      cy.wait(500)
+      cy.xpath('//ion-button[.="yes"]').click()
+      cy.wait(500)
+    }
+  })
+})
+
 And("clicks on My Lists button",() => {
   new HomePage().clickMyListButton()
   new ListsPage().checkLoadingSpinnerIfExist('One moment please while we cook up your lists.')

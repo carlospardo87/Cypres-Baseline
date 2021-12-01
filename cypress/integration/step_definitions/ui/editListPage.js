@@ -100,11 +100,15 @@ Then("should be able to dropdown the ellipsis menu and click on option {string}"
   new EditListPage().clickOnEllipsisAndOption(optionMenu)
 });
 
+Then("should be able to click option {string} in a discontinued product",  (optionMenu) => {
+  new EditListPage().clickProductOptionByText(optionMenu)
+});
+
 Then("should be able to see ellipsis option menu {string}",  (optionMenu) => {
   new EditListPage().verifyEllipsisOptionMenu(optionMenu)
 });
 
-Then("should be able to click on product option",  (optionMenu) => {
+Then("should be able to click on product option",  () => {
   new EditListPage().clickProductCardEllipsis()
 });
 
