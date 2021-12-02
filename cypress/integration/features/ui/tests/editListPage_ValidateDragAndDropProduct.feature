@@ -11,6 +11,7 @@ Feature: List Details page - Validate Drag and Drop Lists
     When clicks on My Lists button
 
 
+  @BUGFIX
   Scenario: User should be able to drag and drop a product to a different groups
     And goes to "Large List Cypress" and clicks "Edit List" button
     And should be able to see the header title contain "Large List Cypress"
