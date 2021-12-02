@@ -29,6 +29,17 @@ When("should be able to click on {string}", (btnName) => {
   new SearchProductPage().clickForceElementIfContain(btnName)
 });
 
+When("should be able to land to {string} page", (title) => {
+  cy.title().should('include', title)
+});
+
+When("should be able to click link {string}", () => {
+  cy.clickElement("[href='/desktop/home']", 0)
+});
+
+
+
+
 When("should be able to click button {string}", (btnName) => {
   cy.clickElement('.search-alternative-block > .md', 0)
 });
