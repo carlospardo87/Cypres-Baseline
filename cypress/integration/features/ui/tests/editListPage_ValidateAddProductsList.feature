@@ -18,8 +18,8 @@ Feature: List Details page - Validate Add Product
   Scenario: User should be able to Close(X) modal
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
-    And should be able to click on section "Pork"
-    And should be able to click on section "Ham, Boneless, Smoked/cured"
+    And should be able to click on section "Beef"
+    And should be able to click on section "Beef, Boxed, Chucks, Ref"
     Then should be able to click on "+ Add To List"
     And should be able to select "2" products
     And should be able to see the green footer
@@ -32,8 +32,8 @@ Feature: List Details page - Validate Add Product
   Scenario: User should be able to ADD TO LIST on PDP
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
-    And should be able to click on section "Pork"
-    And should be able to click on section "Ham, Boneless, Smoked/cured"
+    And should be able to click on section "Beef"
+    And should be able to click on section "Beef, Boxed, Chucks, Ref"
     Then should be able to click on product card
     And should be able to click button "ADD TO LIST"
     And should be able to see the modal "Add to List"
@@ -43,8 +43,8 @@ Feature: List Details page - Validate Add Product
   Scenario: User should be able to Submit product to a list
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
-    And should be able to click on section "Pork"
-    And should be able to click on section "Ham, Boneless, Smoked/cured"
+    And should be able to click on section "Beef"
+    And should be able to click on section "Beef, Boxed, Chucks, Ref"
     Then should be able to click on "+ Add To List"
     And should be able to select "2" products
     And should be able to see the green footer
@@ -58,6 +58,16 @@ Feature: List Details page - Validate Add Product
     And should be able to see the loading spinner appears with text ""
     And should be able to see alert message "Add Products"
     #Create steps to validate API , products should be added if was ok
+
+
+  Scenario: User should be to navigate back to Home Page
+    Given "Internal" user navigates to USF and logs in
+    When goes to the page "Shop Products"
+    And should be able to click on section "Beef"
+    And should be able to click on section "Beef, Boxed, Chucks, Ref"
+    And should be able to land to "Search" page
+    And should be able to click link "Home"
+    And should be able to land to "Home" page
 
 
 
