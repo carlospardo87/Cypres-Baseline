@@ -56,7 +56,7 @@ Feature: List Details page - Validate Add Product
     And should be able to click on "Choose Position" and select "Bottom of the Group"
     And should be able to see enabled "Submit"
     And should be able to see the loading spinner appears with text ""
-    And should be able to see alert message
+    And should be able to see alert message "Add Products"
     #Create steps to validate API , products should be added if was ok
 
 

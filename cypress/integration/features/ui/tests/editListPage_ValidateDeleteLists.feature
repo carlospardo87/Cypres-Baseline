@@ -14,7 +14,7 @@ Feature: Delete Lists - Validate Delete Lists
     And should be able to see the "Delete List" modal
     And should be able to click on "YES" button
     Then should not able to see "CypressListToDelete" on View All List page
-    #And should be able to see alert message
+    #And should be able to see alert message "Delete List"
 
   @BUGFIX
   Scenario: User should be able to click on 'YES' button and delete list
@@ -27,7 +27,7 @@ Feature: Delete Lists - Validate Delete Lists
     And should be able to see the "Delete List" modal
     And should be able to click on "YES" button
     And should not able to see "CypressListToDelete" on View All List page
-    #And should be able to see alert message   // This list cannot be edited at this time, please try again later.
+    #And should be able to see alert message "Delete Lists"   // This list cannot be edited at this time, please try again later.
 
 
   Scenario Outline: User should be able to click on "<buttonName>" button

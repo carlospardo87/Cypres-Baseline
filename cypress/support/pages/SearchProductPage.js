@@ -36,19 +36,19 @@ export default class SearchProductPage {
         }
     }
 
-    validateToastMsg() {
+    validateToastMsg(successMessage, failedMessage) {
         cy.document({log:false}).then(($document) => {
             const documentResult = $document.querySelectorAll('.green-toast')
 
             if (documentResult.length) {
                 cy.get('.green-toast').shadow().find('.toast-top').then($el => {
                     cy.log('====>'+$el.text())
-                    expect($el.text(), 'Alert message was displayed properly: ').to.be.include('Success! You have added 1 product to AutCypressAddProducts.')
+                    expect($el.text(), 'Success! Alert message was displayed properly: ').to.be.include(successMessage)
                 })
             } else {
                 cy.get('.red-toast').shadow().find('.toast-top').then($el => {
                     cy.log('====>'+$el.text())
-                    expect($el.text(), 'Alert message was displayed properly: ').to.be.include('Could not add products at this time, please try again.')
+                    expect($el.text(), 'Error! Alert message was displayed properly: ').to.be.include(failedMessage)
                 })
             }
         })
@@ -66,4 +66,52 @@ export default class SearchProductPage {
             i++
         })
     }
+
+    validateToastDeleteProductMsg(successMessage, failedMessage) {
+        cy.document({log:false}).then(($document) => {
+            const documentResult = $document.querySelectorAll('.green-toast')
+
+            if (documentResult.length) {
+                cy.get('.green-toast').shadow().find('.toast-top').then($el => {
+                    cy.log('====>'+$el.text())
+                    expect($el.text(), 'Success! Alert message was displayed properly: ').to.be.include(successMessage)
+                })
+                this.validateProductDeletedAPI('deleted')
+            } else {
+                cy.get('.red-toast').shadow().find('.toast-top').then($el => {
+                    cy.log('====>'+$el.text())
+                    expect($el.text(), 'Error! Alert message was displayed properly: ').to.be.include(failedMessage)
+                })
+                this.validateProductDeletedAPI('notDeleted')
+            }
+        })
+
+    }
+
+    validateProductDeletedAPI(product) {
+        cy.fixture('login').then((login) => {
+            cy.getAuthToken(login.api.user, login.api.password)
+            cy.checkStatusCode('@getAuthToken', 200);
+        });
+
+        let productNum = global.productNumber.replace('#', '')
+        cy.get('@getAuthToken').then((resToken) => {
+            cy.getProductSummary(resToken, productNum)
+        })
+
+        cy.checkStatusCode(`@getProductSummary`, statusCode)
+
+        if (product === 'deleted') {
+            cy.get(`@getProductSummary`).then((response) => {
+                expect(response.body).to.be.empty
+            });
+        } else {
+            cy.get(`@getProductSummary`).then((response) => {
+                expect(response.body).to.be.not.empty
+            });
+        }
+
+
+    }
+
 }

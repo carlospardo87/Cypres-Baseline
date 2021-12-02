@@ -10,6 +10,7 @@ When('should be able to check and uncheck the radio element', () => {
 })
 
 When('should be able to select {string} items', (itemTotal) => {
+  new EditListPage().saveProductCardInformation()
   new EditListPage().selectMultipleRadioButton(itemTotal)
 })
 
@@ -56,6 +57,12 @@ Then("should be able to see: Where do you want to {string} this product?",  (opt
 Then("should be able to select where do you want to {string} this product?",  () => {
   new EditListPage().clickFirstOption()
 });
+
+Then("should be able to select Group {string} and Submit",  (groupName) => {
+  new EditListPage().clickByGroupName(groupName)
+  new EditListPage().clickBtnSubmit()
+});
+
 
 Then("should be able to see button {string} disabled",  () => {
   new EditListPage().checkBtnDisabled()
