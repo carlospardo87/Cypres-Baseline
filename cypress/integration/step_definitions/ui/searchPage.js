@@ -68,9 +68,15 @@ When("should be able to click on product card", () => {
   }*/
 });
 
-When("should be able to see alert message", () => {
-  new SearchProductPage().validateToastMsg()
+When("should be able to see alert message {string}", (bannerAction) => {
+  if (bannerAction === 'Add Products') {
+    new SearchProductPage().validateToastMsg('Success! You have added 1 product to AutCypressAddProducts.', 'Could not add products at this time, please try again.')
+  } else if (bannerAction === 'Delete Product') {
+    new SearchProductPage().validateToastDeleteProductMsg('Success! You have deleted 1 product to Large List Cypress.', 'Could not delete products at this time, please try again.');
+  } else if (bannerAction === 'Delete List') {
+    new SearchProductPage().validateToastMsg('Success! You have deleted 1 product to Large List Cypress.', 'Could not delete products at this time, please try again.');
+
+  }
+
 });
-
-
 
