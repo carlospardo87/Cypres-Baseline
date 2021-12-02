@@ -130,6 +130,10 @@ export default class EditListPage {
     cy.get('.selected-product-action-btns .button').should('not.have.class', 'button-disabled')
   }
 
+  clickBtnSubmit() {
+    cy.clickElement('.selected-product-action-btns .button', 0)
+  }
+
   clickBtnAddGroup() {
     cy.clickElement(this.btn_AddGroup, 0)
   }
@@ -287,6 +291,9 @@ export default class EditListPage {
     return Math.floor(Math.random() * (1000000 - 10) + 10)
   }
 
+    clickByGroupName(groupNumber) {
+      cy.clickElement('.groups-list .sc-ion-label-md-h', Number(groupNumber) )
+    }
 }
 
 
