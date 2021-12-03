@@ -1,15 +1,15 @@
 @UI @LMP @R4LA-664
-Feature: Edit List Name - Validate Modal Expand Product
+Feature: Edit List Name - Validate Modal Quick View
 
   As a user Internal, I need to be able
-  see Modal to expand Product
+  see Quick View Modal with the product information
 
   Background:
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button
     And goes to "AutCypressPublic" and clicks "Edit List" button
     Then should be able to see the header title contain "AutCypressPublic"
-    And should be able to dropdown the ellipsis menu and click on option "Expand"
+    And should be able to dropdown the ellipsis menu and click on option "Quick View"
 
   Scenario: User expand product view and go to Add to List
     And should be able to see the "Quick View" modal
