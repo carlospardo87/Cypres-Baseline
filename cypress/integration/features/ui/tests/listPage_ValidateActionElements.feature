@@ -1,5 +1,5 @@
 @UI @R4LA-174  @LP
-Feature: Lists Page - Validate Action Elements
+Feature: Lists Page - Validate Elements Search, Customers dropdown and Buttons
 
   As a user Internal I need to navigate to View All Lists Page
   and verify that I am able to interact with

@@ -2,7 +2,7 @@
 Feature: Delete Lists - Validate Delete Lists
 
   As a user Internal, I need to be able
-  to Delete, Cancel and Close List operation
+  to Delete checking API, Cancel and Close List operation
   on Edit List page
 
   @BUGFIX

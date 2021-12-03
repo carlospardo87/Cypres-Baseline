@@ -1,8 +1,8 @@
 @UI @R4LA-460 @HP
-Feature: Home Page - Validate UI Elements
+Feature: Home Page - Validate Card/Buttons Navigation
 
   As a user Internal, I need to navigate to
-  Home Page and see the proper elements displayed
+  Home Page and validate card/buttons are working properly
 
   Scenario: User should be able to see Home Page elements
     Given "Internal" user navigates to USF and logs in

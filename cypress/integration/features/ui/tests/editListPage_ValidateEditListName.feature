@@ -1,7 +1,7 @@
 @UI @ELN @R4LA-545
-Feature: Edit List Name - Validate List Name can be changed
+Feature: Edit List Name - Validate Edit List Name
 
-  As a user Internal, I need to be able
+  As a user Internal, I need to be able see modal
   to edit the list name
 
 

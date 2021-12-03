@@ -51,7 +51,7 @@ Feature: List Details page - Validate Add Product
     And should be able to see selected "2" products
     And should be able to click on "Choose List"
     And should be able to see the modal "Add to List"
-    And should be able to click on "Choose List" and select "Large List Cypress"
+    And should be able to click on "Choose List" and select "AutCypressLargeList"
     And should be able to click on "Choose Group" and select "Group1"
     And should be able to click on "Choose Position" and select "Bottom of the Group"
     And should be able to see enabled "Submit"

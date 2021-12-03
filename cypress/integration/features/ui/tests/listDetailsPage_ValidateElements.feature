@@ -1,5 +1,5 @@
 @UI @R4LA-56 @LDP
-Feature: List Details page - Validate Elements
+Feature: List Details page - Validate Product Attributes
 
   As a user Internal, I need to navigate to
   Product Details page and verify that I am able

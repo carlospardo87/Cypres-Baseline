@@ -22,7 +22,7 @@ Feature: Edit List Page - Validate Edit/Delete Groups Name
       | GRP2 |
 
 
-  Scenario: User should be able to Edit group name
+  Scenario: User should be able to Edit group name - checking API
     And should be able to click on group "3" and "Edit Group Name"
     And should be able to see the "Edit Group Name" modal
     And should be able to enter "group" name "Grp2" and click Submit button
