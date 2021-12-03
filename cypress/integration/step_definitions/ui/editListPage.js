@@ -80,7 +80,14 @@ When("should be able to add a group to the bottom of the groups",  () => {
 
 
 When("enters a new group name {string}",  (newGroupName) => {
-  new EditListPage().enterGroupName(newGroupName)
+  let newGroup = newGroupName
+  if (newGroupName === 'Group') {
+    let randomNumber = new EditListPage().generateRandomNumber();
+    global.randomNumber = randomNumber.toString()
+    newGroup = newGroupName+randomNumber
+  }
+  new EditListPage().enterGroupName(newGroup)
+
 });
 
 Then("should be able to see error {string}",  (errorMsg) => {

@@ -43,7 +43,7 @@ And("should be able to see {string} products in the cart on {string} page", (car
   new ListDetailsPage().checkCartItems(carItems)
 });
 
-And("should be able to click the card",  () => {
+And("should be able to click the product card",  () => {
   new ListDetailsPage().clickProductCard()
 });
 

@@ -91,7 +91,9 @@ export default class EditListPage {
   }
 
   clickOptionByName(option) {
-    cy.contains(option).click()
+    cy.xpath(`//ion-label[contains(.,'${option}')]`)
+        .should('be.visible')
+        .click()
   }
 
   clickOnItemByName(itemName) {
@@ -145,7 +147,6 @@ export default class EditListPage {
   }
 
   checkErrorMessage(locator, errorMessage) {
-    //cy.findByText(errorMessage)
     cy.shouldElement(locator,0, 'contain.text',errorMessage)
   }
 

@@ -68,23 +68,26 @@ export default class SearchProductPage {
     }
 
     validateToastDeleteProductMsg(successMessage, failedMessage) {
+        for (let i= 0 ; i < 10; i++) {
+        cy.wait(5000)
         cy.document({log:false}).then(($document) => {
             const documentResult = $document.querySelectorAll('.green-toast')
 
             if (documentResult.length) {
                 cy.get('.green-toast').shadow().find('.toast-top').then($el => {
-                    cy.log('====>'+$el.text())
+                    cy.log('====>' + $el.text())
                     expect($el.text(), 'Success! Alert message was displayed properly: ').to.be.include(successMessage)
                 })
                 this.validateProductDeletedAPI('deleted')
             } else {
                 cy.get('.red-toast').shadow().find('.toast-top').then($el => {
-                    cy.log('====>'+$el.text())
+                    cy.log('====>' + $el.text())
                     expect($el.text(), 'Error! Alert message was displayed properly: ').to.be.include(failedMessage)
                 })
                 this.validateProductDeletedAPI('notDeleted')
             }
         })
+        }
 
     }
 
@@ -95,11 +98,12 @@ export default class SearchProductPage {
         });
 
         let productNum = global.productNumber.replace('#', '')
+        cy.log('====Product Number =>>>>>>>' + productNum)
         cy.get('@getAuthToken').then((resToken) => {
             cy.getProductSummary(resToken, productNum)
         })
 
-        cy.checkStatusCode(`@getProductSummary`, statusCode)
+        cy.checkStatusCode(`@getProductSummary`, 200)
 
         if (product === 'deleted') {
             cy.get(`@getProductSummary`).then((response) => {
