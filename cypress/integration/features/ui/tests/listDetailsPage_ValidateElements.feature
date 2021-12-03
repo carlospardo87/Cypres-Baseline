@@ -28,7 +28,7 @@ Feature: List Details page - Validate Elements
   Scenario: User should be able to click on product option (ellipsis)
     Then should be able to see the proper URL on "List Details" page
     And should be able to click on product option
-    And should be able to see ellipsis option menu "Expand"
+    And should be able to see ellipsis option menu "Quick View"
     And should be able to see ellipsis option menu "Search for Subs"
 
 

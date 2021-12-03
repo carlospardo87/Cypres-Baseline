@@ -19,7 +19,7 @@ Feature: List Details page - Validate Add Product
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
     And should be able to click on section "Beef"
-    And should be able to click on section "Beef, Boxed, Chucks, Ref"
+    And should be able to click on section "Beef, Steaks, Rib, Ref"
     Then should be able to click on "+ Add To List"
     And should be able to select "2" products
     And should be able to see the green footer
@@ -33,7 +33,7 @@ Feature: List Details page - Validate Add Product
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
     And should be able to click on section "Beef"
-    And should be able to click on section "Beef, Boxed, Chucks, Ref"
+    And should be able to click on section "Beef, Steaks, Rib, Ref"
     Then should be able to click on product card
     And should be able to click button "ADD TO LIST"
     And should be able to see the modal "Add to List"
@@ -44,7 +44,7 @@ Feature: List Details page - Validate Add Product
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
     And should be able to click on section "Beef"
-    And should be able to click on section "Beef, Boxed, Chucks, Ref"
+    And should be able to click on section "Beef, Steaks, Rib, Ref"
     Then should be able to click on "+ Add To List"
     And should be able to select "2" products
     And should be able to see the green footer
@@ -64,7 +64,7 @@ Feature: List Details page - Validate Add Product
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
     And should be able to click on section "Beef"
-    And should be able to click on section "Beef, Boxed, Chucks, Ref"
+    And should be able to click on section "Beef, Steaks, Rib, Ref"
     And should be able to land to "Search" page
     And should be able to click link "Home"
     And should be able to land to "Home" page
