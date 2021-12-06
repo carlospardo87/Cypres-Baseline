@@ -3,7 +3,7 @@ Feature: List Details page - Validate Drag and Drop Lists
 
   As a user Internal, I need to be able
   to drag and drop the lists to other group
-  and within the same group.
+  and within the same group checking API
 
 
   Background:
@@ -11,10 +11,9 @@ Feature: List Details page - Validate Drag and Drop Lists
     When clicks on My Lists button
 
 
-  @BUGFIX
   Scenario: User should be able to drag and drop a product to a different groups
-    And goes to "Large List Cypress" and clicks "Edit List" button
-    And should be able to see the header title contain "Large List Cypress"
+    And goes to "AutCypressLargeList" and clicks "Edit List" button
+    And should be able to see the header title contain "AutCypressLargeList"
     And should be able to click on group "Group1"
     And should be able to select "1" items
     And should be able to drag "1" product and drop on group name "Group2"

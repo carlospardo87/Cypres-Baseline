@@ -2,12 +2,12 @@
 Feature: Edit List Page - Validate Delete Groups Name
 
   As a user Internal, I need to be able
-  to delete groups
+  to delete groups checking API
 
   Background:
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button
-    And goes to "My List" and clicks "Edit List" button
+    And goes to "AutCypressDeleteGroup" and clicks "Edit List" button
 
   Scenario: Scenario Outline: User should be able to delete group without products
     And should be able to click on group "2" and "Delete Group"

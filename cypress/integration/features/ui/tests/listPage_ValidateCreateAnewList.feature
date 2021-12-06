@@ -1,8 +1,9 @@
 @UI @LP  @R4LA-240
-Feature: List Page - Validate Create a New List
+Feature: List Page - Validate Modal Create A New List
 
-  As a user Internal or External, I need to navigate to View All Lists
-  and be able to create a new list
+  As a user Internal or External, I need to navigate
+  to View All Lists and go through the modal
+  to Create New List
 
   Background:
     Given User navigates to USF with "browser"
@@ -51,7 +52,7 @@ Feature: List Page - Validate Create a New List
     And clicks on button "Create A New List"
     Then should be able to see create lists modal
     And should be able to select your option "<optionList>"
-    And should be able to enter list name "My List"
+    And should be able to enter list name "AutCypressPublic"
     And should be able to click on button "Create"
     And should be able to see error message "The list name already exists. Please enter a new list name."
 

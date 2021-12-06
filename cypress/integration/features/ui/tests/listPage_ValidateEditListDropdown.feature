@@ -1,5 +1,5 @@
 @UI @R4LA-231  @LP  @SmokeTest
-Feature: List Page - Validate Edit List Dropdown
+Feature: List Page - Validate Edit List Dropdown Menu
 
   As a user Internal, I need to be able to see the dropdown for
   option list and edit list

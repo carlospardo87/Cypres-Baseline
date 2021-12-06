@@ -93,15 +93,14 @@ export default class ListDetailsPage {
   }
 
   fillInputItems(priceValue) {
-  cy.reload()
+    cy.reload()
 
     cy.wait(1000)
 
-    cy.get(this.array_priceContainer).eq(0).type(priceValue,{delay:10})
+    cy.get(this.array_priceContainer).eq(0).type(priceValue)
+    cy.get(this.array_priceContainer).eq(1).click()
 
-    cy.wait(500)
-
-    cy.clickElement('.usf-product-card-img', 0)
+    cy.scrollToElement(this.array_priceContainer, 0)
 
     cy.wait(500)
   }
@@ -111,8 +110,6 @@ export default class ListDetailsPage {
   }
 
   checkAscendingOrder() {
-    //cy.reload()
-
     let arr_group = ['Unassigned Group','Grp1','Grp2','Grp3','Grp4']
     cy
       .get(this.array_listGroupName).its('length').then(arr_length=>{
@@ -131,12 +128,8 @@ export default class ListDetailsPage {
     cy.get(this.array_productNumber).eq(0).invoke('text').then(text => {
       cy.log(text);
     }).as('productNumber')
-
-    cy.get(this.array_productCardImg).eq(0)
-      .as('cardImg')
-
     cy
-      .clickElementForce('.usf-product-card-img',0)
+      .clickElementForce('.usf-product-card-desc-heading-txt',0)
   }
 
   checkUrlContain() {

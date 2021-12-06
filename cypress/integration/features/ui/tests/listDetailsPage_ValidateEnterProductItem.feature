@@ -1,9 +1,9 @@
-@UI @R4LA-55 @LDP @SmokeTest @BUGFIX
-Feature: List Details page - Validate Enter Product Items
+@UI @R4LA-55 @LDP @SmokeTest
+Feature: List Details page - Validate Quantity Boxes and group sorted ascending
 
   As a user Internal, I need to navigate to
-  List Product Details page and verify that I am able
-  to navigate to PDP and see the card product item
+  List Product Details page and verify quantity boxes
+  and navigation and group sorted ascending
 
   Background:
     Given "Internal" user navigates to USF and logs in
@@ -18,7 +18,7 @@ Feature: List Details page - Validate Enter Product Items
     When goes to section "Public" and clicks on list "AutCypressPublic"
     And should be able to enter a total of products "100"
     And should be able to see "100" products in the cart on "List Details" page
-    And should be able to click the card
+    And should be able to click the product card
     And should be able to see product number into the URL
     And should be able to see "100" products in the cart on "Product Details" page
 

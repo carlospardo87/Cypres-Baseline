@@ -1,5 +1,5 @@
 @UI @R4LA-664  @BN
-Feature: Banner advertising - Validate Modal Replace Product
+Feature: List Management page - Validate Modal Accept Replace Product
 
   As a user Internal, I need to navigate to List Details Page and
   List Management Page, and be able

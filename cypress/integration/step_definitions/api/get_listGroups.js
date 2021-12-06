@@ -88,6 +88,27 @@ Then('{string} response body should not include deleted group', (apiName) => {
 })
 
 
+Then('{string} response body should not include new group {string}', (apiName, grpName) => {
+  cy.get(`@get${apiName}`).then((response) => {
+
+    console.log('==Body length ==>>>> '+response.body.length)
+    console.log('==Group Name ==>>>> '+grpName+global.randomNumber)
+    let newGroupName = grpName+global.randomNumber
+    let i = 0
+
+    for (i; i < response.body.length; i++) {
+
+      if (response.body[i].groupName === newGroupName && response.body[i].listKey.listId === 6923863) {
+        expect(true).to.equal(true, 'Group was created successfully on MongoDB');
+        break
+      }
+    }
+    if (i > response.body.length) {
+      expect(true).to.equal(false, 'Group was not created on MongoDB');
+    }
+  })
+})
+
 
 
 
