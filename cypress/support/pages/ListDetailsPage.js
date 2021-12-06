@@ -128,12 +128,8 @@ export default class ListDetailsPage {
     cy.get(this.array_productNumber).eq(0).invoke('text').then(text => {
       cy.log(text);
     }).as('productNumber')
-
-    cy.get(this.array_productCardImg).eq(0)
-      .as('cardImg')
-
     cy
-      .clickElementForce('.usf-product-card-img',0)
+      .clickElementForce('.usf-product-card-desc-heading-txt',0)
   }
 
   checkUrlContain() {
