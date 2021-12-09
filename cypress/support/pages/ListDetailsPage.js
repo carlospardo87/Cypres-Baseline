@@ -97,6 +97,7 @@ export default class ListDetailsPage {
 
     cy.wait(1000)
 
+    cy.get(this.array_priceContainer).eq(0).clear()
     cy.get(this.array_priceContainer).eq(0).type(priceValue)
     cy.get(this.array_priceContainer).eq(1).click()
 
@@ -153,7 +154,9 @@ export default class ListDetailsPage {
 
 
     checkTotalPrice(totalProd) {
+
      cy.get('.order-info-total > span').eq(1).should('not.include.text', '$0.00')
+
      cy.get('.usf-product-card-price span').first().invoke('text').then(itemPrice => {
        let _itemPrice =itemPrice.replace('$','').replace('CS', '')
        let _totalProd = (Number(_itemPrice) * Number(totalProd)).toFixed(2);
