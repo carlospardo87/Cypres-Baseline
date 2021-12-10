@@ -12,7 +12,7 @@ export default class ListsPage {
     this.btn_createNewList = '.create-new-list'
     this.btn_dropDownList = '.header-left-section .outlined-green-btn'
 
-    this.array_dropDownElementsList = '.popoverHeaderCustomerScroll ion-item' // List Items Dropdown
+    this.array_dropDownElementsList = '.popover-header-customer-scroll ion-item' // List Items Dropdown
     this.array_section_items = 'ion-item' // List Items Section
     this.array_section_list = 'ion-list-header.md'  //List Section Title
 

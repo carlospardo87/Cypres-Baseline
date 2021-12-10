@@ -6,7 +6,7 @@ export default class LoginPage {
   constructor() {
     this.userNameInput ='input[name="username"]'
     this.passwordInput ='input[name="password"]'
-    this.submitButton = '.button-lg'
+    this.submitButton = '.login-btn'
   }
 
   loggingIn(uname, password) {
