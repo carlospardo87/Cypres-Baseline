@@ -54,8 +54,8 @@ Then("should be able to see: Where do you want to {string} this product?",  (opt
 });
 
 
-Then("should be able to select where do you want to {string} this product?",  () => {
-  new EditListPage().clickFirstOption()
+Then("should be able to select where do you want to {string} this product?",  (optNames) => {
+  new EditListPage().clickFirstOption(optNames)
 });
 
 Then("should be able to select Group {string} and Submit",  (groupName) => {
