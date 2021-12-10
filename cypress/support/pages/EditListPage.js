@@ -10,7 +10,7 @@ export default class EditListPage {
     this.totalProductSelected = '.list-product-selection > ion-text.md'
     this.viewSelectedProducts = '.selected-product-input .products-list'
     this.productAction = '.selected-product-action'
-    this.descriptionOptios = '.selected-product-memos > .item > .sc-ion-label-md-h'
+    this.descriptionOptios = '.selected-product-memos > .sc-ion-label-md-h'
     this.btn_move = '.selected-product-action-btns'
 
     this.newGroupCard = '.list-new-group-card'
@@ -108,7 +108,7 @@ export default class EditListPage {
   }
 
   checkModalAppears() {
-    cy.shouldElement('app-selected-product-desktop',0, 'be.visible')
+    cy.shouldElement('#selected-product',0, 'be.visible')
   }
 
   checkModalOption(optName) {
@@ -117,11 +117,15 @@ export default class EditListPage {
         this.descriptionOptios,
         0,
         'contain.text',
-        `Where do you want to ${optName}  these products?`)
+        `Where do you want to ${optName} these products?`)
+    ////ion-label[contains(.,'Where do you want to delete this product?')]
   }
 
-  clickFirstOption() {
-    cy.clickElement('.groups-list .sc-ion-label-md-h', 0)
+  clickFirstOption(optNames) {
+    if (optNames !== 'Delete') {
+      cy.clickElement('.groups-list .sc-ion-label-md-h', 0);
+    }
+
   }
 
   checkBtnDisabled() {
