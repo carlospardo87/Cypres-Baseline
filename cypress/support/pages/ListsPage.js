@@ -250,4 +250,26 @@ export default class ListsPage {
       }
     });
   }
+
+
+
+  clickEllipsisEditList(listName) {
+    cy.intercept({method: 'GET', url:'/list-domain-api/v1/list*',}).as('editList')
+
+    cy.get('.item-card.item').each($el => {
+
+      if ($el.text().includes(listName)) {
+
+        cy.wrap($el).scrollIntoView().should('exist')
+        cy.wrap($el).find('ion-icon').click({force: true})
+        cy.wait(500)
+
+      }
+    }).then($el =>{
+
+      if (!($el.text().includes(listName))) {
+        throw new Error(` ---- List ${listName} was not displayed or does not exist ----`)
+      }
+    });
+  }
 }

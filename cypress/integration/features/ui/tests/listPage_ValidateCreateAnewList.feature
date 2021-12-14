@@ -45,7 +45,7 @@ Feature: List Page - Validate Modal Create A New List
 
 
 
-  @R4LA-433
+  @R4LA-433  @BUGFIX
   Scenario Outline: User should not able to create duplicate list
     Given "Internal" user navigates to USF and logs in
     When clicks on My Lists button

@@ -58,8 +58,8 @@ Then("should be able to select where do you want to {string} this product?",  (o
   new EditListPage().clickFirstOption(optNames)
 });
 
-Then("should be able to select Group {string} and Submit",  (groupName) => {
-  new EditListPage().clickByGroupName(groupName)
+Then("should be able to click Submit",  (groupName) => {
+  //new EditListPage().clickByGroupName(groupName)
   new EditListPage().clickBtnSubmit()
 });
 

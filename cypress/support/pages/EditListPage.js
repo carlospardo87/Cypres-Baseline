@@ -180,7 +180,7 @@ export default class EditListPage {
       cy.clickElement(this.ellipsisMenuIcon, 0);
     }
 
-     cy.xpath(`//*[.='${optionMenu}']`).eq(0)
+     cy.xpath(`//ion-label[.='${optionMenu}']`)
          .should('be.visible').click()
   }
 
@@ -197,7 +197,7 @@ export default class EditListPage {
   }
 
   verifyEllipsisOptionMenu(optionMenu) {
-    cy.xpath(`//*[.='${optionMenu}']`).eq(0).should('be.visible')
+    cy.xpath(`//ion-label[.='${optionMenu}']`).eq(0).should('be.visible')
   }
 
   clickProductCardEllipsis() {

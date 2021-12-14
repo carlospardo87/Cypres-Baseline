@@ -14,7 +14,7 @@ Feature: Edit List Page - Validate Delete Products
     And should be able to click on group "Group2"
     And should be able to select "2" items
     And should be able to click on option "Delete"
-    And should be able to select Group "2" and Submit
+    And should be able to click Submit
     And should be able to see the loading spinner appears with text ""
     And should be able to see alert message "Delete Products"
 

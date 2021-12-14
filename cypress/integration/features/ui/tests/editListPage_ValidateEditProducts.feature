@@ -49,7 +49,7 @@ Feature: Edit List Page - Validate Edit Products
       | optNames |
       | Move     |
       | Copy     |
-      #| Delete   |
+      | Delete   |
 
 
 

@@ -96,6 +96,10 @@ When("goes to {string} and clicks {string} button", (listName, optionMenu) => {
   new ListsPage().clickOnEditList(listName, optionMenu)
 });
 
+When("goes to {string} and edits the list", (listName) => {
+  new ListsPage().clickEllipsisEditList(listName)
+});
+
 And("should be able to enter text {string} in search box and filter lists", (text) => {
 
   cy.get(".list-search > .searchbar-input-container > .searchbar-input").should('be.visible')
