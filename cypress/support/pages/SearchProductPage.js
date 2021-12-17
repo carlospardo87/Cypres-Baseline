@@ -30,9 +30,10 @@ export default class SearchProductPage {
     }
 
     checkRadioElement(totalProd) {
+        cy.wait(2000)
         for (let i = 0; i < Number(totalProd); i++) {
             cy.wait(1000)
-            cy.get(this.radioButtons).eq(i).should('be.visible').click({force: true})
+            cy.get('ion-checkbox').eq(i).click({force: true})
         }
     }
 
