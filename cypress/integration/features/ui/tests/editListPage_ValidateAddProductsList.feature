@@ -18,8 +18,8 @@ Feature: List Details page - Validate Add Product
   Scenario: User should be able to Close(X) modal
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
-    And should be able to click on section "Beef"
-    And should be able to click on section "Beef, Steaks, Rib, Ref"
+    And should be able to click on section "Pork"
+    And should be able to click on section "Pork, Bacon"
     Then should be able to click on "+ Add To List"
     And should be able to select "2" products
     And should be able to see the green footer
@@ -32,8 +32,8 @@ Feature: List Details page - Validate Add Product
   Scenario: User should be able to ADD TO LIST on PDP
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
-    And should be able to click on section "Beef"
-    And should be able to click on section "Beef, Steaks, Rib, Ref"
+    And should be able to click on section "Pork"
+    And should be able to click on section "Pork, Bacon"
     Then should be able to click on product card
     And should be able to click button "ADD TO LIST"
     And should be able to see the modal "Add to List"
@@ -43,8 +43,8 @@ Feature: List Details page - Validate Add Product
   Scenario: User should be able to Submit product to a list
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
-    And should be able to click on section "Beef"
-    And should be able to click on section "Beef, Steaks, Rib, Ref"
+    And should be able to click on section "Pork"
+    And should be able to click on section "Pork, Bacon"
     Then should be able to click on "+ Add To List"
     And should be able to select "2" products
     And should be able to see the green footer
@@ -63,8 +63,8 @@ Feature: List Details page - Validate Add Product
   Scenario: User should be to navigate back to Home Page
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
-    And should be able to click on section "Beef"
-    And should be able to click on section "Beef, Steaks, Rib, Ref"
+    And should be able to click on section "Pork"
+    And should be able to click on section "Pork, Bacon"
     And should be able to land to "Search" page
     And should be able to click link "Home"
     And should be able to land to "Home" page
