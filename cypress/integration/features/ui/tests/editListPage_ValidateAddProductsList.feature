@@ -14,7 +14,7 @@ Feature: List Details page - Validate Add Product
     Then should be able to click on button "Add Products"
     And should be able to see the proper URL on "Browse Products" page
 
-
+@BUGFIX
   Scenario: User should be able to Close(X) modal
     Given "Internal" user navigates to USF and logs in
     When goes to the page "Shop Products"
