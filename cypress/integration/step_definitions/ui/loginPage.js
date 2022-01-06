@@ -4,6 +4,7 @@ import {Given, When} from "cypress-cucumber-preprocessor/steps";
 
 import LoginPage from '../../../support/pages/LoginPage';
 
+
 When("{string} user navigates to USF and logs in with {string} and {string}", (userType, uname, password) => {
   cy.fixture('login').then( (login) => {
     new LoginPage().navigateWithViewPort(login.device)
@@ -43,5 +44,17 @@ Given("{string} user navigates to USF and logs in", (userType) => {
       new LoginPage().loggingIn(login.external.user, login.external.password)
     })
   }
+
+});
+When("should be able to search {string}",  (product) => {
+  cy.get('#search_query_top').type(product)
+});
+
+When("should be able to click on magnifying glass icon",  () =>{
+    cy.get("[name='submit_search']").should('be.visible').click()
+});
+
+Then("should be able to see page {string}", (title)=> {
+  cy.title().should('eq', title)
 
 });

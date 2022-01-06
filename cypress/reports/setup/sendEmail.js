@@ -38,20 +38,20 @@ module.exports =  function(results,failedTest) {
 }
 
     nodemailer.createTransport({
-      host: "smtp.usfood.com",
+      host: "smtp.company.com",
       secureConnection: false, // TLS requires secureConnection to be false
       port: 25, // port for secure SMTP
       requireTLS: false,
       auth: {
-        user: 'no-reply@usfoods.com',
-        pass: ''
+        user: 'user',
+        pass: 'password'
       },
       tls: {
         rejectUnauthorized: false
       }
     }).sendMail({
-      from: '"List Automation Report 👻" <foo@usfoods.com>',
-      to: 'carlos.pardo@usfoods.com, gowthaman.ramasamy2@usfoods.com, 07cb4008.usfoods.onmicrosoft.com@amer.teams.ms , 7445d681.usfoods.onmicrosoft.com@amer.teams.ms',
+     // from: '"List Automation Report 👻" <foo@usfoods.com>',
+     // to: 'user@domain.com',
       subject: 'List Automation Report',
       text: 'List Automation Report',
       html: `<b> 👉🏻  <i>Regression Status</i>  👈🏻 </b><br>

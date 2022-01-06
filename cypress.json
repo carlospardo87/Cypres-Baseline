@@ -1,6 +1,6 @@
 {
-  "baseUrl" : "https://ecomr4-sit.ama-nonprod.usfoods.com/",
-  "baseApi": "https://panamax-api-sit.ama-nonprod.usfoods.com",
+  "baseUrl" : "http://automationpractice.com/index.php",
+  "baseApi": "",
   "defaultCommandTimeout": 15000,
   "responseTimeout" : 15000,
   "pageLoadTimeout": 15000,
@@ -8,7 +8,6 @@
   "chromeWebSecurity": false,
   "ignoreTestFiles": ["**/step_definitions/*.js"],
   "testFiles": "**/*.feature",
-  "screenshotsFolder": "../results/cypress/screenshots",
   "screenshotOnRunFailure": true,
   "videosFolder": "../results/cypress/videos",
   "video": false,

@@ -18,6 +18,7 @@ When("should be able to see the green footer", () => {
 
 
 When("should be able to select {string} products", (totalProd) => {
+  global.productNumber = Cypress.$('.usf-product-card-desc-body-txt > p').first().text()
   new SearchProductPage().checkRadioElement(totalProd)
 });
 

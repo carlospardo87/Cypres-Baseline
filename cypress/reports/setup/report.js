@@ -11,7 +11,7 @@ const cucumberReportFileMap = {}
 const cucumberReportMap = {}
 const jsonIndentLevel = 2
 const htmlReportDir = '../results/cypress/html'
-const screenshotsDir = '../results/cypress/screenshots'
+const screenshotsDir = './cypress/screenshots'
 //const snapshotDir = '../results/cypress/snapshots'
 
 getCucumberReportMaps()

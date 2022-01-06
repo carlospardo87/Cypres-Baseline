@@ -201,6 +201,18 @@ Cypress.Commands.add("getListItemNotesWithCustomerDetails", (response, customerN
   }).as('getListItemNotesWithCustomer')
 });
 
+Cypress.Commands.add("getListItemsProducts", (response) => {
+  cy.api({method: "GET", url: `${Cypress.config("baseApi")}/list-domain-api/v1/listItems`,
+    headers: {
+      "Authorization": `Bearer ${response.body.accessToken}`,
+      "consumer-id": data.consumer_id,
+      "Content-type": data.content_type,
+      "correlation-id": data.correlation_id,
+      "transaction-id": data.transaction_id,
+    },
+  }).as('getListItemsProducts')
+});
+
 
 Cypress.Commands.add('checkStatusCode', (alias, statusCode) => {
   cy.get(alias).then((response) => {

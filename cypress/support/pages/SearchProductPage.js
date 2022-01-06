@@ -45,11 +45,13 @@ export default class SearchProductPage {
                 cy.get('.green-toast').shadow().find('.toast-top').then($el => {
                     cy.log('====>'+$el.text())
                     expect($el.text(), 'Success! Alert message was displayed properly: ').to.be.include(successMessage)
+                    this.validateProductAddedAPI('added')
                 })
             } else {
                 cy.get('.red-toast').shadow().find('.toast-top').then($el => {
                     cy.log('====>'+$el.text())
                     expect($el.text(), 'Error! Alert message was displayed properly: ').to.be.include(failedMessage)
+                    this.validateProductAddedAPI('nonAdded')
                 })
             }
         })
@@ -113,6 +115,60 @@ export default class SearchProductPage {
         } else {
             cy.get(`@getProductSummary`).then((response) => {
                 expect(response.body).to.be.not.empty
+            });
+        }
+
+
+    }
+
+    validateProductAddedAPI(product) {
+        cy.fixture('login').then((login) => {
+            cy.getAuthToken(login.api.user, login.api.password)
+            cy.checkStatusCode('@getAuthToken', 200);
+        });
+
+        let productNum = global.productNumber.replace('#', '')
+        cy.log('====Product Number =>>>>>>>' + productNum)
+
+        cy.get('@getAuthToken').then((resToken) => {
+            cy.getListItemsProducts(resToken)
+        })
+
+        cy.checkStatusCode(`@getListItemsProducts`, 200)
+
+        if (product === 'added') {
+            cy.get(`@getListItemsProducts`).then((response) => {
+                cy.log('====Product Number =>>>>>>>' + productNum)
+                let i = 0
+
+                for (i; i < response.body.length; i++) {
+
+                    cy.log('+++++++++>>>>> '+ response.body[i])
+
+                    if (response.body[i].productNumber === Number(productNum) && response.body[i].listKey.listId === 6923860) {
+                        expect(true).to.equal(true, 'Group was created successfully on MongoDB');
+                        break
+                    }
+                }
+                if (i > response.body.length) {
+                    expect(true).to.equal(false, 'Error!! Product was not created wrongly on MongoDB');
+                }
+            });
+        } else {
+            cy.get(`@getListItemsProducts`).then((response) => {
+                let i = 0
+
+                for (i; i < response.body.length; i++) {
+
+                    if (response.body[i].productNumber === Number(productNum) && response.body[i].listKey.listId === 6923860) {
+                        expect(true).to.equal(false, 'Error!! Product was created wrongly on MongoDB');
+                        break
+                    }
+                }
+                if (i > response.body.length) {
+                    expect(true).to.equal(true, 'Product was not created on MongoDB successfully');
+                }
+
             });
         }
 
