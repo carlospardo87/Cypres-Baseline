@@ -4,7 +4,7 @@
 - https://docs.cypress.io/guides/getting-started/installing-cypress#Installing
 
 
-### 2- DONWLOAD REPOSITORY AND INSTALL DEPENDENCIES
+### 2- DOWNLOAD REPOSITORY AND INSTALL DEPENDENCIES
 ```sh
  npm install --force 
 ```
