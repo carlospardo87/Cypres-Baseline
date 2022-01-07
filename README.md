@@ -8,7 +8,7 @@
 ####  npm install --force 
 
 
-### OPEN CYPRESS
+### OPEN CYPRESS   - NOTE: FIRST OPENING CYPRESS COULD FAIL,  TRY AGAIN IF THIS IS HAPPENING 
 ####  npx cypress open 
 
 
@@ -21,4 +21,12 @@
 ### CREATE REPORT
 ####   node cypress/reports/setup/report.js  (NEW VERSION)
 ####   node cypress/reports/setup/report_old.js  (OLD VERSION)
+
+
+### PATH TESTS
+####  cypress/integration/features/ui/tests
+####  cypress/integration/features/api/tests
+
+
+
 

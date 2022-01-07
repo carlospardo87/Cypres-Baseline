@@ -10,10 +10,17 @@ Feature: Home page - Search a product
     And should be able to click on magnifying glass icon
     Then should be able to see page "Search - My Store"
 
-  Scenario: FAIL - User should be able to look for a product using the search bar
+  Scenario Outline: FAIL - User should be able to look for a product using the search bar
     Given User navigates to USF with "browser"
-    When should be able to search "jeans"
+    When should be able to search "<products>"
     And should be able to click on magnifying glass icon
-    Then should be able to see page "Search - My Store XXXX"
+    Then should be able to see page "<pageTitle>"
+
+    Examples:
+      | pageTitle              | products |
+      | Search - My Store YYYY | t-shirt  |
+      | Search - My Store XXXX | short    |
+
+
 
 
