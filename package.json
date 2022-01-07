@@ -11,7 +11,7 @@
     "apiTest:sit": "npx cypress-tags run -e TAGS=' @API",
     "test": "npx cypress-tags run -e TAGS='not @SKIP and not @BUGFIX'"
   },
-  "author": "KinAndCarta",
+  "author": "Cypress-Demo",
   "license": "ISC",
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^1.8.0",
