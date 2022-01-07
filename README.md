@@ -16,7 +16,7 @@
 
 ### 3 - RUN CUCUMBER TAGS HEADLESS MODE (REPORT IS GENERATED AUTOMATICALLY)
 ```sh
- npx cypress-tags run -e TAGS='@tagName' 
+ npx cypress-tags run -e TAGS='@tagName'   OR   npx cypress run --spec "cypress/path_to_the _tests"
 ```
 
 ### DELETE FORMER RESULTS
@@ -25,14 +25,19 @@
 ```
 
 ### CREATE REPORT
+```sh
 -   node cypress/reports/setup/report.js  (NEW VERSION WITH SCREENSHOT)
 -   node cypress/reports/setup/report_old.js  (OLD VERSION)
+```
 
 
-### PATH TESTS
--  cypress/integration/features/ui/tests
--  cypress/integration/features/api/tests
-
+### PATH FILES
+| Plugin       | README                              |
+|--------------|-------------------------------------|
+| UI           | cypress/integration/features/ui/tests |
+| API          | cypress/integration/features/api/tests |
+| PAGE OBJECTS | cypress/support/pages               |
+| RESULTS & REPORT  | ../results/cypress/reports/               |
 
 
 
